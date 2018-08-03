@@ -4,6 +4,6 @@ import messageReducer from './message';
 import demoReducer from './demo';
 
 export default combineReducers({
-  messageReducer,
-  demoReducer
+  message: messageReducer,
+  demo: demoReducer
 });

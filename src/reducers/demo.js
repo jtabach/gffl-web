@@ -1,11 +1,10 @@
-import { FETCH_WORKER_DEMO } from '../types/demo';
+import { FETCH_WORKER_DEMO_COMPLETED } from '../types/demo';
 
-const initialState = { demo: '' };
-
-export default (state = initialState, action) => {
+export default (state = null, action) => {
+  console.log(action);
   switch (action.type) {
-    case FETCH_WORKER_DEMO:
-      return { ...state, demo: action.payload.workerDemo };
+    case FETCH_WORKER_DEMO_COMPLETED:
+      return action.payload.data;
     default:
       return state;
   }
