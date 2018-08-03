@@ -19,8 +19,8 @@ module.exports = {
     ]
   },
   output: {
-    path: parentDir + '/dist',
-    publicPath: '/public/',
+    path: parentDir + '/public',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
