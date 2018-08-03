@@ -1,0 +1,1 @@
+export const FETCH_WORKER_DEMO = 'FETCH_WORKER_DEMO';
