@@ -9,6 +9,7 @@
   "author": "Jeff Tabachnick",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "css-loader": "^1.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
