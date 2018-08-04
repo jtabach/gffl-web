@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 
 import DemoWorker from './DemoWorker';
+import DemoAuth from './DemoAuth';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div>
         <p>This is my new react app</p>
         <DemoWorker />
+        <DemoAuth />
       </div>
     );
   }

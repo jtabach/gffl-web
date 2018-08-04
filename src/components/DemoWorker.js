@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { fetchWorkerDemo } from '../actions/demo';
 
-const intervalFrequency = 3000;
+const intervalFrequency = 30000;
 
 class DemoWorker extends Component {
   componentDidMount() {
