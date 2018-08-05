@@ -5,6 +5,7 @@ import DemoWorker from './DemoWorker';
 import DemoAuth from './DemoAuth';
 import RegisterButton from './RegisterButton';
 import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <DemoAuth />
         <RegisterButton />
         <LoginButton />
+        <LogoutButton />
       </div>
     );
   }

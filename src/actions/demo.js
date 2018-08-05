@@ -18,24 +18,7 @@ export const fetchWorkerDemo = () => {
 };
 
 export const fetchAuthDemo = () => {
-  return createAsyncAction(
-    AUTH_DEMO,
-    AUTH_DEMO_COMPLETED,
-    () => axios.get('http://localhost:5000/api/auth/google')
-
-    // fetch('https://gffl-backend.herokuapp.com/auth/google', {
-    //   mode: 'no-cors',
-    //   credentials: 'include',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
+  return createAsyncAction(AUTH_DEMO, AUTH_DEMO_COMPLETED, () =>
+    axios.get('http://localhost:5000/api/auth/google')
   );
 };
-
-//
-// export const fetchWorkerDemo = () => async dispatch => {
-//   const res = await axios.get('http://localhost:5000');
-//
-//   dispatch({ type: FETCH_WORKER_DEMO, payload: res.data });
-// };
