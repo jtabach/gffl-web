@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 import DemoWorker from './DemoWorker';
 import DemoAuth from './DemoAuth';
 import RegisterButton from './RegisterButton';
+import LoginButton from './LoginButton';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <DemoWorker />
         <DemoAuth />
         <RegisterButton />
+        <LoginButton />
       </div>
     );
   }

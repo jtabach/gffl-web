@@ -9,7 +9,7 @@ class DemoAuth extends Component {
   }
 
   render() {
-    return <button onClick={() => this._handleClick()}>Login</button>;
+    return <button onClick={() => this._handleClick()}>Google Login</button>;
   }
 }
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class RegisterButton extends Component {
+class LoginButton extends Component {
   _handleClick() {
     console.log('click');
     axios
-      .post('http://localhost:5000/api/auth/register', {
+      .post('http://localhost:5000/api/auth/login', {
         email: 'tesasdfsssst@tes1t.com',
         password: 'passwowwrdzz'
       })
@@ -15,8 +15,8 @@ class RegisterButton extends Component {
   }
 
   render() {
-    return <button onClick={() => this._handleClick()}>Register</button>;
+    return <button onClick={() => this._handleClick()}>Login</button>;
   }
 }
 
-export default RegisterButton;
+export default LoginButton;
