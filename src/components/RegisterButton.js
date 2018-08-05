@@ -7,7 +7,7 @@ class RegisterButton extends Component {
   _handleClick() {
     console.log('click');
     this.props.registerUser({
-      email: 'tsdsdfgfdxct56@tes1t.com',
+      email: 'tsddsdfgfdxct56@tes1t.com',
       password: 'passwowwrdzz'
     });
   }
