@@ -21,7 +21,7 @@ export const fetchAuthDemo = () => {
   return createAsyncAction(
     AUTH_DEMO,
     AUTH_DEMO_COMPLETED,
-    () => axios.get('http://localhost:5000/auth/google')
+    () => axios.get('http://localhost:5000/api/auth/google')
 
     // fetch('https://gffl-backend.herokuapp.com/auth/google', {
     //   mode: 'no-cors',
