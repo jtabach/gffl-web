@@ -3,9 +3,7 @@ import { hot } from 'react-hot-loader';
 
 import DemoWorker from './DemoWorker';
 import DemoAuth from './DemoAuth';
-import RegisterButton from './RegisterButton';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+import Header from './Header';
 
 class App extends Component {
   render() {
@@ -14,9 +12,7 @@ class App extends Component {
         <p>This is my new react app</p>
         <DemoWorker />
         <DemoAuth />
-        <RegisterButton />
-        <LoginButton />
-        <LogoutButton />
+        <Header />
       </div>
     );
   }

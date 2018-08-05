@@ -1,5 +1,6 @@
 export function createAction(type, payload) {
   const error = payload instanceof Error;
+  console.log(error);
 
   return {
     type,
@@ -18,6 +19,7 @@ export function createAsyncAction(startType, completeType, asyncFn) {
     dispatch(createAction(startType));
 
     const actionCompleted = _.curry(createAction)(completeType);
+    console.log(asyncFn, dispatch);
     return asyncFn(dispatch)
       .then(data => {
         dispatch(actionCompleted(data));

@@ -7,5 +7,5 @@ import authReducer from './auth';
 export default combineReducers({
   message: messageReducer,
   demo: demoReducer,
-  auth: authReducer
+  isLoggedIn: authReducer
 });
