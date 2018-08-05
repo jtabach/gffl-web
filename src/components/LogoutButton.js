@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { logoutUser, getUser } from '../actions/auth';
 
 class LogoutButton extends Component {
   _handleClick() {
-    console.log('click');
-    axios.post('http://localhost:5000/api/auth/logout', {}).then(response => {
-      console.log(response);
-    });
+    this.props.logoutUser();
   }
 
   render() {
@@ -14,4 +12,4 @@ class LogoutButton extends Component {
   }
 }
 
-export default LogoutButton;
+export default connect(null, { logoutUser, getUser })(LogoutButton);

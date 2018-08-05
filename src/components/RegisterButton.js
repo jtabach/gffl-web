@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { registerUser } from '../actions/auth';
+import { registerUser, getUser } from '../actions/auth';
 import axios from 'axios';
 
 class RegisterButton extends Component {
   _handleClick() {
-    console.log('click');
-    this.props.registerUser({
-      email: 'tsddsdfgfdxct56@tes1t.com',
-      password: 'passwowwrdzz'
-    });
+    this.props
+      .registerUser({
+        email: 'tsddsdfgfdxct56@tes1t.com',
+        password: 'passwowwrdzz'
+      })
+      .then(() => {
+        this.props.getUser();
+      });
   }
 
   render() {
@@ -17,4 +20,4 @@ class RegisterButton extends Component {
   }
 }
 
-export default connect(null, { registerUser })(RegisterButton);
+export default connect(null, { registerUser, getUser })(RegisterButton);

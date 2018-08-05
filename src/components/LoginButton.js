@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { loginUser, getUser } from '../actions/auth';
 
 class LoginButton extends Component {
   _handleClick() {
-    console.log('click');
-    axios
-      .post('http://localhost:5000/api/auth/login', {
-        email: 'tesasdfsssst@tes1t.com',
+    this.props
+      .loginUser({
+        email: 'tsddsdfgfdxct56@tes1t.com',
         password: 'passwowwrdzz'
       })
-      .then(response => {
-        console.log('done');
+      .then(res => {
+        this.props.getUser();
       });
   }
 
@@ -19,4 +20,4 @@ class LoginButton extends Component {
   }
 }
 
-export default LoginButton;
+export default connect(null, { loginUser, getUser })(LoginButton);
