@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CSSModules from 'react-css-modules';
+import styles from './Header.scss';
 
 import { getUser } from '../actions/auth';
 
@@ -34,7 +36,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
+      <div styleName={'test'}>
         <div>This is the header</div>
         {this.renderAuthLinks()}
       </div>
@@ -46,4 +48,6 @@ function mapStateToProps({ isLoggedIn }) {
   return { isLoggedIn };
 }
 
-export default connect(mapStateToProps, { getUser })(Header);
+export default connect(mapStateToProps, { getUser })(
+  CSSModules(Header, styles)
+);
