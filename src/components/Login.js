@@ -8,7 +8,7 @@ import { loginUser, getUser } from '../actions/auth';
 class Login extends Component {
   handleSubmit = values => {
     this.props.loginUser(values).then(() => {
-      this.props.getUser();
+      this.props.history.push('/');
     });
   };
 

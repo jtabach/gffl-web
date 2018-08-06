@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router-dom';
 
 import RegisterForm from './forms/RegisterForm';
 
@@ -10,7 +11,7 @@ class Register extends Component {
     this.props
       .registerUser({ email: values.email, password: values.password })
       .then(() => {
-        this.props.getUser();
+        this.props.history.push('/');
       });
   };
 

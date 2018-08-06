@@ -33,7 +33,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.props.isLoggedIn);
     return (
       <div>
         <div>This is the header</div>
