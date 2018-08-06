@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import routes from './routes';
-import App from './components/App';
 import reducers from './reducers';
 
 const store = createStore(

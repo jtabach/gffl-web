@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 
-import DemoWorker from './DemoWorker';
-import DemoAuth from './DemoAuth';
-import Header from './Header';
+import DemoWorker from '../DemoWorker';
+import DemoAuth from '../DemoAuth';
+import Header from '../Header';
 import Login from './Login';
 
 class App extends Component {
