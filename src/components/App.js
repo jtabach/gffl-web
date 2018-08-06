@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 import DemoWorker from './DemoWorker';
 import DemoAuth from './DemoAuth';
 import Header from './Header';
+import Login from './Login';
 
 class App extends Component {
   render() {
