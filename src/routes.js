@@ -13,7 +13,11 @@ export default (
       path="/login"
       render={() => <ProtectedRoute child={<Login />} />}
     />
-    <Route exact path="/register" component={Register} />
+    <Route
+      exact
+      path="/register"
+      render={() => <ProtectedRoute child={<Register />} />}
+    />
     <Route path="/" component={App} />
   </Switch>
 );

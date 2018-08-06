@@ -4,15 +4,11 @@ import { browserHistory } from 'react-router-dom';
 
 import RegisterForm from './forms/RegisterForm';
 
-import { registerUser, getUser } from '../actions/auth';
+import { registerUser } from '../actions/auth';
 
 class Register extends Component {
   handleSubmit = values => {
-    this.props
-      .registerUser({ email: values.email, password: values.password })
-      .then(() => {
-        this.props.history.push('/');
-      });
+    this.props.registerUser({ email: values.email, password: values.password });
   };
 
   render() {
@@ -25,4 +21,4 @@ class Register extends Component {
   }
 }
 
-export default connect(null, { registerUser, getUser })(Register);
+export default connect(null, { registerUser })(Register);

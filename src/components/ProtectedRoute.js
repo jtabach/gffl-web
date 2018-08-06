@@ -12,7 +12,6 @@ class ProtectedRoute extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.props.isLoggedIn ? (
