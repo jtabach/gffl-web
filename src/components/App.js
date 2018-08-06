@@ -9,10 +9,10 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <p>This is my new react app</p>
         <DemoWorker />
         <DemoAuth />
-        <Header />
       </div>
     );
   }
