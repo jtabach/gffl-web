@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
 import styles from './Header.scss';
 
-import { getUser } from '../actions/auth';
+import { getUser } from '../../actions/auth';
 
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import RegisterButton from './RegisterButton';
+import LoginButton from '../buttons/LoginButton';
+import LogoutButton from '../buttons/LogoutButton';
+import RegisterButton from '../buttons/RegisterButton';
 
 class Header extends Component {
   componentWillMount() {
