@@ -5,7 +5,15 @@ var parentDir = path.join(__dirname, '../');
 
 module.exports = {
   entry: [path.join(parentDir, 'src/index.js')],
+  devtool: 'source-map',
   module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        preLoaders: ['source-map-loader']
+      }
+    ],
     rules: [
       {
         test: /\.(js|jsx)$/,

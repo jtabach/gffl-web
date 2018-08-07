@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
 import styles from './Header.scss';
 
-import { getUser } from '../../actions/auth';
+import { checkAuthToken } from '../../actions/auth';
 
 import LoginButton from '../buttons/LoginButton';
 import LogoutButton from '../buttons/LogoutButton';
@@ -11,7 +11,7 @@ import RegisterButton from '../buttons/RegisterButton';
 
 class Header extends Component {
   componentWillMount() {
-    this.props.getUser();
+    this.props.checkAuthToken();
   }
 
   renderAuthLinks() {
@@ -48,6 +48,6 @@ function mapStateToProps({ isLoggedIn }) {
   return { isLoggedIn };
 }
 
-export default connect(mapStateToProps, { getUser })(
+export default connect(mapStateToProps, { checkAuthToken })(
   CSSModules(Header, styles)
 );

@@ -7,11 +7,11 @@ const intervalFrequency = 30000;
 
 class DemoWorker extends Component {
   componentDidMount() {
-    this.props.fetchWorkerDemo();
-    setInterval(() => {
-      this.props.fetchWorkerDemo();
-      console.log('fetching');
-    }, intervalFrequency);
+    // this.props.fetchWorkerDemo();
+    // setInterval(() => {
+    //   this.props.fetchWorkerDemo();
+    //   console.log('fetching');
+    // }, intervalFrequency);
   }
 
   render() {

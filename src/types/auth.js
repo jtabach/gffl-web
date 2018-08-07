@@ -8,3 +8,6 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const LOGOUT_USER_COMPLETED = 'LOGOUT_USER_COMPLETED';
 
 export const GET_USER = 'GET_USER';
+export const GET_USER_COMPLETED = 'GET_USER_COMPLETED';
+
+export const CHECK_AUTH_TOKEN = 'CHECK_AUTH_TOKEN';

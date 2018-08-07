@@ -13,7 +13,9 @@ import {
   LOGIN_USER_COMPLETED,
   LOGOUT_USER,
   LOGOUT_USER_COMPLETED,
-  GET_USER
+  GET_USER,
+  GET_USER_COMPLETED,
+  CHECK_AUTH_TOKEN
 } from '../types/auth';
 
 export const registerUser = userData => {
@@ -35,11 +37,18 @@ export const logoutUser = () => {
 };
 
 export const getUser = () => {
+  return createAsyncAction(GET_USER, GET_USER_COMPLETED, () => {
+    let token = Cookies.get('authToken');
+    return axios.get(`http://localhost:5000/api/auth/user/${token}`);
+  });
+};
+
+export const checkAuthToken = () => {
   const hasToken = Cookies.get('authToken') ? true : false;
 
   return dispatch => {
     dispatch({
-      type: GET_USER,
+      type: CHECK_AUTH_TOKEN,
       payload: hasToken
     });
   };

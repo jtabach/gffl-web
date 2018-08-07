@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
+import { connect } from 'react-redux';
 
 import DemoWorker from '../demos/DemoWorker';
 import DemoAuth from '../demos/DemoAuth';
 import Header from '../shared/Header';
-import Login from './Login';
+
+import { getUser } from '../../actions/auth';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getUser();
+  }
+
   render() {
     return (
       <div>
@@ -19,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App);
+export default hot(module)(connect(null, { getUser })(App));
