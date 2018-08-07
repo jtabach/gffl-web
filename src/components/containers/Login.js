@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
 import LoginForm from '../forms/LoginForm';
@@ -20,4 +21,4 @@ class Login extends Component {
   }
 }
 
-export default connect(null, { loginUser })(Login);
+export default hot(module)(connect(null, { loginUser })(Login));

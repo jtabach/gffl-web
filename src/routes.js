@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Login from './components/layouts/Login';
-import Register from './components/layouts/Register';
-import App from './components/layouts/App';
+import Login from './components/containers/Login';
+import Register from './components/containers/Register';
+import App from './components/containers/App';
 
 import withAuth from './middleware/withAuth';
 
