@@ -17,7 +17,7 @@ export default (state = null, action) => {
     case GET_USER_COMPLETED:
       return action.payload.data.user;
     case LOGOUT_USER_COMPLETED:
-      return null;
+      return false;
     default:
       return state;
   }

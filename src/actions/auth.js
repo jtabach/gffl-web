@@ -14,8 +14,7 @@ import {
   LOGOUT_USER,
   LOGOUT_USER_COMPLETED,
   GET_USER,
-  GET_USER_COMPLETED,
-  CHECK_AUTH_TOKEN
+  GET_USER_COMPLETED
 } from '../types/auth';
 
 export const registerUser = userData => {
@@ -41,15 +40,4 @@ export const getUser = () => {
     let token = Cookies.get('authToken');
     return axios.get(`http://localhost:5000/api/auth/user/${token}`);
   });
-};
-
-export const checkAuthToken = () => {
-  const hasToken = Cookies.get('authToken') ? true : false;
-
-  return dispatch => {
-    dispatch({
-      type: CHECK_AUTH_TOKEN,
-      payload: hasToken
-    });
-  };
 };
