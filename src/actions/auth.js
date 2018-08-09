@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Cookies from 'cookies-js';
 import _ from 'lodash';
 
 axios.defaults.withCredentials = true;
@@ -37,7 +36,6 @@ export const logoutUser = () => {
 
 export const getUser = () => {
   return createAsyncAction(GET_USER, GET_USER_COMPLETED, () => {
-    let token = Cookies.get('authToken');
-    return axios.get(`http://localhost:5000/api/auth/user/${token}`);
+    return axios.get(`http://localhost:5000/api/auth/user`);
   });
 };

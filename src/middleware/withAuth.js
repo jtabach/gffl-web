@@ -28,9 +28,7 @@ function withAuth(InnerComponent) {
   }
 
   function mapStateToProps({ user }) {
-    return {
-      user
-    };
+    return { user };
   }
 
   return connect(mapStateToProps, { getUser })(ProtectedRoute);
