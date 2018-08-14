@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Header from '../shared/Header';
+import CreateLeagueForm from '../forms/CreateLeagueForm';
 
-class App extends Component {
+import { createLeague } from '../../actions/league';
+
+class CreateLeague extends Component {
+  handleSubmit = values => {
+    this.props.createLeague(values);
+  };
+
   render() {
-    return <div>Create a League here</div>;
+    return (
+      <div>
+        Create a League here
+        <CreateLeagueForm onSubmit={this.handleSubmit} />
+      </div>
+    );
   }
 }
 
-export default connect(null, {})(App);
+export default connect(null, { createLeague })(CreateLeague);

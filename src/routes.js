@@ -13,8 +13,8 @@ export default (
   <Switch>
     <Route exact path="/login" component={withAuth(Login)} />
     <Route exact path="/register" component={withAuth(Register)} />
-    <Route exact path="/me" component={Me} />
+    <Route path="/me" component={Me} />
     {/* <Route exact path="/createLeague" component={CreateLeague} /> */}
-    <Route path="/" component={App} />
+    <Route exact path="/" component={App} />
   </Switch>
 );
