@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import { getUser } from '../actions/auth';
 
-function withAuth(InnerComponent) {
+function withoutAuth(InnerComponent) {
   class ProtectedRoute extends Component {
     componentDidMount() {
       this.props.getUser();
@@ -16,9 +16,9 @@ function withAuth(InnerComponent) {
           // TODO: render a loading spinner
           return <div />;
         case false:
-          return <InnerComponent {...this.props} />;
+          return <Redirect to="/" />;
         default:
-          return <Redirect to="/me" />;
+          return <InnerComponent {...this.props} />;
       }
     }
 
@@ -34,4 +34,4 @@ function withAuth(InnerComponent) {
   return connect(mapStateToProps, { getUser })(ProtectedRoute);
 }
 
-export default withAuth;
+export default withoutAuth;

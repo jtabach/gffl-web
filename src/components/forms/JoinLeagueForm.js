@@ -2,9 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 let JoinLeague = props => {
-  const { handleJoinLeagueSubmit } = props;
+  const { handleSubmit } = props;
   return (
-    <form onSubmit={handleJoinLeagueSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="leagueId">League ID</label>
         <Field name="leagueId" component="input" type="text" />
