@@ -6,10 +6,10 @@ export const validate = values => {
     errors.email = 'Invalid email address';
   }
 
-  if (!values.password) {
-    errors.password = 'Password required';
-  } else if (values.password.length < 7) {
-    errors.password = 'Password is not strong enough';
+  if (!values.password1) {
+    errors.password1 = 'Password required';
+  } else if (values.password1.length < 7) {
+    errors.password1 = 'Password is not strong enough';
   }
   return errors;
 };
@@ -17,10 +17,10 @@ export const validate = values => {
 export const warn = values => {
   const warnings = {};
   console.log(values);
-  if (!values.password) {
+  if (!values.password1) {
     // required so that values.password.length does not throw undefined error
-  } else if (values.password.length < 8) {
-    warnings.password = 'You may want to consider a longer password';
+  } else if (values.password1.length < 8) {
+    warnings.password1 = 'You may want to consider a longer password';
   }
   return warnings;
 };

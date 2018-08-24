@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
-import { validate, warn } from './validation';
+import { validate, warn } from './validation/login';
 
 let LoginForm = props => {
   const { handleSubmit } = props;
