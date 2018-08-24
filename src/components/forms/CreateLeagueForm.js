@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 
 let CreateLeagueForm = props => {
   const { handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
