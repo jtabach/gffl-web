@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export function createAction(type, payload) {
   const error = payload instanceof Error;
 

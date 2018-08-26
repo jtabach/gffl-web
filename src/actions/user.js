@@ -5,10 +5,10 @@ axios.defaults.withCredentials = true;
 
 import { createAction, createAsyncAction } from '../helpers/async';
 
-import { GET_LEAGUES, GET_LEAGUES_COMPLETED } from '../types/user';
+import { FETCH_USERS_TEAMS, FETCH_USERS_TEAMS_COMPLETED } from '../types/user';
 
 export const getLeagues = () => {
-  return createAsyncAction(GET_LEAGUES, GET_LEAGUES_COMPLETED, () =>
-    axios.get('http://localhost:5000/api/user/leagues')
+  return createAsyncAction(FETCH_USERS_TEAMS, FETCH_USERS_TEAMS_COMPLETED, () =>
+    axios.get('http://localhost:5000/api/user/teams')
   );
 };
