@@ -13,7 +13,6 @@ import { getLeagues } from '../../actions/user';
 class App extends Component {
   componentDidMount() {
     this.props.getUser();
-    this.props.getLeagues();
   }
 
   render() {
