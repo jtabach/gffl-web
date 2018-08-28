@@ -8,7 +8,7 @@ import {
 } from '../types/auth';
 
 export default (state = null, action) => {
-  console.log(action.payload);
+  console.log(action);
   switch (action.type) {
     case REGISTER_USER_COMPLETED:
       return action.payload.data.user;
