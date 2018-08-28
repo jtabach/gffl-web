@@ -8,7 +8,6 @@ import CreateLeague from '../pages/CreateLeague';
 import JoinLeague from '../pages/JoinLeague';
 
 import { getUser } from '../../actions/auth';
-import { getLeagues } from '../../actions/user';
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +16,6 @@ class App extends Component {
 
   render() {
     const { match } = this.props;
-    console.log(this.props);
 
     return (
       <div>
@@ -34,4 +32,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(connect(null, { getUser, getLeagues })(App));
+export default hot(module)(connect(null, { getUser })(App));
