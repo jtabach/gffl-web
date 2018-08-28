@@ -11,6 +11,7 @@ import {
   AUTH_DEMO_COMPLETED
 } from '../types/demo';
 
+// TODO: fix actions, no longer work due to migration to redux saga
 export const fetchWorkerDemo = () => {
   return createAsyncAction(FETCH_WORKER_DEMO, FETCH_WORKER_DEMO_COMPLETED, () =>
     axios.get('http://localhost:5000')

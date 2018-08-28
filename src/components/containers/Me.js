@@ -11,7 +11,7 @@ import { fetchUser } from '../../actions/auth';
 
 class App extends Component {
   componentDidMount() {
-    // this.props.fetchUser();
+    this.props.fetchUser();
   }
 
   render() {
