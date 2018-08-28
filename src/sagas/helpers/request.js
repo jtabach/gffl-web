@@ -1,6 +1,7 @@
 export default function requestTest(url, method, data) {
   return fetch(url, {
     method: method,
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
     },
