@@ -22,11 +22,10 @@ export const registerUser = userData => {
   );
 };
 
-export const loginUser = userData => {
-  return createAsyncAction(LOGIN_USER, LOGIN_USER_COMPLETED, () =>
-    axios.post('http://localhost:5000/api/auth/login', userData)
-  );
-};
+export const loginUser = userData => ({
+  type: LOGIN_USER,
+  payload: userData
+});
 
 export const logoutUser = () => {
   return createAsyncAction(LOGOUT_USER, LOGOUT_USER_COMPLETED, () =>

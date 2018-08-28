@@ -10,7 +10,7 @@ import { getUser } from '../../actions/auth';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getUser();
+    // this.props.getUser();
   }
 
   render() {
@@ -18,8 +18,6 @@ class App extends Component {
       <div>
         <Header />
         <p>This is my new react app</p>
-        <DemoWorker />
-        <DemoAuth />
       </div>
     );
   }

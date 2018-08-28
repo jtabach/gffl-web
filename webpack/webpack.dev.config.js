@@ -4,7 +4,11 @@ var path = require('path');
 var parentDir = path.join(__dirname, '../');
 
 module.exports = {
-  entry: [path.join(parentDir, 'src/index.js')],
+  entry: [
+    '@babel/polyfill',
+    'whatwg-fetch',
+    path.join(parentDir, 'src/index.js')
+  ],
   devtool: 'source-map',
   module: {
     rules: [

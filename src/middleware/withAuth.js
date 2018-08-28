@@ -7,11 +7,11 @@ import { getUser } from '../actions/auth';
 function withAuth(InnerComponent) {
   class ProtectedRoute extends Component {
     componentDidMount() {
-      this.props.getUser();
+      // this.props.getUser();
     }
 
     renderComponent() {
-      switch (this.props.user) {
+      switch (false) {
         case null:
           // TODO: render a loading spinner
           return <div />;
