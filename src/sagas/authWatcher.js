@@ -1,11 +1,10 @@
 import { put, takeLatest, all, call } from 'redux-saga/effects';
-import request from './helpers/request';
+import { postRequest } from './helpers/request';
 
-function* loginUserTest(action) {
+function* loginUserRequest(action) {
   const response = yield call(
-    request,
+    postRequest,
     'http://localhost:5000/api/auth/login',
-    'POST',
     action.payload
   );
   if (response.user) {
@@ -16,6 +15,6 @@ function* loginUserTest(action) {
   }
 }
 
-export function* loginWatcher() {
-  yield takeLatest('LOGIN_USER', loginUserTest);
+export function* authWatcher() {
+  yield takeLatest('LOGIN_USER', loginUserRequest);
 }

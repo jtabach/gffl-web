@@ -1,6 +1,15 @@
-export default function requestTest(url, method, data) {
+export function getRequest(url) {
   return fetch(url, {
-    method: method,
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(response => response.json());
+}
+export function postRequest(url, data) {
+  return fetch(url, {
+    method: 'POST',
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json'

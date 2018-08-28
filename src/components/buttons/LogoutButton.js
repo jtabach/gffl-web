@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logoutUser, getUser } from '../../actions/auth';
+import { logoutUser, fetchUser } from '../../actions/auth';
 
 class LogoutButton extends Component {
   _handleClick() {
@@ -12,4 +12,4 @@ class LogoutButton extends Component {
   }
 }
 
-export default connect(null, { logoutUser, getUser })(LogoutButton);
+export default connect(null, { logoutUser, fetchUser })(LogoutButton);

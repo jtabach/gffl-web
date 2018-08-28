@@ -6,11 +6,11 @@ import DemoWorker from '../demos/DemoWorker';
 import DemoAuth from '../demos/DemoAuth';
 import Header from '../shared/Header';
 
-import { getUser } from '../../actions/auth';
+import { fetchUser } from '../../actions/auth';
 
 class App extends Component {
   componentDidMount() {
-    // this.props.getUser();
+    // this.props.fetchUser();
   }
 
   render() {
@@ -23,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(connect(null, { getUser })(App));
+export default hot(module)(connect(null, { fetchUser })(App));
