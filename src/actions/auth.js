@@ -1,41 +1,28 @@
-import axios from 'axios';
-import _ from 'lodash';
-
-axios.defaults.withCredentials = true;
-
 import { createAction, createAsyncAction } from '../helpers/async';
 
 import {
   REGISTER_USER,
-  REGISTER_USER_COMPLETED,
   LOGIN_USER,
-  LOGIN_USER_COMPLETED,
   LOGOUT_USER,
-  LOGOUT_USER_COMPLETED,
-  GET_USER,
-  GET_USER_COMPLETED
+  FETCH_USER
 } from '../types/auth';
 
-export const registerUser = userData => {
-  return createAsyncAction(REGISTER_USER, REGISTER_USER_COMPLETED, () =>
-    axios.post('http://localhost:5000/api/auth/register', userData)
-  );
-};
+export const registerUser = userData => ({
+  type: REGISTER_USER,
+  payload: userData
+});
 
-export const loginUser = userData => {
-  return createAsyncAction(LOGIN_USER, LOGIN_USER_COMPLETED, () =>
-    axios.post('http://localhost:5000/api/auth/login', userData)
-  );
-};
+export const loginUser = userData => ({
+  type: LOGIN_USER,
+  payload: userData
+});
 
-export const logoutUser = () => {
-  return createAsyncAction(LOGOUT_USER, LOGOUT_USER_COMPLETED, () =>
-    axios.post('http://localhost:5000/api/auth/logout')
-  );
-};
+export const logoutUser = () => ({
+  type: LOGOUT_USER,
+  payload: {}
+});
 
-export const getUser = () => {
-  return createAsyncAction(GET_USER, GET_USER_COMPLETED, () => {
-    return axios.get(`http://localhost:5000/api/auth/user`);
-  });
-};
+export const fetchUser = () => ({
+  type: FETCH_USER,
+  payload: {}
+});

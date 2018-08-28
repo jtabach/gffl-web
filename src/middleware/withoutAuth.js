@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { getUser } from '../actions/auth';
+import { fetchUser } from '../actions/auth';
 
 function withoutAuth(InnerComponent) {
   class ProtectedRoute extends Component {
     componentDidMount() {
-      this.props.getUser();
+      this.props.fetchUser();
     }
 
     renderComponent() {
@@ -31,7 +31,7 @@ function withoutAuth(InnerComponent) {
     return { user };
   }
 
-  return connect(mapStateToProps, { getUser })(ProtectedRoute);
+  return connect(mapStateToProps, { fetchUser })(ProtectedRoute);
 }
 
 export default withoutAuth;
