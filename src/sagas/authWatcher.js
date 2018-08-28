@@ -4,7 +4,9 @@ import {
   LOGIN_USER,
   LOGIN_USER_COMPLETED,
   FETCH_USER,
-  FETCH_USER_COMPLETED
+  FETCH_USER_COMPLETED,
+  REGISTER_USER,
+  REGISTER_USER_COMPLETED
 } from '../types/auth';
 
 function* loginUserRequest(action) {
@@ -21,6 +23,20 @@ function* loginUserRequest(action) {
   }
 }
 
+function* registerUserRequest(action) {
+  const response = yield call(
+    postRequest,
+    'http://localhost:5000/api/auth/register',
+    action.payload
+  );
+  if (response.user) {
+    yield put({ type: REGISTER_USER_COMPLETED, payload: { data: response } });
+  } else {
+    // invoke some other action
+    console.log('handle failed register');
+  }
+}
+
 function* fetchUserRequest(action) {
   const response = yield call(
     getRequest,
@@ -31,5 +47,6 @@ function* fetchUserRequest(action) {
 
 export function* authWatcher() {
   yield takeLatest(LOGIN_USER, loginUserRequest);
+  yield takeLatest(REGISTER_USER, registerUserRequest);
   yield takeLatest(FETCH_USER, fetchUserRequest);
 }

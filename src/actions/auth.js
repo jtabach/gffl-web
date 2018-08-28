@@ -7,18 +7,16 @@ import { createAction, createAsyncAction } from '../helpers/async';
 
 import {
   REGISTER_USER,
-  REGISTER_USER_COMPLETED,
   LOGIN_USER,
   LOGOUT_USER,
   LOGOUT_USER_COMPLETED,
   FETCH_USER
 } from '../types/auth';
 
-export const registerUser = userData => {
-  return createAsyncAction(REGISTER_USER, REGISTER_USER_COMPLETED, () =>
-    axios.post('http://localhost:5000/api/auth/register', userData)
-  );
-};
+export const registerUser = userData => ({
+  type: REGISTER_USER,
+  payload: userData
+});
 
 export const loginUser = userData => ({
   type: LOGIN_USER,

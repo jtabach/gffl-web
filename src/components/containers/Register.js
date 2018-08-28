@@ -9,7 +9,10 @@ import { registerUser } from '../../actions/auth';
 
 class Register extends Component {
   handleSubmit = values => {
-    this.props.registerUser({ email: values.email, password: values.password });
+    this.props.registerUser({
+      email: values.email,
+      password: values.password1
+    });
   };
 
   render() {
