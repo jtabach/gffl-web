@@ -1,17 +1,28 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+import RenderField from './RenderField';
+import { validate } from './validation/joinLeague';
+
 let JoinLeague = props => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="leagueId">League ID</label>
-        <Field name="leagueId" component="input" type="text" />
+        <Field
+          name="leagueId"
+          type="text"
+          label="League ID"
+          component={RenderField}
+        />
       </div>
       <div>
-        <label htmlFor="teamName">Team Name</label>
-        <Field name="teamName" component="input" type="text" />
+        <Field
+          name="teamName"
+          type="text"
+          label="Team Name"
+          component={RenderField}
+        />
       </div>
       <button type="submit">Submit</button>
     </form>
@@ -20,7 +31,8 @@ let JoinLeague = props => {
 
 JoinLeague = reduxForm({
   // a unique name for the form
-  form: 'joinLeague'
+  form: 'joinLeague',
+  validate
 })(JoinLeague);
 
 export default JoinLeague;

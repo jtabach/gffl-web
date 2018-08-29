@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
-import { validate, warn } from './validation/createLeague';
+import { validate } from './validation/createLeague';
 
 let CreateLeagueForm = props => {
   const { handleSubmit } = props;
@@ -33,8 +33,7 @@ let CreateLeagueForm = props => {
 CreateLeagueForm = reduxForm({
   // a unique name for the form
   form: 'createLeague',
-  validate,
-  warn
+  validate
 })(CreateLeagueForm);
 
 export default CreateLeagueForm;
