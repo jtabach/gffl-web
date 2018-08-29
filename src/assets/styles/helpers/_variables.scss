@@ -1,0 +1,36 @@
+// Fonts
+// ========================================================
+$base-font-family: 'Open Sans', sans-serif;
+
+// Font Sizes
+// ========================================================
+$base-font-size: 16px;
+$base-letter-spacing: rem(3/2);
+
+// Font Weights (for Open Sans)
+// ========================================================
+$font-light: 300; // light
+$font-regular: 400; // normal
+$font-semibold: 600; // semibold
+
+// Main Palette: highlights, backgrounds, objects
+// ========================================================
+$red-gffl: #d50a0a;
+$red-light: #f54444;
+$red-lightest: #ff6c6c;
+$red-medium: #b40a0a;
+$red-dark: #8a0000;
+
+$blue-gffl: #013469;
+$blue-light: #03468c;
+$blue-lightest: #0657ac;
+$blue-medium: #012b57;
+$blue-dark: #001a36;
+
+$gray-gffl: #333333;
+$gray-light: #7f7f7f;
+$gray-lightest: #b2afaf;
+$gray-dark: #0a0a0a;
+
+$white: #ffffff;
+$black: #000000;
