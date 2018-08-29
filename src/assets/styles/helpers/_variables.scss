@@ -14,7 +14,7 @@ $baseline: $base-font-size * $baseline-ratio; // 24
 
 // Line Heights
 // ========================================================
-$base-line-height: ($base-font-size * $baseline-ratio) + 'px'; // rem(24)
+$base-line-height: $base-font-size * $baseline-ratio; // rem(24)
 
 // Font Weights (for Open Sans)
 // ========================================================
@@ -43,6 +43,28 @@ $gray-dark: #0a0a0a;
 
 $white: #ffffff;
 $black: #000000;
+
+// Extra Colors
+// ========================================================
+$green: #15c26b;
+
+// Font Colors
+// ========================================================
+$base-font-color: $gray-dark;
+$base-link-color: $blue-gffl;
+$heading-font-color: $gray-dark;
+$max-text-width: rem(780); // 8 cols
+$max-hero-text-width: rem(580); // 6 cols
+
+// Spacing + Padding
+// ========================================================
+$small-spacing: $base-line-height / 2; // 12px
+$base-spacing: $base-line-height; // 24px
+$medium-spacing: $base-line-height * (3/2); // 36px;
+$large-spacing: $base-line-height * 2; // 48px;
+$xlarge-spacing: $base-line-height * (5/2); // 60px;
+
+$header-spacing: $base-line-height * 4; // 96px;
 
 // Animations
 // ========================================================

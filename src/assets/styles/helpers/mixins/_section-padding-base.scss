@@ -1,0 +1,12 @@
+// -------------------------------------------------------------------
+// mixin: section-padding-base
+// -------------------------------------------------------------------
+
+@mixin section-padding-base($number-desktop-baselines: 1, $number-mobile-baselines: ($number-desktop-baselines/2), $baseline: $screen-md) {
+  padding-top: $number-mobile-baselines * $base-spacing;
+  padding-bottom: $number-mobile-baselines * $base-spacing;
+  @include media($baseline) {
+    padding-top: $number-desktop-baselines * $base-spacing;
+    padding-bottom: $number-desktop-baselines * $base-spacing;
+  }
+}
