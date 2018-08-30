@@ -1,0 +1,13 @@
+@import '../../../assets/styles/app';
+
+.left {
+  @include span-columns(3);
+}
+
+.center {
+  @include span-columns(6);
+}
+
+.right {
+  @include span-columns(3);
+}
