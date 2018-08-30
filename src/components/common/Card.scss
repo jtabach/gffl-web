@@ -4,7 +4,6 @@
   display: block;
   text-align: left;
   position: relative;
-  background: $white;
   box-shadow: $card-box-shadow;
   border-radius: $card-border-radius;
   transition: all $base-duration $base-timing;
@@ -23,11 +22,23 @@
   }
 }
 
-.card {
+.card-light {
   @extend %card;
+  background: $white;
 }
 
-.link-card {
+.card-dark {
+  @extend %card;
+  background: $gray-medium;
+}
+
+.link-card-light {
   @extend %card;
   @extend %card-hover;
+  background: $white;
+}
+.link-card-dark {
+  @extend %card;
+  @extend %card-hover;
+  background: $gray-medium;
 }

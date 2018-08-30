@@ -8,6 +8,7 @@ class LinkCard extends Component {
   static propTypes = {
     destination: PropTypes.oneOf(['internal', 'external']),
     path: PropTypes.string.isRequired,
+    style: PropTypes.oneOf(['light', 'dark']),
     isNewTab: PropTypes.bool,
     children: PropTypes.node
   };
@@ -15,17 +16,18 @@ class LinkCard extends Component {
   static defaultProps = {
     destination: 'internal',
     isNewTab: false,
+    style: 'light',
     children: null
   };
 
   render() {
-    const { destination, path, isNewTab, children } = this.props;
+    const { destination, path, style, isNewTab, children } = this.props;
 
     if (destination == 'external') {
       return (
         <a
           href={path}
-          styleName="link-card"
+          styleName={`link-card-${style}`}
           target={isNewTab ? '_blank' : null}
         >
           {children}
@@ -33,7 +35,7 @@ class LinkCard extends Component {
       );
     } else {
       return (
-        <Link to={path} styleName="link-card">
+        <Link to={path} styleName={`link-card-${style}`}>
           {children}
         </Link>
       );
