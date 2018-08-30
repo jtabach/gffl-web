@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
+import Button from '../common/button';
 import { validate, warn } from './validation/login';
 
 let LoginForm = props => {
@@ -25,7 +26,7 @@ let LoginForm = props => {
           component={RenderField}
         />
       </div>
-      <button type="submit">Submit</button>
+      <Button label="Login" type="submit" style="primary" />
     </form>
   );
 };

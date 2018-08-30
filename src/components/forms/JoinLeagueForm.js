@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import RenderField from './RenderField';
+import Button from '../common/button';
 import { validate } from './validation/joinLeague';
 
 let JoinLeague = props => {
@@ -24,7 +25,7 @@ let JoinLeague = props => {
           component={RenderField}
         />
       </div>
-      <button type="submit">Submit</button>
+      <Button label="Join League" type="submit" style="primary" />
     </form>
   );
 };

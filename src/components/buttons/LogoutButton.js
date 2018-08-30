@@ -13,7 +13,7 @@ class LogoutButton extends Component {
     return (
       <Button
         type="button"
-        style="white"
+        style="primary-inverse"
         label="logout"
         onClick={() => this._handleClick()}
       />
