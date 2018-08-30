@@ -4,7 +4,6 @@
 %form,
 #{$all-text-inputs},
 select[multiple] {
-  @include margin-bottom();
   width: 100%;
   outline: none;
   color: $gray-medium;
@@ -48,12 +47,11 @@ legend {
 }
 
 label {
-  @include margin-bottom();
   display: block;
 }
 
 textarea {
-  padding: rem(11) rem(20);
+  padding: rem(11) rem(11);
 }
 
 input[type='number'] {
