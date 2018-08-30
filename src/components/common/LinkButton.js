@@ -32,11 +32,20 @@ class LinkButton extends Component {
 
   render() {
     const { destination, path, isNewTab, style, label, children } = this.props;
-    return (
-      <Link to={path} styleName={style}>
-        {label || children}
-      </Link>
-    );
+
+    if (destination == 'external') {
+      return (
+        <a href={path} styleName={style} target={isNewTab ? '_blank' : null}>
+          {label || children}
+        </a>
+      );
+    } else {
+      return (
+        <Link to={path} styleName={style}>
+          {label || children}
+        </Link>
+      );
+    }
   }
 }
 
