@@ -21,6 +21,9 @@
   border-radius: $button-border-radius;
   letter-spacing: $button-letter-spacing;
   transition: all $base-duration $base-timing;
+  max-width: $button-size-reg;
+  min-width: $button-size-sm;
+  width: 100%;
 }
 
 %button-shadow {
@@ -31,55 +34,41 @@
 }
 
 .primary {
-  max-width: $button-size-reg;
-  width: 100%;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, $blue-gffl);
 }
 
 .primary-inverse {
-  max-width: $button-size-reg;
-  width: 100%;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($blue-gffl, $white);
 }
 
 .secondary {
-  max-width: $button-size-reg;
-  width: 100%;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, $gray-light);
 }
 
 .secondary-inverse {
-  max-width: $button-size-reg;
-  width: 100%;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($gray-light, $white);
 }
 
 .outline {
-  max-width: $button-size-reg;
-  width: 100%;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, transparent, $white);
 }
 
 .green {
-  max-width: $button-size-reg;
-  width: 100%;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, $green);
 }
 .green-inverse {
-  max-width: $button-size-reg;
-  width: 100%;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($green, $white);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import styles from './button.scss';
+import _ from 'lodash';
 
 class Button extends Component {
   static propTypes = {
@@ -15,7 +16,7 @@ class Button extends Component {
       'green',
       'green-inverse'
     ]),
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     label: PropTypes.string,
     children: PropTypes.node
   };
@@ -30,7 +31,11 @@ class Button extends Component {
   render() {
     const { type, style, onClick, label, children } = this.props;
     return (
-      <button type={type} styleName={style} onClick={onClick}>
+      <button
+        type={type}
+        styleName={style}
+        onClick={type == 'submit' ? () => _.noop() : onClick}
+      >
         {label || children}
       </button>
     );
