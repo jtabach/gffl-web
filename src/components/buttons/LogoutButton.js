@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser, fetchUser } from '../../actions/auth';
 
+import Button from '../common/button';
+
 class LogoutButton extends Component {
   _handleClick() {
     this.props.logoutUser();
   }
 
   render() {
-    return <button onClick={() => this._handleClick()}>Logout</button>;
+    return (
+      <Button
+        type="button"
+        style="white"
+        label="logout"
+        onClick={() => this._handleClick()}
+      />
+    );
   }
 }
 
