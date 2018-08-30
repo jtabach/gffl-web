@@ -7,6 +7,7 @@
   box-shadow: $card-box-shadow;
   border-radius: $card-border-radius;
   transition: all $base-duration $base-timing;
+  overflow: hidden;
   &.no-hover:hover {
     cursor: default !important;
     box-shadow: $card-box-shadow !important;

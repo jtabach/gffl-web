@@ -4,6 +4,7 @@ import CSSModules from 'react-css-modules';
 import styles from './CreateLeague.scss';
 
 import CreateLeagueForm from '../../forms/CreateLeagueForm';
+import Card from '../../common/Card';
 
 import { createLeague } from '../../../actions/league';
 
@@ -14,10 +15,14 @@ class CreateLeague extends Component {
 
   render() {
     return (
-      <div>
-        <h2 styleName="test">Create a League here</h2>
-        <CreateLeagueForm onSubmit={this.handleSubmit} />
-      </div>
+      <Card>
+        <div styleName="header">
+          <h2 styleName="test">Create Your League</h2>
+        </div>
+        <div styleName="card-content">
+          <CreateLeagueForm onSubmit={this.handleSubmit} />
+        </div>
+      </Card>
     );
   }
 }

@@ -12,7 +12,7 @@ class LeagueButtons extends Component {
     return (
       <Card style="dark">
         <div styleName="card-content">
-          <h5 styleName="header">Join the Community</h5>
+          <h5 styleName="title">Join the Community</h5>
           <p styleName="copy">
             Talk with your friends and get a custom feed with updates from all
             your players
