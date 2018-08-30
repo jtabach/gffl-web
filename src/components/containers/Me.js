@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Header from '../shared/Header';
 import CreateLeague from '../pages/CreateLeague';
 import JoinLeague from '../pages/JoinLeague';
+import RSSFeed from '../pages/RSSFeed';
 import LinkButton from '../common/LinkButton';
 
 import { fetchUser } from '../../actions/auth';
@@ -22,6 +23,7 @@ class App extends Component {
       <div>
         <Header />
         <h2>This is the logged in Page for all you stuff</h2>
+
         <div>
           <LinkButton
             path={`${match.url}/createLeague`}
@@ -34,6 +36,7 @@ class App extends Component {
             style="primary-inverse"
           />
         </div>
+        <Route exact path={`${match.url}`} component={RSSFeed} />
         <Route path={`${match.url}/createLeague`} component={CreateLeague} />
         <Route path={`${match.url}/joinLeague`} component={JoinLeague} />
       </div>
