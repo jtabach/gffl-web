@@ -31,8 +31,10 @@ class Header extends Component {
   render() {
     return (
       <div styleName={'test'}>
-        <div>This is the header</div>
-        <ul>{this.renderAuthLinks()}</ul>
+        <div styleName="contain">
+          <div>This is the header</div>
+          <ul>{this.renderAuthLinks()}</ul>
+        </div>
       </div>
     );
   }

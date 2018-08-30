@@ -26,26 +26,32 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <h2>This is the logged in Page for all you stuff</h2>
-        <div styleName="col-left">
-          <LeagueList />
-        </div>
-        <div styleName="col-center">
-          <Route exact path={`${match.url}`} component={RSSFeed} />
-          <Route path={`${match.url}/createLeague`} component={CreateLeague} />
-          <Route path={`${match.url}/joinLeague`} component={JoinLeague} />
-        </div>
-        <div styleName="col-right">
-          <LinkButton
-            path={`${match.url}/createLeague`}
-            label="Create League"
-            style="green"
-          />
-          <LinkButton
-            path={`${match.url}/joinLeague`}
-            label="Join League"
-            style="primary-inverse"
-          />
+        <div styleName="contain">
+          <h2>This is the logged in Page for all you stuff</h2>
+          <div styleName="col-left">
+            <LeagueList />
+          </div>
+          <div styleName="col-center">
+            <Route exact path={`${match.url}`} component={RSSFeed} />
+            <Route
+              path={`${match.url}/createLeague`}
+              component={CreateLeague}
+            />
+            <Route path={`${match.url}/joinLeague`} component={JoinLeague} />
+          </div>
+          <div styleName="col-right">
+            <LinkButton
+              path={`${match.url}/createLeague`}
+              label="Create League"
+              style="green"
+            />
+            <LinkButton
+              path={`${match.url}/joinLeague`}
+              label="Join League"
+              style="primary-inverse"
+            />
+            <h3>List of Friends Online</h3>
+          </div>
         </div>
       </div>
     );

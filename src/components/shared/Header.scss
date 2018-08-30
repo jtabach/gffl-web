@@ -1,5 +1,15 @@
 @import '../../assets/styles/app';
 
+.contain {
+  @include outer-container();
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+  @include media($screen-xl) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .test {
   background: red;
 }
