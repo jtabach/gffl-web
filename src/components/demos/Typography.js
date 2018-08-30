@@ -20,14 +20,14 @@ export default class Typography extends Component {
         />
         <Button
           type="button"
-          style="secondary"
-          label="secondary button"
+          style="primary-inverse"
+          label="primary inverse"
           onClick={() => null}
         />
         <Button
           type="button"
-          style="primary-inverse"
-          label="primary inverse"
+          style="secondary"
+          label="secondary button"
           onClick={() => null}
         />
         <Button
