@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Header from '../../shared/Header';
 import Routes from './Routes';
 import LeagueList from './LeagueList';
-import LinkButton from '../../common/LinkButton';
+import LeagueButtons from './LeagueButtons';
 
 import styles from './index.scss';
 
@@ -31,16 +31,7 @@ class App extends Component {
             <Routes match={match} />
           </div>
           <div styleName="col-right">
-            <LinkButton
-              path={`${match.url}/createLeague`}
-              label="Create League"
-              style="green"
-            />
-            <LinkButton
-              path={`${match.url}/joinLeague`}
-              label="Join League"
-              style="primary-inverse"
-            />
+            <LeagueButtons match={match} />
             <h3>List of Friends Online</h3>
           </div>
         </div>
