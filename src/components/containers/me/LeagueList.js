@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Card from '../../common/Card';
+
 class LeagueList extends Component {
   renderLeagues() {
     const { user } = this.props;
     return user.teams.map((team, i) => {
       return (
         <li key={i}>
-          <p>{team.league.name}</p>
-          <p>{team.name}</p>
+          <Card>
+            <p>{team.league.name}</p>
+            <p>{team.name}</p>
+          </Card>
         </li>
       );
     });

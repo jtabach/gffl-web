@@ -1,0 +1,25 @@
+@import '../../assets/styles/app';
+
+.card {
+  text-align: left;
+  position: relative;
+  background: $white;
+  box-shadow: $card-box-shadow;
+  border-radius: $card-border-radius;
+  transition: all $base-duration $base-timing;
+  &.no-hover:hover {
+    cursor: default !important;
+    box-shadow: $card-box-shadow !important;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a.card,
+Link.card,
+%card-hover {
+  &:hover {
+    box-shadow: $card-box-shadow-hover;
+  }
+}
