@@ -32,7 +32,7 @@ class Header extends Component {
     return (
       <div styleName={'test'}>
         <div>This is the header</div>
-        {this.renderAuthLinks()}
+        <ul>{this.renderAuthLinks()}</ul>
       </div>
     );
   }

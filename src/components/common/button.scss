@@ -55,17 +55,9 @@
   @extend %button-shadow;
   @include button-variant($blue-gffl, $white);
 }
-.navigation {
-  @extend %button;
-  @include button-variant($white, transparent);
-}
 .green {
   width: $button-size-reg;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, $green);
-}
-.team {
-  @extend %button;
-  @include button-variant($gray-dark, transparent);
 }
