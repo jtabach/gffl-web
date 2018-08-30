@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Card from '../../common/Card';
+import LinkCard from '../../common/LinkCard';
 
 class LeagueList extends Component {
   renderLeagues() {
@@ -9,10 +10,10 @@ class LeagueList extends Component {
     return user.teams.map((team, i) => {
       return (
         <li key={i}>
-          <Card>
+          <LinkCard path={`/league/${team.league._id}`}>
             <p>{team.league.name}</p>
             <p>{team.name}</p>
-          </Card>
+          </LinkCard>
         </li>
       );
     });

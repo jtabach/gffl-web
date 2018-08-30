@@ -1,6 +1,7 @@
 @import '../../assets/styles/app';
 
-.card {
+%card {
+  display: block;
   text-align: left;
   position: relative;
   background: $white;
@@ -16,10 +17,17 @@
   }
 }
 
-a.card,
-Link.card,
 %card-hover {
   &:hover {
     box-shadow: $card-box-shadow-hover;
   }
+}
+
+.card {
+  @extend %card;
+}
+
+.link-card {
+  @extend %card;
+  @extend %card-hover;
 }
