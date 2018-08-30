@@ -1,5 +1,9 @@
 @import '../../../assets/styles/app';
 
+.me {
+  background-color: $gray-lightest;
+}
+
 .contain {
   @include outer-container();
   padding-left: $base-spacing;

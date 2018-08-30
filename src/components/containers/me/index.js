@@ -24,10 +24,9 @@ class App extends Component {
     const { match } = this.props;
 
     return (
-      <div>
+      <div styleName="me">
         <Header />
         <div styleName="contain">
-          <h2>This is the logged in Page for all you stuff</h2>
           <div styleName="col-left">
             <LeagueList />
           </div>
