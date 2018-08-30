@@ -37,27 +37,43 @@
   @include button-variant($white, $blue-gffl);
 }
 
+.primary-inverse {
+  width: $button-size-reg;
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($blue-gffl, $white);
+}
+
 .secondary {
   width: $button-size-reg;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, $gray-medium);
 }
+
+.secondary-inverse {
+  width: $button-size-reg;
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($gray-medium, $white);
+}
+
 .outline {
   width: $button-size-reg;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, transparent, $white);
 }
-.white {
-  width: $button-size-reg;
-  @extend %button;
-  @extend %button-shadow;
-  @include button-variant($blue-gffl, $white);
-}
+
 .green {
   width: $button-size-reg;
   @extend %button;
   @extend %button-shadow;
   @include button-variant($white, $green);
+}
+.green-inverse {
+  width: $button-size-reg;
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($green, $white);
 }

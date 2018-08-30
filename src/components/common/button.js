@@ -9,9 +9,11 @@ class Button extends Component {
     style: PropTypes.oneOf([
       'primary',
       'secondary',
+      'secondary-inverse',
       'outline',
-      'white',
-      'green'
+      'primary-inverse',
+      'green',
+      'green-inverse'
     ]),
     onClick: PropTypes.func.isRequired,
     label: PropTypes.string,
