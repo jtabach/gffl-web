@@ -1,5 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import CSSModules from 'react-css-modules';
+import styles from './Form.scss';
 
 import RenderField from './RenderField';
 import Button from '../common/Button';
@@ -10,7 +12,7 @@ let CreateLeagueForm = props => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div styleName="field">
         <Field
           name="leagueName"
           type="text"
@@ -18,7 +20,7 @@ let CreateLeagueForm = props => {
           component={RenderField}
         />
       </div>
-      <div>
+      <div styleName="field">
         <Field
           name="teamName"
           type="text"
@@ -26,7 +28,9 @@ let CreateLeagueForm = props => {
           component={RenderField}
         />
       </div>
-      <Button label="Create League" type="submit" style="primary" />
+      <div styleName="button">
+        <Button label="Create League" type="submit" style="primary" />
+      </div>
     </form>
   );
 };
@@ -35,6 +39,6 @@ CreateLeagueForm = reduxForm({
   // a unique name for the form
   form: 'createLeague',
   validate
-})(CreateLeagueForm);
+})(CSSModules(CreateLeagueForm, styles));
 
 export default CreateLeagueForm;

@@ -2,6 +2,7 @@
 
 .me {
   background-color: $gray-lightest;
+  padding-bottom: $medium-spacing;
 }
 
 .contain {
@@ -9,6 +10,7 @@
   padding-left: $base-spacing;
   padding-right: $base-spacing;
   margin-top: $base-spacing;
+
   @include media($screen-xl) {
     padding-left: 0;
     padding-right: 0;
