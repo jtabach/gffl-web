@@ -7,6 +7,7 @@ import Header from '../../shared/Header';
 import Routes from './Routes';
 import LeagueList from './LeagueList';
 import LeagueButtons from './LeagueButtons';
+import Friends from './Friends';
 
 import styles from './index.scss';
 
@@ -32,7 +33,7 @@ class App extends Component {
           </div>
           <div styleName="col-right">
             <LeagueButtons match={match} />
-            <h3>List of Friends Online</h3>
+            <Friends />
           </div>
         </div>
       </div>
