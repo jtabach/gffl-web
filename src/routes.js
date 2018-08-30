@@ -5,7 +5,7 @@ import Login from './components/containers/Login';
 import Register from './components/containers/Register';
 import App from './components/containers/App';
 import Me from './components/containers/Me';
-import CreateLeague from './components/pages/CreateLeague';
+import CreateLeague from './components/containers/me/CreateLeague';
 
 import Typography from './components/demos/Typography';
 

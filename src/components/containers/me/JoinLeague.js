@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import JoinLeagueForm from '../forms/JoinLeagueForm';
+import JoinLeagueForm from '../../forms/JoinLeagueForm';
 
-import { joinLeague } from '../../actions/league';
+import { joinLeague } from '../../../actions/league';
 
 class JoinLeague extends Component {
   handleSubmit = values => {
