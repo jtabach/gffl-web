@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
+import { Link } from 'react-router-dom';
 import styles from './Button.scss';
-import _ from 'lodash';
 
-class Button extends Component {
+class LinkButton extends Component {
   static propTypes = {
-    type: PropTypes.oneOf(['button', 'submit']),
+    destination: PropTypes.oneOf(['internal', 'external']),
+    path: PropTypes.string.isRequired,
+    isNewTab: PropTypes.bool,
     style: PropTypes.oneOf([
       'primary',
       'secondary',
@@ -16,30 +18,26 @@ class Button extends Component {
       'green',
       'green-inverse'
     ]),
-    onClick: PropTypes.func,
     label: PropTypes.string,
     children: PropTypes.node
   };
 
-  static defaultProps: {
-    type: 'button',
+  static defaultProps = {
+    destination: 'internal',
+    isNewTab: false,
     style: 'primary',
     label: '',
     children: null
   };
 
   render() {
-    const { type, style, onClick, label, children } = this.props;
+    const { destination, path, isNewTab, style, label, children } = this.props;
     return (
-      <button
-        type={type}
-        styleName={style}
-        onClick={type == 'submit' ? () => _.noop() : onClick}
-      >
+      <Link to={path} styleName={style}>
         {label || children}
-      </button>
+      </Link>
     );
   }
 }
 
-export default CSSModules(Button, styles);
+export default CSSModules(LinkButton, styles);

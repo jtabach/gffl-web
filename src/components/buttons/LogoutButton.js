@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser, fetchUser } from '../../actions/auth';
 
-import Button from '../common/button';
+import Button from '../common/Button';
 
 class LogoutButton extends Component {
   _handleClick() {

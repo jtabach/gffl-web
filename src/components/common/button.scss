@@ -1,6 +1,7 @@
 @import '../../assets/styles/app';
 
-%button {
+%button,
+%Link {
   display: block;
   cursor: pointer;
   appearance: none;

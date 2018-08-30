@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Header from '../shared/Header';
 import CreateLeague from '../pages/CreateLeague';
 import JoinLeague from '../pages/JoinLeague';
+import LinkButton from '../common/LinkButton';
 
 import { fetchUser } from '../../actions/auth';
 
@@ -22,8 +23,16 @@ class App extends Component {
         <Header />
         <h2>This is the logged in Page for all you stuff</h2>
         <div>
-          <Link to={`${match.url}/createLeague`}>Create League</Link>
-          <Link to={`${match.url}/joinLeague`}>Join League</Link>
+          <LinkButton
+            path={`${match.url}/createLeague`}
+            label="Create League"
+            style="green"
+          />
+          <LinkButton
+            path={`${match.url}/joinLeague`}
+            label="Join League"
+            style="primary-inverse"
+          />
         </div>
         <Route path={`${match.url}/createLeague`} component={CreateLeague} />
         <Route path={`${match.url}/joinLeague`} component={JoinLeague} />

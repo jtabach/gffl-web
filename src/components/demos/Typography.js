@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Button from '../common/button';
+import Button from '../common/Button';
 
 export default class Typography extends Component {
   render() {
