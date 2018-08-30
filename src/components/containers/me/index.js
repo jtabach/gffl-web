@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
-import { Link, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
 import Header from '../../shared/Header';
-import CreateLeague from './CreateLeague';
-import JoinLeague from './JoinLeague';
-import RSSFeed from './RSSFeed';
+import Routes from './Routes';
 import LeagueList from './LeagueList';
 import LinkButton from '../../common/LinkButton';
 
@@ -31,12 +28,7 @@ class App extends Component {
             <LeagueList />
           </div>
           <div styleName="col-center">
-            <Route exact path={`${match.url}`} component={RSSFeed} />
-            <Route
-              path={`${match.url}/createLeague`}
-              component={CreateLeague}
-            />
-            <Route path={`${match.url}/joinLeague`} component={JoinLeague} />
+            <Routes match={match} />
           </div>
           <div styleName="col-right">
             <LinkButton
