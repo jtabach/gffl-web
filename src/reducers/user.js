@@ -49,7 +49,10 @@ export default (state = initialState, action) => {
     case JOIN_LEAGUE_COMPLETED:
       // TODO: only a single team will be return from the server.
       // Merge the new team with the existing teams
-      state = action.payload.data.user;
+      state = {
+        ...state,
+        teams: state.teams.concat([action.payload.data.team])
+      };
       break;
 
     case LOGOUT_USER_COMPLETED:
