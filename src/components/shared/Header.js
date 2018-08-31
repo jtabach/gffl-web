@@ -9,7 +9,7 @@ import RegisterButton from '../buttons/RegisterButton';
 
 class Header extends Component {
   renderAuthLinks() {
-    switch (this.props.user) {
+    switch (this.props.user._id) {
       case null:
         return <div />;
       case false:

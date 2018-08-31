@@ -5,6 +5,7 @@ import {
   LOGIN_USER_COMPLETED,
   FETCH_USER,
   FETCH_USER_COMPLETED,
+  FETCH_USER_FAILED,
   REGISTER_USER,
   REGISTER_USER_COMPLETED,
   LOGOUT_USER,
@@ -58,7 +59,12 @@ function* fetchUserRequest(action) {
     getRequest,
     'http://localhost:5000/api/auth/user'
   );
-  yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
+
+  if (response.user) {
+    yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
+  } else {
+    yield put({ type: FETCH_USER_FAILED, payload: { data: response } });
+  }
 }
 
 export function* authWatcher() {

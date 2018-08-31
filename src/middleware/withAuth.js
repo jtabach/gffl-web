@@ -11,7 +11,7 @@ function withAuth(InnerComponent) {
     }
 
     renderComponent() {
-      switch (this.props.user) {
+      switch (this.props.user._id) {
         case null:
           // TODO: render a loading spinner
           return <div />;

@@ -7,7 +7,8 @@ import LinkCard from '../../common/LinkCard';
 class LeagueList extends Component {
   renderLeagues() {
     const { user } = this.props;
-    return user.teams.map((team, i) => {
+    const teams = user.teams || [];
+    return teams.map((team, i) => {
       return (
         <li key={i}>
           <LinkCard path={`/league/${team.league._id}`}>
