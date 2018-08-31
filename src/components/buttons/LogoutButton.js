@@ -5,7 +5,12 @@ import { logoutUser, fetchUser } from '../../actions/auth';
 import Button from '../common/Button';
 
 class LogoutButton extends Component {
-  _handleClick() {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
     this.props.logoutUser();
   }
 
@@ -15,7 +20,7 @@ class LogoutButton extends Component {
         type="button"
         style="primary-inverse"
         label="logout"
-        onClick={() => this._handleClick()}
+        onClick={this.handleClick}
       />
     );
   }
