@@ -1,5 +1,14 @@
 @import '../../assets/styles/app';
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $green;
+  height: $xlarge-spacing;
+}
+
 .contain {
   @include outer-container();
   padding-left: $base-spacing;
@@ -10,6 +19,30 @@
   }
 }
 
-.test {
-  background: $blue-lightest;
+.navigation {
+  height: $xlarge-spacing; // duplicate height set, used for vertical align
+}
+.logo {
+  @include vertical-align;
+  float: left;
+  margin-left: $base-spacing;
+  a {
+    color: $white;
+  }
+}
+.navigation-items {
+  @include vertical-align;
+  float: right;
+  ul {
+    li {
+      display: inline-block;
+      padding: 0 $small-spacing;
+      a {
+        color: $white;
+        &:hover {
+          color: $gray-lightest;
+        }
+      }
+    }
+  }
 }

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
 import styles from './Header.scss';
 
 import LoginButton from '../buttons/LoginButton';
 import LogoutButton from '../buttons/LogoutButton';
 import RegisterButton from '../buttons/RegisterButton';
+import DrawerToggleButton from './DrawerToggleButton';
 
 class Header extends Component {
   renderAuthLinks() {
@@ -14,10 +16,14 @@ class Header extends Component {
         return <div />;
       case false:
         return (
-          <li>
-            <LoginButton />
-            <RegisterButton />
-          </li>
+          <div>
+            <li>
+              <LoginButton />
+            </li>
+            <li>
+              <RegisterButton />
+            </li>
+          </div>
         );
       default:
         return (
@@ -30,10 +36,17 @@ class Header extends Component {
 
   render() {
     return (
-      <div styleName={'test'}>
+      <div styleName="header">
         <div styleName="contain">
-          <div>This is the header</div>
-          <ul>{this.renderAuthLinks()}</ul>
+          <div styleName="navigation">
+            <DrawerToggleButton />
+            <div styleName="logo">
+              <Link to="/me">GFFL</Link>
+            </div>
+            <div styleName="navigation-items">
+              <ul>{this.renderAuthLinks()}</ul>
+            </div>
+          </div>
         </div>
       </div>
     );
