@@ -30,17 +30,15 @@ class App extends Component {
   };
 
   render() {
-    let sideDrawer;
     let backDrop;
 
     if (this.state.isSideDrawerOpen) {
-      sideDrawer = <SideDrawer />;
       backDrop = <BackDrop handleBackdropClick={this.handleBackDropClick} />;
     }
     return (
       <div style={{ height: '100%' }}>
         <Header handleDrawerToggleClick={this.handleDrawerToggleClick} />
-        {sideDrawer}
+        <SideDrawer isVisible={this.state.isSideDrawerOpen} />
         {backDrop}
         <p>This is my new react app</p>
       </div>
