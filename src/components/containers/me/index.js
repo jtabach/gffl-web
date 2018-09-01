@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
-import Header from '../../shared/Header';
+import NavLayout from '../../layouts/NavLayout';
 import Routes from './Routes';
 import LeagueList from './LeagueList';
 import LeagueButtons from './LeagueButtons';
@@ -22,21 +22,22 @@ class App extends Component {
     const { match } = this.props;
 
     return (
-      <div styleName="me">
-        <Header />
-        <div styleName="contain">
-          <div styleName="col-left">
-            <LeagueList />
-          </div>
-          <div styleName="col-center">
-            <Routes match={match} />
-          </div>
-          <div styleName="col-right">
-            <LeagueButtons match={match} />
-            <Friends />
+      <NavLayout>
+        <div styleName="me">
+          <div styleName="contain">
+            <div styleName="col-left">
+              <LeagueList />
+            </div>
+            <div styleName="col-center">
+              <Routes match={match} />
+            </div>
+            <div styleName="col-right">
+              <LeagueButtons match={match} />
+              <Friends />
+            </div>
           </div>
         </div>
-      </div>
+      </NavLayout>
     );
   }
 }

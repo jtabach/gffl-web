@@ -4,44 +4,19 @@ import { connect } from 'react-redux';
 
 import DemoWorker from '../demos/DemoWorker';
 import DemoAuth from '../demos/DemoAuth';
-import Header from '../shared/Header';
-import SideDrawer from '../shared/SideDrawer';
-import BackDrop from '../shared/BackDrop';
+import NavLayout from '../layouts/NavLayout';
 
 import { fetchUser } from '../../actions/auth';
 
 class App extends Component {
-  state = {
-    isSideDrawerOpen: false
-  };
-
   componentDidMount() {
     this.props.fetchUser();
   }
-
-  handleDrawerToggleClick = () => {
-    this.setState(prevState => {
-      return { isSideDrawerOpen: !prevState.isSideDrawerOpen };
-    });
-  };
-
-  handleBackDropClick = () => {
-    this.setState({ isSideDrawerOpen: false });
-  };
-
   render() {
-    let backDrop;
-
-    if (this.state.isSideDrawerOpen) {
-      backDrop = <BackDrop handleBackdropClick={this.handleBackDropClick} />;
-    }
     return (
-      <div style={{ height: '100%' }}>
-        <Header handleDrawerToggleClick={this.handleDrawerToggleClick} />
-        <SideDrawer isVisible={this.state.isSideDrawerOpen} />
-        {backDrop}
+      <NavLayout>
         <p>This is my new react app</p>
-      </div>
+      </NavLayout>
     );
   }
 }
