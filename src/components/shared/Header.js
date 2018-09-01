@@ -39,7 +39,7 @@ class Header extends Component {
       <div styleName="header">
         <div styleName="contain">
           <div styleName="navigation">
-            <DrawerToggleButton />
+            <DrawerToggleButton click={this.props.handleDrawerToggleClick} />
             <div styleName="logo">
               <Link to="/me">GFFL</Link>
             </div>
