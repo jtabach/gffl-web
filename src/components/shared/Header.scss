@@ -22,6 +22,7 @@
 .navigation {
   height: $xlarge-spacing; // duplicate height set, used for vertical align
 }
+
 .logo {
   @include vertical-align;
   float: left;
@@ -31,16 +32,20 @@
   }
 }
 .navigation-items {
-  @include vertical-align;
-  float: right;
-  ul {
-    li {
-      display: inline-block;
-      padding: 0 $small-spacing;
-      a {
-        color: $white;
-        &:hover {
-          color: $gray-lightest;
+  display: none;
+  @include media($screen-sm) {
+    display: block;
+    @include vertical-align;
+    float: right;
+    ul {
+      li {
+        display: inline-block;
+        padding: 0 $small-spacing;
+        a {
+          color: $white;
+          &:hover {
+            color: $gray-lightest;
+          }
         }
       }
     }
