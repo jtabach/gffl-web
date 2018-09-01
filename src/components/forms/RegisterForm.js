@@ -49,7 +49,7 @@ let RegisterForm = props => {
           component={RenderField}
         />
       </div>
-      <Button label="Register" type="submit" style="primary" />
+      <Button label="Register" type="submit" variant="primary" />
     </form>
   );
 };

@@ -10,7 +10,7 @@ class LeagueButtons extends Component {
     const { match } = this.props;
 
     return (
-      <Card style="dark">
+      <Card variant="dark">
         <div styleName="card-content">
           <h5 styleName="title">Join the Community</h5>
           <p styleName="copy">
@@ -21,14 +21,14 @@ class LeagueButtons extends Component {
             <LinkButton
               path={`${match.url}/joinLeague`}
               label="Join League"
-              style="primary-inverse"
+              variant="primary-inverse"
             />
           </div>
           <div styleName="button">
             <LinkButton
               path={`${match.url}/createLeague`}
               label="Create League"
-              style="green"
+              variant="green"
             />
           </div>
         </div>

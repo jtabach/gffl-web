@@ -7,7 +7,7 @@ import _ from 'lodash';
 class Button extends Component {
   static propTypes = {
     type: PropTypes.oneOf(['button', 'submit']),
-    style: PropTypes.oneOf([
+    variant: PropTypes.oneOf([
       'primary',
       'secondary',
       'secondary-inverse',
@@ -23,17 +23,17 @@ class Button extends Component {
 
   static defaultProps: {
     type: 'button',
-    style: 'primary',
+    variant: 'primary',
     label: '',
     children: null
   };
 
   render() {
-    const { type, style, onClick, label, children } = this.props;
+    const { type, variant, onClick, label, children } = this.props;
     return (
       <button
         type={type}
-        styleName={style}
+        styleName={variant}
         onClick={type == 'submit' ? () => _.noop() : onClick}
       >
         {label || children}

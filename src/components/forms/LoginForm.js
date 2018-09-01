@@ -26,7 +26,7 @@ let LoginForm = props => {
           component={RenderField}
         />
       </div>
-      <Button label="Login" type="submit" style="primary" />
+      <Button label="Login" type="submit" variant="primary" />
     </form>
   );
 };

@@ -6,17 +6,19 @@ import styles from './Card.scss';
 
 class Card extends Component {
   static propTypes = {
-    style: PropTypes.oneOf(['light', 'dark'])
+    children: PropTypes.node,
+    variant: PropTypes.oneOf(['light', 'dark'])
   };
 
   static defaultProps = {
-    style: 'light'
+    children: null,
+    variant: 'light'
   };
 
   render() {
-    const { style } = this.props;
+    const { variant } = this.props;
 
-    return <div styleName={`card-${style}`}>{this.props.children}</div>;
+    return <div styleName={`card-${variant}`}>{this.props.children}</div>;
   }
 }
 

@@ -8,9 +8,10 @@ class LeagueList extends Component {
   renderLeagues() {
     const { user } = this.props;
     const teams = user.teams || [];
+
     return teams.map((team, i) => {
       return (
-        <li key={i}>
+        <li key={team._id}>
           <LinkCard path={`/league/${team.league._id}`}>
             <p>{team.league.name}</p>
             <p>{team.name}</p>

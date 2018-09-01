@@ -18,7 +18,7 @@ class LogoutButton extends Component {
     return (
       <Button
         type="button"
-        style="primary-inverse"
+        variant="primary-inverse"
         label="logout"
         onClick={this.handleClick}
       />

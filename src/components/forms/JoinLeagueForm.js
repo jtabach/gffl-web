@@ -25,7 +25,7 @@ let JoinLeague = props => {
           component={RenderField}
         />
       </div>
-      <Button label="Join League" type="submit" style="primary" />
+      <Button label="Join League" type="submit" variant="primary" />
     </form>
   );
 };

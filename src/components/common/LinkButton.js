@@ -9,7 +9,7 @@ class LinkButton extends Component {
     destination: PropTypes.oneOf(['internal', 'external']),
     path: PropTypes.string.isRequired,
     isNewTab: PropTypes.bool,
-    style: PropTypes.oneOf([
+    variant: PropTypes.oneOf([
       'primary',
       'secondary',
       'secondary-inverse',
@@ -25,23 +25,30 @@ class LinkButton extends Component {
   static defaultProps = {
     destination: 'internal',
     isNewTab: false,
-    style: 'primary',
+    variant: 'primary',
     label: '',
     children: null
   };
 
   render() {
-    const { destination, path, isNewTab, style, label, children } = this.props;
+    const {
+      destination,
+      path,
+      isNewTab,
+      variant,
+      label,
+      children
+    } = this.props;
 
     if (destination == 'external') {
       return (
-        <a href={path} styleName={style} target={isNewTab ? '_blank' : null}>
+        <a href={path} styleName={variant} target={isNewTab ? '_blank' : null}>
           {label || children}
         </a>
       );
     } else {
       return (
-        <Link to={path} styleName={style}>
+        <Link to={path} styleName={variant}>
           {label || children}
         </Link>
       );
