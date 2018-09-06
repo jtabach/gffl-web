@@ -25,11 +25,7 @@
 
 .logo {
   @include vertical-align;
-  text-align: center;
-  @include media($screen-sm) {
-    float: left;
-    margin-left: $base-spacing;
-  }
+  float: left;
   a {
     color: $white;
   }

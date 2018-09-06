@@ -1,5 +1,6 @@
 import {
   REGISTER_USER_COMPLETED,
+  REGISTER_USER_FAILED,
   LOGIN_USER_COMPLETED,
   LOGOUT_USER_COMPLETED,
   FETCH_USER_COMPLETED,
@@ -19,11 +20,16 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  //if (action.error) return state;
-
   switch (action.type) {
     case REGISTER_USER_COMPLETED:
       state = action.payload.data.user;
+      break;
+
+    case REGISTER_USER_FAILED:
+      state = {
+        ...initialState,
+        _id: false
+      };
       break;
 
     case LOGIN_USER_COMPLETED:

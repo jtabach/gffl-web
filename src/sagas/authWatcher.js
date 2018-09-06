@@ -8,6 +8,7 @@ import {
   FETCH_USER_FAILED,
   REGISTER_USER,
   REGISTER_USER_COMPLETED,
+  REGISTER_USER_FAILED,
   LOGOUT_USER,
   LOGOUT_USER_COMPLETED
 } from '../types/auth';
@@ -36,7 +37,7 @@ function* registerUserRequest(action) {
     yield put({ type: REGISTER_USER_COMPLETED, payload: { data: response } });
   } else {
     // invoke some other action
-    console.log('handle failed register');
+    yield put({ type: REGISTER_USER_FAILED, payload: { data: response } });
   }
 }
 
