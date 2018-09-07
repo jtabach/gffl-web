@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
 import styles from './CreateLeague.scss';
 
-import CreateLeagueForm from '../../forms/CreateLeagueForm';
-import Card from '../../common/Card';
+import CreateLeagueForm from '../forms/CreateLeagueForm';
+import Card from '../common/Card';
 
-import { createLeague } from '../../../actions/league';
+import { createLeague } from '../../actions/league';
 
 class CreateLeague extends Component {
   handleSubmit = values => {

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
-import DemoWorker from '../demos/DemoWorker';
-import DemoAuth from '../demos/DemoAuth';
-import NavLayout from '../layouts/NavLayout';
+import DemoWorker from './demos/DemoWorker';
+import DemoAuth from './demos/DemoAuth';
+import NavLayout from './layouts/NavLayout';
 
-import { fetchUser } from '../../actions/auth';
+import { fetchUser } from '../actions/auth';
 
 class App extends Component {
   componentDidMount() {

@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
-import NavLayout from '../../layouts/NavLayout';
+import NavLayout from '../layouts/NavLayout';
 import Routes from './Routes';
 import LeagueList from './LeagueList';
 import LeagueButtons from './LeagueButtons';
@@ -11,7 +11,7 @@ import Friends from './Friends';
 
 import styles from './index.scss';
 
-import { fetchUser } from '../../../actions/auth';
+import { fetchUser } from '../../actions/auth';
 
 class App extends Component {
   componentDidMount() {

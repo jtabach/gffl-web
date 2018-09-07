@@ -15,7 +15,7 @@ function* createLeagueRequest(action) {
     action.payload
   );
   // TODO: some conditional to show league created successfully
-  if (true) {
+  if (response.team) {
     yield put({ type: CREATE_LEAGUE_COMPLETED, payload: { data: response } });
   } else {
     // invoke some other action
@@ -30,7 +30,7 @@ function* joinLeagueRequest(action) {
     action.payload
   );
   // TODO: some conditional to show league was joined successfully
-  if (true) {
+  if (response.team) {
     yield put({ type: JOIN_LEAGUE_COMPLETED, payload: { data: response } });
   } else {
     // invoke some other action

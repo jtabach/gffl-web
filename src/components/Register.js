@@ -3,9 +3,9 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
 
-import RegisterForm from '../forms/RegisterForm';
+import RegisterForm from './forms/RegisterForm';
 
-import { registerUser } from '../../actions/auth';
+import { registerUser } from '../actions/auth';
 
 class Register extends Component {
   handleSubmit = values => {

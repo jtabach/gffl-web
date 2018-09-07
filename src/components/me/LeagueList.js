@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Card from '../../common/Card';
-import LinkCard from '../../common/LinkCard';
+import Card from '../common/Card';
+import LinkCard from '../common/LinkCard';
 
 class LeagueList extends Component {
   renderLeagues() {

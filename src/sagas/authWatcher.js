@@ -56,10 +56,7 @@ function* logoutUserRequest(action) {
 }
 
 function* fetchUserRequest(action) {
-  const response = yield call(
-    getRequest,
-    'http://localhost:5000/api/auth/user'
-  );
+  const response = yield call(getRequest, 'http://localhost:5000/api/user');
 
   if (response.user) {
     yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
