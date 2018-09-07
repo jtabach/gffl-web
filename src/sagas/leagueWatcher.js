@@ -1,12 +1,27 @@
 import { put, takeLatest, all, call } from 'redux-saga/effects';
-import { postRequest } from './helpers/request';
+import { getRequest, postRequest } from './helpers/request';
 
 import {
+  FETCH_LEAGUE,
+  FETCH_LEAGUE_COMPLETED,
   CREATE_LEAGUE,
   CREATE_LEAGUE_COMPLETED,
   JOIN_LEAGUE,
   JOIN_LEAGUE_COMPLETED
 } from '../types/league';
+
+function* fetchLeagueRequest(action) {
+  const response = yield call(
+    getRequest,
+    'http://localhost:5000/api/league',
+    aciton.payload
+  );
+  if (response.league) {
+    yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
+  } else {
+    console.log('handle failed to fetch league');
+  }
+}
 
 function* createLeagueRequest(action) {
   const response = yield call(
@@ -39,6 +54,7 @@ function* joinLeagueRequest(action) {
 }
 
 export function* leagueWatcher() {
+  yield takeLatest(FETCH_LEAGUE, fetchLeagueRequest);
   yield takeLatest(CREATE_LEAGUE, createLeagueRequest);
   yield takeLatest(JOIN_LEAGUE, joinLeagueRequest);
 }

@@ -3,9 +3,11 @@ import { reducer as formReducer } from 'redux-form';
 
 import demoReducer from './demo';
 import userReducer from './user';
+import leagueReducer from './league';
 
 export default combineReducers({
   demo: demoReducer,
   form: formReducer,
-  user: userReducer
+  user: userReducer,
+  league: leagueReducer
 });
