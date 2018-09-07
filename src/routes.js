@@ -19,7 +19,7 @@ export default (
     <Route exact path="/login" component={withAuth(Login)} />
     <Route exact path="/register" component={withAuth(Register)} />
     <Route path="/me" component={withoutAuth(Me)} />
-    <Route path="/league/:id" component={League} />
+    <Route path="/league/:leagueId" component={League} />
     <Route path="/typography" component={Typography} />
   </Switch>
 );

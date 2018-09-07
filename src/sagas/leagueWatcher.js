@@ -11,13 +11,13 @@ import {
 } from '../types/league';
 
 function* fetchLeagueRequest(action) {
+  const leagueId = action.payload;
   const response = yield call(
     getRequest,
-    'http://localhost:5000/api/league',
-    aciton.payload
+    `http://localhost:5000/api/league/${leagueId}`
   );
   if (response.league) {
-    yield put({ type: FETCH_USER_COMPLETED, payload: { data: response } });
+    yield put({ type: FETCH_LEAGUE_COMPLETED, payload: { data: response } });
   } else {
     console.log('handle failed to fetch league');
   }

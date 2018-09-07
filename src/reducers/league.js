@@ -1,4 +1,4 @@
-import { FETCH_LEAGUE_COMPLETED } from '../types/auth';
+import { FETCH_LEAGUE_COMPLETED } from '../types/league';
 
 const initialState = {
   _id: null,
@@ -14,5 +14,6 @@ export default (state = initialState, action) => {
       state = action.payload.data.league;
       break;
   }
+
   return state;
 };
