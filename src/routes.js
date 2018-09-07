@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import App from './components/App';
 import Me from './components/me';
+import League from './components/league';
 import CreateLeague from './components/me/CreateLeague';
 
 import Typography from './components/demos/Typography';
@@ -18,6 +19,7 @@ export default (
     <Route exact path="/login" component={withAuth(Login)} />
     <Route exact path="/register" component={withAuth(Register)} />
     <Route path="/me" component={withoutAuth(Me)} />
+    <Route path="/league/:id" component={League} />
     <Route path="/typography" component={Typography} />
   </Switch>
 );
