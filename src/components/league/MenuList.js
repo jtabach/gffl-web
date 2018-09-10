@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import MenuItem from './MenuItem';
+
 class MenuList extends Component {
   renderMenuItems() {
-    const { league } = this.props;
+    const { match } = this.props;
 
-    return this.props.league.teams.map(team => {
-      return (
-        <li key={team._id}>
-          <p>{team.name}</p>
-        </li>
-      );
+    const menuItems = [
+      { name: 'TimeLine', path: '' },
+      { name: 'My Team', path: '/myteam' },
+      { name: 'Members', path: '/members' },
+      { name: 'League Info', path: '/leagueinfo' }
+    ];
+
+    return menuItems.map((item, i) => {
+      return <MenuItem item={item} match={match} key={i} />;
     });
   }
 
