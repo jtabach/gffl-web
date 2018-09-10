@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import MenuItem from './MenuItem';
 
 class MenuList extends Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      url: PropTypes.string.isRequired
+    }).isRequired
+  };
+
   renderMenuItems() {
     const { match } = this.props;
 

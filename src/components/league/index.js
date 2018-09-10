@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import styles from './index.scss';
 
@@ -13,15 +14,32 @@ import { fetchLeague } from '../../actions/league';
 import { fetchUser } from '../../actions/auth';
 
 class League extends Component {
+  static propTypes = {
+    league: PropTypes.shape({
+      admin: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      _id: PropTypes.string.isRequired,
+      posts: PropTypes.array,
+      teams: PropTypes.array.isRequired
+    })
+  };
+
+  static defaultProps = {
+    league: {
+      admin: ''
+    }
+  };
+
   componentDidMount() {
     const { leagueId } = this.props.match.params;
+
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
   }
 
   render() {
     const { match, league, user } = this.props;
-
+    console.log(league);
     return (
       <div>
         {/* TODO: fix conditional - causes multiple renders */}
