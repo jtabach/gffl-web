@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { fetchLeague, clearLeague } from '../actions/league';
 import { fetchTeam, clearTeam } from '../actions/team';
@@ -9,6 +10,14 @@ import { fetchUser } from '../actions/auth';
 import LeagueComponent from '../components/league';
 
 class League extends Component {
+  static propTypes = {
+    fetchUser: PropTypes.func.isRequired,
+    fetchLeague: PropTypes.func.isRequired,
+    fetchTeam: PropTypes.func.isRequired,
+    clearLeague: PropTypes.func.isRequired,
+    clearTeam: PropTypes.func.isRequired
+  };
+
   componentDidMount() {
     const { leagueId } = this.props.match.params;
 
@@ -20,7 +29,6 @@ class League extends Component {
   componentWillUnmount() {
     // clears redux store for team and league data
     // so no flash in data when switching leagues
-    console.log('unmounting');
     this.props.clearLeague();
     this.props.clearTeam();
   }
@@ -30,7 +38,7 @@ class League extends Component {
 
     return (
       <div>
-        {league._id && user._id ? (
+        {league._id && user._id && team._id ? (
           <LeagueComponent league={league} user={user} match={match} />
         ) : (
           <div>loading...</div>
