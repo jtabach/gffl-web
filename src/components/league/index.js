@@ -13,6 +13,7 @@ class League extends Component {
   static propTypes = {
     league: CustomPropTypes.league.isRequired,
     user: CustomPropTypes.user.isRequired,
+    team: CustomPropTypes.team.isRequired,
     match: PropTypes.shape({
       url: PropTypes.string.isRequired
     }).isRequired

@@ -28,9 +28,17 @@ const user = PropTypes.shape({
   teams: PropTypes.arrayOf(teamInUser).isRequired
 });
 
+const team = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired
+});
+
 export default {
   league,
   user,
+  team,
   teamInLeague,
   teamInUser
 };

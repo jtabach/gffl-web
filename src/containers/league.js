@@ -39,7 +39,12 @@ class League extends Component {
     return (
       <div>
         {league._id && user._id && team._id ? (
-          <LeagueComponent league={league} user={user} match={match} />
+          <LeagueComponent
+            league={league}
+            user={user}
+            team={team}
+            match={match}
+          />
         ) : (
           <div>loading...</div>
         )}

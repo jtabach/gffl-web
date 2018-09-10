@@ -9,13 +9,11 @@ import {
 } from '../types/team';
 
 function* fetchTeamRequest(action) {
-  console.log(action);
   const leagueId = action.payload;
   const response = yield call(
     getRequest,
     `http://localhost:5000/api/team/${leagueId}`
   );
-  console.log(response);
   if (response.team) {
     yield put({ type: FETCH_TEAM_COMPLETED, payload: { data: response } });
   } else {
