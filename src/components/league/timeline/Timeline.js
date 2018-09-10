@@ -11,11 +11,36 @@ class Timeline extends Component {
     user: CustomPropTypes.user.isRequired
   };
 
+  state = {
+    postText: ''
+  };
+
+  constructor(props) {
+    super(props);
+    this.handlePostInputChange = this.handlePostInputChange.bind(this);
+    this.handlePostInputSubmit = this.handlePostInputSubmit.bind(this);
+  }
+
+  handlePostInputChange(text) {
+    this.setState({
+      postText: text
+    });
+  }
+
+  handlePostInputSubmit(text) {
+    console.log(text);
+    // dispatch action
+  }
+
   render() {
     return (
       <div>
         <h3>This is the Timeline</h3>
-        <PostField />
+        <PostField
+          onPostInputChange={this.handlePostInputChange}
+          onPostInputSubmit={this.handlePostInputSubmit}
+          text={this.state.postText}
+        />
       </div>
     );
   }
