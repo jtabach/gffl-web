@@ -4,7 +4,8 @@
   "description": "gffl - group fantasy football league social media platform",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --config ./webpack/webpack.dev.config.js"
+    "dev": "webpack-dev-server --hot --config ./webpack/webpack.dev.config.js",
+    "start": "webpack-dev-server --config ./webpack/webpack.dev.config.js"
   },
   "author": "Jeff Tabachnick",
   "license": "ISC",
