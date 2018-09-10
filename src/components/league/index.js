@@ -6,7 +6,7 @@ import styles from './index.scss';
 
 import NavLayout from '../layouts/NavLayout';
 import LeagueRoutes from './LeagueRoutes';
-import LeagueMenu from './LeagueMenu';
+import LeagueMenu from './menu/LeagueMenu';
 import LeagueFeed from './LeagueFeed';
 
 class League extends Component {

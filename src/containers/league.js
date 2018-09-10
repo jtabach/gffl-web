@@ -13,6 +13,7 @@ class League extends Component {
 
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
+    // this.props.fetchTeam(leagueId);
   }
 
   render() {
