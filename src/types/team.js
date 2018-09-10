@@ -1,0 +1,2 @@
+export const FETCH_TEAM = 'FETCH_TEAM';
+export const FETCH_TEAM_COMPLETED = 'FETCH_TEAM_COMPLETED';

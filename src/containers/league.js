@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
 import { fetchLeague } from '../actions/league';
+import { fetchTeam } from '../actions/team';
 import { fetchUser } from '../actions/auth';
 
 import LeagueComponent from '../components/league';
@@ -13,11 +14,11 @@ class League extends Component {
 
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
-    // this.props.fetchTeam(leagueId);
+    this.props.fetchTeam(leagueId);
   }
 
   render() {
-    const { match, league, user } = this.props;
+    const { match, league, user, team } = this.props;
 
     return (
       <div>
@@ -31,10 +32,10 @@ class League extends Component {
   }
 }
 
-function mapStateToProps({ league, user }) {
-  return { league, user };
+function mapStateToProps({ league, user, team }) {
+  return { league, user, team };
 }
 
 export default hot(module)(
-  connect(mapStateToProps, { fetchLeague, fetchUser })(League)
+  connect(mapStateToProps, { fetchLeague, fetchUser, fetchTeam })(League)
 );
