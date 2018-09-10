@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
-import { fetchLeague } from '../actions/league';
-import { fetchTeam } from '../actions/team';
+import { fetchLeague, clearLeague } from '../actions/league';
+import { fetchTeam, clearTeam } from '../actions/team';
 import { fetchUser } from '../actions/auth';
 
 import LeagueComponent from '../components/league';
@@ -15,6 +15,14 @@ class League extends Component {
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
     this.props.fetchTeam(leagueId);
+  }
+
+  componentWillUnmount() {
+    // clears redux store for team and league data
+    // so no flash in data when switching leagues
+    console.log('unmounting');
+    this.props.clearLeague();
+    this.props.clearTeam();
   }
 
   render() {
@@ -37,5 +45,11 @@ function mapStateToProps({ league, user, team }) {
 }
 
 export default hot(module)(
-  connect(mapStateToProps, { fetchLeague, fetchUser, fetchTeam })(League)
+  connect(mapStateToProps, {
+    fetchLeague,
+    fetchUser,
+    fetchTeam,
+    clearLeague,
+    clearTeam
+  })(League)
 );

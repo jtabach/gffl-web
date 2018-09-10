@@ -4,6 +4,8 @@ import { getRequest, postRequest } from './helpers/request';
 import {
   FETCH_LEAGUE,
   FETCH_LEAGUE_COMPLETED,
+  CLEAR_LEAGUE,
+  CLEAR_LEAGUE_COMPLETED,
   CREATE_LEAGUE,
   CREATE_LEAGUE_COMPLETED,
   JOIN_LEAGUE,
@@ -21,6 +23,10 @@ function* fetchLeagueRequest(action) {
   } else {
     console.log('handle failed to fetch league');
   }
+}
+
+function* clearLeagueRequest(action) {
+  yield put({ type: CLEAR_LEAGUE_COMPLETED, payload: { data: {} } });
 }
 
 function* createLeagueRequest(action) {
@@ -55,6 +61,7 @@ function* joinLeagueRequest(action) {
 
 export function* leagueWatcher() {
   yield takeLatest(FETCH_LEAGUE, fetchLeagueRequest);
+  yield takeLatest(CLEAR_LEAGUE, clearLeagueRequest);
   yield takeLatest(CREATE_LEAGUE, createLeagueRequest);
   yield takeLatest(JOIN_LEAGUE, joinLeagueRequest);
 }

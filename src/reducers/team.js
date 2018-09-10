@@ -1,4 +1,4 @@
-import { FETCH_TEAM_COMPLETED } from '../types/team';
+import { FETCH_TEAM_COMPLETED, CLEAR_TEAM_COMPLETED } from '../types/team';
 
 const initialState = {
   _id: null,
@@ -11,6 +11,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TEAM_COMPLETED:
       state = action.payload.data.team;
+      break;
+
+    case CLEAR_TEAM_COMPLETED:
+      state = initialState;
       break;
   }
 

@@ -1,8 +1,18 @@
-import { FETCH_LEAGUE, CREATE_LEAGUE, JOIN_LEAGUE } from '../types/league';
+import {
+  FETCH_LEAGUE,
+  CLEAR_LEAGUE,
+  CREATE_LEAGUE,
+  JOIN_LEAGUE
+} from '../types/league';
 
 export const fetchLeague = leagueId => ({
   type: FETCH_LEAGUE,
   payload: leagueId
+});
+
+export const clearLeague = () => ({
+  type: CLEAR_LEAGUE,
+  payload: {}
 });
 
 export const createLeague = formData => ({
