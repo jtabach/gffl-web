@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 
+import PostItem from './PostItem';
+
 class PostList extends Component {
   static propTypes = {
     league: CustomPropTypes.league.isRequired
@@ -11,12 +13,7 @@ class PostList extends Component {
     const { posts } = this.props.league;
 
     return posts.map(post => {
-      return (
-        <li key={post._id}>
-          <h5>{post.team.name}</h5>
-          <p>{post.text}</p>
-        </li>
-      );
+      return <PostItem key={post._id} post={post} />;
     });
   }
 

@@ -22,6 +22,8 @@ const postInLeague = PropTypes.shape({
   team: PropTypes.object.isRequired
 });
 
+// const teamInPost =
+
 const league = PropTypes.shape({
   admin: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -42,6 +44,8 @@ const team = PropTypes.shape({
   league: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired
 });
+
+// const post = PropTypes.
 
 export default {
   league,
