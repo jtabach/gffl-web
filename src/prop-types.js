@@ -14,11 +14,19 @@ const teamInUser = PropTypes.shape({
   league: PropTypes.object.isRequired
 });
 
+const postInLeague = PropTypes.shape({
+  date: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired,
+  team: PropTypes.object.isRequired
+});
+
 const league = PropTypes.shape({
   admin: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
-  posts: PropTypes.array,
+  posts: PropTypes.arrayOf(postInLeague).isRequired,
   teams: PropTypes.arrayOf(teamInLeague).isRequired
 });
 
