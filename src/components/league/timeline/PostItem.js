@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CustomPropTypes from '../../../prop-types';
 
 class PostItem extends Component {
-  // static propTypes = {
-  //   post: CustomPropTypes.post.isRequired
-  // };
+  static propTypes = {
+    post: CustomPropTypes.post.isRequired
+  };
 
   render() {
     const { post } = this.props;

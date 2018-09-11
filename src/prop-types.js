@@ -22,7 +22,12 @@ const postInLeague = PropTypes.shape({
   team: PropTypes.object.isRequired
 });
 
-// const teamInPost =
+const teamInPost = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired
+});
 
 const league = PropTypes.shape({
   admin: PropTypes.string.isRequired,
@@ -45,12 +50,17 @@ const team = PropTypes.shape({
   user: PropTypes.string.isRequired
 });
 
-// const post = PropTypes.
+const post = PropTypes.shape({
+  text: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired,
+  team: teamInPost.isRequired
+});
 
 export default {
   league,
   user,
   team,
-  teamInLeague,
-  teamInUser
+  post
 };
