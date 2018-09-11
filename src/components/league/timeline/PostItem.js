@@ -6,6 +6,8 @@ import CustomPropTypes from '../../../prop-types';
 import Button from '../../common/Button';
 import CommentField from './CommentField';
 
+import { createComment } from '../../../actions/comment';
+
 class PostItem extends Component {
   static propTypes = {
     league: CustomPropTypes.league.isRequired, // from redux
@@ -30,14 +32,14 @@ class PostItem extends Component {
   }
 
   handleCommentInputSubmit(text) {
-    const { league, team, post } = this.props;
+    const { league, team, post, createComment } = this.props;
     const commentData = {
       text,
       leagueId: league._id,
       teamId: team._id,
       postId: post._id
     };
-    // createComment(commentData);
+    createComment(commentData);
     // TODO: should only reset on successful comment
     this.setState({
       commentText: ''
@@ -71,4 +73,4 @@ function mapStateToProps({ league, team }) {
   return { league, team };
 }
 
-export default connect(mapStateToProps)(PostItem);
+export default connect(mapStateToProps, { createComment })(PostItem);

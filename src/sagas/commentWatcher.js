@@ -4,6 +4,7 @@ import { getRequest, postRequest } from './helpers/request';
 import { CREATE_COMMENT, CREATE_COMMENT_COMPLETED } from '../types/comment';
 
 function* createCommenttRequest(action) {
+  console.log('commenting');
   const response = yield call(
     postRequest,
     'http://localhost:5000/api/comment',
