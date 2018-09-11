@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 
 import Button from '../../common/Button';
+import CommentList from './CommentList';
 import CommentField from './CommentField';
 
 import { createComment } from '../../../actions/comment';
@@ -47,12 +48,13 @@ class PostItem extends Component {
   }
 
   render() {
-    const { post } = this.props;
+    const { post, league } = this.props;
 
     return (
       <li>
         <h5>{post.team.name}</h5>
         <p>{post.text}</p>
+        <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
           onCommentInputSubmit={this.handleCommentInputSubmit}
