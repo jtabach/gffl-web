@@ -3,6 +3,8 @@ import {
   CLEAR_LEAGUE_COMPLETED
 } from '../types/league';
 
+import { CREATE_POST_COMPLETED } from '../types/post';
+
 const initialState = {
   _id: null,
   name: null,
@@ -19,6 +21,13 @@ export default (state = initialState, action) => {
 
     case CLEAR_LEAGUE_COMPLETED:
       state = initialState;
+      break;
+
+    case CREATE_POST_COMPLETED:
+      state = {
+        ...state,
+        posts: state.posts.concat([action.payload.data.post])
+      };
       break;
   }
 

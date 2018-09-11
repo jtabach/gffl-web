@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import { connect } from 'react-redux';
 
+import { createPost } from '../../../actions/post';
+
 import PostField from './PostField';
 
 class Timeline extends Component {
   static propTypes = {
     league: CustomPropTypes.league.isRequired,
-    user: CustomPropTypes.user.isRequired
+    team: CustomPropTypes.team.isRequired,
+    user: CustomPropTypes.user.isRequired,
+    createPost: PropTypes.func.isRequired
   };
 
   state = {
@@ -28,8 +32,13 @@ class Timeline extends Component {
   }
 
   handlePostInputSubmit(text) {
-    console.log(text);
-    // dispatch action
+    const { league, team, createPost } = this.props;
+    const postData = {
+      text,
+      leagueId: league._id,
+      teamId: team._id
+    };
+    createPost(postData);
   }
 
   render() {
@@ -46,8 +55,8 @@ class Timeline extends Component {
   }
 }
 
-function mapStateToProps({ league, user }) {
-  return { league, user };
+function mapStateToProps({ league, team, user }) {
+  return { league, team, user };
 }
 
-export default connect(mapStateToProps)(Timeline);
+export default connect(mapStateToProps, { createPost })(Timeline);
