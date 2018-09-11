@@ -10,7 +10,6 @@ function* createPostRequest(action) {
     action.payload
   );
   if (response.post) {
-    console.log(response.post);
     yield put({ type: CREATE_POST_COMPLETED, payload: { data: response } });
   } else {
     console.log('handle failed to create post');

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { createPost } from '../../../actions/post';
 
 import PostField from './PostField';
+import PostList from './PostList';
 
 class Timeline extends Component {
   static propTypes = {
@@ -39,9 +40,15 @@ class Timeline extends Component {
       teamId: team._id
     };
     createPost(postData);
+    // TODO: should only reset on successful post
+    this.setState({
+      postText: ''
+    });
   }
 
   render() {
+    const { league } = this.props;
+
     return (
       <div>
         <h3>This is the Timeline</h3>
@@ -50,6 +57,7 @@ class Timeline extends Component {
           onPostInputSubmit={this.handlePostInputSubmit}
           text={this.state.postText}
         />
+        <PostList league={league} />
       </div>
     );
   }
