@@ -29,6 +29,22 @@ const teamInPost = PropTypes.shape({
   league: PropTypes.string.isRequired
 });
 
+const teamInComment = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired
+});
+
+const commentInPost = PropTypes.shape({
+  text: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired,
+  post: PropTypes.string.isRequired,
+  team: teamInComment.isRequired
+});
+
 const league = PropTypes.shape({
   admin: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -55,12 +71,23 @@ const post = PropTypes.shape({
   _id: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   league: PropTypes.string.isRequired,
-  team: teamInPost.isRequired
+  team: teamInPost.isRequired,
+  comments: PropTypes.arrayOf(commentInPost).isRequired
+});
+
+const comment = PropTypes.shape({
+  text: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired,
+  post: PropTypes.string.isRequired,
+  team: teamInComment.isRequired
 });
 
 export default {
   league,
   user,
   team,
-  post
+  post,
+  comment
 };

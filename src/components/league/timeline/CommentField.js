@@ -4,11 +4,11 @@ import Textarea from 'react-textarea-autosize';
 import Button from '../../common/Button';
 
 class CommentField extends Component {
-  // static propTypes = {
-  //   onPostInputChange: PropTypes.func.isRequired,
-  //   onPostInputSubmit: PropTypes.func.isRequired,
-  //   text: PropTypes.string.isRequired
-  // };
+  static propTypes = {
+    onCommentInputChange: PropTypes.func.isRequired,
+    onCommentInputSubmit: PropTypes.func.isRequired,
+    text: PropTypes.string.isRequired
+  };
 
   render() {
     const { onCommentInputChange, onCommentInputSubmit } = this.props;
