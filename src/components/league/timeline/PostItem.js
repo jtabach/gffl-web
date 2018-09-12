@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import styles from './PostItem.scss';
 
-import Button from '../../common/Button';
 import CommentList from './CommentList';
 import CommentField from './CommentField';
+import PostDeleteButton from './PostDeleteButton';
 
 import { createComment } from '../../../actions/comment';
 
@@ -49,6 +49,19 @@ class PostItem extends Component {
     });
   }
 
+  handlePostDelete() {
+    console.log('deleting');
+  }
+
+  renderPostDeleteButton() {
+    const { team, post } = this.props;
+    if (post.team._id === team._id) {
+      return <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />;
+    } else {
+      return null;
+    }
+  }
+
   render() {
     const { post, league } = this.props;
 
@@ -56,18 +69,13 @@ class PostItem extends Component {
       <li styleName="post-item">
         <h5>{post.team.name}</h5>
         <p>{post.text}</p>
+        {this.renderPostDeleteButton()}
         <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
           onCommentInputSubmit={this.handleCommentInputSubmit}
           text={this.state.commentText}
         />
-        {/* <Button
-          type="button"
-          variant="primary"
-          label="like"
-          onClick={() => console.log('like')}
-        /> */}
       </li>
     );
   }
