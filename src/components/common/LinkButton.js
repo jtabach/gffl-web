@@ -16,7 +16,9 @@ class LinkButton extends Component {
       'outline',
       'primary-inverse',
       'green',
-      'green-inverse'
+      'green-inverse',
+      'red',
+      'red-inverse'
     ]),
     size: PropTypes.oneOf(['large', 'small']),
     label: PropTypes.string,

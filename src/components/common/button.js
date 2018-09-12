@@ -14,7 +14,9 @@ class Button extends Component {
       'outline',
       'primary-inverse',
       'green',
-      'green-inverse'
+      'green-inverse',
+      'red',
+      'red-inverse'
     ]),
     size: PropTypes.oneOf(['large', 'small']),
     onClick: PropTypes.func,

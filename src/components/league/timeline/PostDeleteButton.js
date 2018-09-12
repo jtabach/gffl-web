@@ -14,7 +14,7 @@ class PostDeleteButton extends Component {
     return (
       <Button
         type="button"
-        variant="green"
+        variant="red"
         size="small"
         onClick={onHandlePostDelete}
         label="delete"

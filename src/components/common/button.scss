@@ -71,6 +71,18 @@
   @include button-variant($green, $white);
 }
 
+.red {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($white, $red-gffl);
+}
+
+.red-inverse {
+  @extend %button;
+  @extend %button-shadow;
+  @include button-variant($red-gffl, $white);
+}
+
 // TODO: refactor to not use mutiple clases for button
 .large {
   height: $button-height;
