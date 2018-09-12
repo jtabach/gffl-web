@@ -55,8 +55,7 @@ class PostItem extends Component {
 
   handlePostDelete() {
     const { deletePost, post } = this.props;
-
-    deletePost(post._id);
+    deletePost(post);
   }
 
   renderPostDeleteButton() {

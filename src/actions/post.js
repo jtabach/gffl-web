@@ -5,7 +5,7 @@ export const createPost = postData => ({
   payload: postData
 });
 
-export const deletePost = postId => ({
+export const deletePost = postData => ({
   type: DELETE_POST,
-  payload: postId
+  payload: postData
 });

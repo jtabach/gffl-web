@@ -3,7 +3,7 @@ import {
   CLEAR_LEAGUE_COMPLETED
 } from '../types/league';
 
-import { CREATE_POST_COMPLETED } from '../types/post';
+import { CREATE_POST_COMPLETED, DELETE_POST_COMPLETED } from '../types/post';
 import { CREATE_COMMENT_COMPLETED } from '../types/comment';
 
 const initialState = {
@@ -28,6 +28,15 @@ export default (state = initialState, action) => {
       state = {
         ...state,
         posts: state.posts.concat([action.payload.data.post])
+      };
+      break;
+
+    case DELETE_POST_COMPLETED:
+      state = {
+        ...state,
+        posts: state.posts.filter(post => {
+          return post._id != action.payload.data.post._id;
+        })
       };
       break;
 
