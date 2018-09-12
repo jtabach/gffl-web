@@ -18,6 +18,7 @@ class LinkButton extends Component {
       'green',
       'green-inverse'
     ]),
+    size: PropTypes.oneOf(['large', 'small']),
     label: PropTypes.string,
     children: PropTypes.node
   };
@@ -26,6 +27,7 @@ class LinkButton extends Component {
     destination: 'internal',
     isNewTab: false,
     variant: 'primary',
+    size: 'large',
     label: '',
     children: null
   };
@@ -36,19 +38,24 @@ class LinkButton extends Component {
       path,
       isNewTab,
       variant,
+      size,
       label,
       children
     } = this.props;
 
     if (destination == 'external') {
       return (
-        <a href={path} styleName={variant} target={isNewTab ? '_blank' : null}>
+        <a
+          href={path}
+          styleName={variant + ' ' + size}
+          target={isNewTab ? '_blank' : null}
+        >
           {label || children}
         </a>
       );
     } else {
       return (
-        <Link to={path} styleName={variant}>
+        <Link to={path} styleName={variant + ' ' + size}>
           {label || children}
         </Link>
       );
@@ -56,4 +63,4 @@ class LinkButton extends Component {
   }
 }
 
-export default CSSModules(LinkButton, styles);
+export default CSSModules(LinkButton, styles, { allowMultiple: true });

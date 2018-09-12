@@ -12,20 +12,15 @@
   vertical-align: top;
   text-decoration: none;
   vertical-align: middle;
-  height: $button-height;
   padding: $button-padding;
   text-transform: uppercase;
   font-size: $base-font-size;
   font-weight: $font-semibold;
   font-size: $button-font-size;
-  line-height: $button-line-height;
   -webkit-font-smoothing: antialiased;
   border-radius: $button-border-radius;
   letter-spacing: $button-letter-spacing;
   transition: all $base-duration $base-timing;
-  max-width: $button-size-reg;
-  min-width: $button-size-sm;
-  width: 100%;
 }
 
 %button-shadow {
@@ -74,4 +69,19 @@
   @extend %button;
   @extend %button-shadow;
   @include button-variant($green, $white);
+}
+
+// TODO: refactor to not use mutiple clases for button
+.large {
+  height: $button-height;
+  line-height: $button-line-height;
+  max-width: $button-size-reg;
+  min-width: $button-size-sm;
+  width: 100%;
+}
+
+// TODO: create variables for small buttons
+.small {
+  height: 32px;
+  padding: 0 20px;
 }

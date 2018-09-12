@@ -29,7 +29,12 @@ let CreateLeagueForm = props => {
         />
       </div>
       <div styleName="button">
-        <Button label="Create League" type="submit" variant="primary" />
+        <Button
+          label="Create League"
+          type="submit"
+          size="large"
+          variant="primary"
+        />
       </div>
     </form>
   );

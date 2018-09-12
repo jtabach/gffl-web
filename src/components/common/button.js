@@ -16,6 +16,7 @@ class Button extends Component {
       'green',
       'green-inverse'
     ]),
+    size: PropTypes.oneOf(['large', 'small']),
     onClick: PropTypes.func,
     label: PropTypes.string,
     children: PropTypes.node
@@ -24,16 +25,18 @@ class Button extends Component {
   static defaultProps: {
     type: 'button',
     variant: 'primary',
+    size: 'large',
     label: '',
     children: null
   };
 
   render() {
-    const { type, variant, onClick, label, children } = this.props;
+    const { type, variant, size, onClick, label, children } = this.props;
+    console.log(size);
     return (
       <button
         type={type}
-        styleName={variant}
+        styleName={variant + ' ' + size}
         onClick={type == 'submit' ? () => _.noop() : onClick}
       >
         {label || children}
@@ -42,4 +45,4 @@ class Button extends Component {
   }
 }
 
-export default CSSModules(Button, styles);
+export default CSSModules(Button, styles, { allowMultiple: true });

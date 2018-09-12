@@ -28,6 +28,7 @@ class PostField extends Component {
         <Button
           type="button"
           variant="primary"
+          size="small"
           label="post"
           onClick={() => onPostInputSubmit(this.textarea.value)}
         />

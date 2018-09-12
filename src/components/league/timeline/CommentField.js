@@ -28,6 +28,7 @@ class CommentField extends Component {
         <Button
           type="button"
           variant="primary"
+          size="small"
           label="comment"
           onClick={() => onCommentInputSubmit(this.textarea.value)}
         />

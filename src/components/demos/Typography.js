@@ -15,42 +15,49 @@ export default class Typography extends Component {
         <Button
           type="button"
           style="primary"
+          size="large"
           label="primary button"
           onClick={() => null}
         />
         <Button
           type="button"
           style="primary-inverse"
+          size="large"
           label="primary inverse"
           onClick={() => null}
         />
         <Button
           type="button"
           style="secondary"
+          size="large"
           label="secondary button"
           onClick={() => null}
         />
         <Button
           type="button"
           style="secondary-inverse"
+          size="large"
           label="secondary inverse"
           onClick={() => null}
         />
         <Button
           type="button"
           style="outline"
+          size="large"
           label="outline button"
           onClick={() => null}
         />
         <Button
           type="button"
           style="green"
+          size="large"
           label="green button"
           onClick={() => null}
         />
         <Button
           type="button"
           style="green-inverse"
+          size="large"
           label="green inverse"
           onClick={() => null}
         />

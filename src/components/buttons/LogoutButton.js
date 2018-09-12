@@ -19,6 +19,7 @@ class LogoutButton extends Component {
       <Button
         type="button"
         variant="primary-inverse"
+        size="large"
         label="logout"
         onClick={this.handleClick}
       />

@@ -22,6 +22,7 @@ class LeagueButtons extends Component {
               path={`${match.url}/joinLeague`}
               label="Join League"
               variant="primary-inverse"
+              size="large"
             />
           </div>
           <div styleName="button">
@@ -29,6 +30,7 @@ class LeagueButtons extends Component {
               path={`${match.url}/createLeague`}
               label="Create League"
               variant="green"
+              size="large"
             />
           </div>
         </div>

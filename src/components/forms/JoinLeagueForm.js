@@ -25,7 +25,12 @@ let JoinLeague = props => {
           component={RenderField}
         />
       </div>
-      <Button label="Join League" type="submit" variant="primary" />
+      <Button
+        label="Join League"
+        type="submit"
+        size="large"
+        variant="primary"
+      />
     </form>
   );
 };
