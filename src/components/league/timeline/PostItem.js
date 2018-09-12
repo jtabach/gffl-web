@@ -12,7 +12,7 @@ import PostEditButton from './PostEditButton';
 import PostEditModal from './PostEditModal';
 
 import { createComment } from '../../../actions/comment';
-import { deletePost } from '../../../actions/post';
+import { deletePost, editPost } from '../../../actions/post';
 
 class PostItem extends Component {
   static propTypes = {
@@ -20,12 +20,12 @@ class PostItem extends Component {
     team: CustomPropTypes.team.isRequired, // from redux
     post: CustomPropTypes.post.isRequired,
     createComment: PropTypes.func.isRequired,
-    deletePost: PropTypes.func.isRequired
+    deletePost: PropTypes.func.isRequired,
+    editPost: PropTypes.func.isRequired
   };
 
   state = {
     commentText: '',
-    postText: this.props.post.text,
     isPostEditModalOpen: false,
     postEditTextChanged: this.props.post.text
   };
@@ -76,23 +76,28 @@ class PostItem extends Component {
   handlePostEditModalClose() {
     this.setState({
       isPostEditModalOpen: false,
-      postEditTextChanged: this.state.postText
+      postEditTextChanged: this.props.post.text
     });
   }
 
   handlePostEditInputChange(text) {
-    console.log(text);
     this.setState({
       postEditTextChanged: text
     });
   }
 
   handlePostEditInputSubmit(text) {
+    // dispatch action for editing post
+    const post = {
+      ...this.props.post,
+      text
+    };
+
     this.setState({
-      postText: this.state.postEditTextChanged,
       isPostEditModalOpen: false
     });
-    console.log(text);
+
+    this.props.editPost(post);
   }
 
   // TODO: refactor with renderPostEditButton (duplicate logic)
@@ -138,7 +143,7 @@ class PostItem extends Component {
     return (
       <li styleName="post-item">
         <h5>{post.team.name}</h5>
-        <p>{this.state.postText}</p>
+        <p>{post.text}</p>
         {this.renderPostDeleteButton()}
         {this.renderPostEditButton()}
         {this.renderPostEditModal()}
@@ -157,6 +162,8 @@ function mapStateToProps({ league, team }) {
   return { league, team };
 }
 
-export default connect(mapStateToProps, { createComment, deletePost })(
-  CSSModules(PostItem, styles)
-);
+export default connect(mapStateToProps, {
+  createComment,
+  deletePost,
+  editPost
+})(CSSModules(PostItem, styles));

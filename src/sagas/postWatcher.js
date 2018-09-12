@@ -5,7 +5,9 @@ import {
   CREATE_POST,
   CREATE_POST_COMPLETED,
   DELETE_POST,
-  DELETE_POST_COMPLETED
+  DELETE_POST_COMPLETED,
+  EDIT_POST,
+  EDIT_POST_COMPLETED
 } from '../types/post';
 
 function* createPostRequest(action) {
@@ -34,7 +36,21 @@ function* deletePostRequest(action) {
   }
 }
 
+function* editPostRequest(action) {
+  const response = yield call(
+    postRequest,
+    'http://localhost:5000/api/post/edit',
+    action.payload
+  );
+  if (response.post) {
+    yield put({ type: EDIT_POST_COMPLETED, payload: { data: response } });
+  } else {
+    console.log('handle failed to edit post');
+  }
+}
+
 export function* postWatcher() {
   yield takeLatest(CREATE_POST, createPostRequest);
   yield takeLatest(DELETE_POST, deletePostRequest);
+  yield takeLatest(EDIT_POST, editPostRequest);
 }
