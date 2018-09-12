@@ -10,12 +10,15 @@ import CommentField from './CommentField';
 import PostDeleteButton from './PostDeleteButton';
 
 import { createComment } from '../../../actions/comment';
+import { deletePost } from '../../../actions/post';
 
 class PostItem extends Component {
   static propTypes = {
     league: CustomPropTypes.league.isRequired, // from redux
     team: CustomPropTypes.team.isRequired, // from redux
-    post: CustomPropTypes.post.isRequired
+    post: CustomPropTypes.post.isRequired,
+    createComment: PropTypes.func.isRequired,
+    deletePost: PropTypes.func.isRequired
   };
 
   state = {
@@ -26,6 +29,7 @@ class PostItem extends Component {
     super(props);
     this.handleCommentInputChange = this.handleCommentInputChange.bind(this);
     this.handleCommentInputSubmit = this.handleCommentInputSubmit.bind(this);
+    this.handlePostDelete = this.handlePostDelete.bind(this);
   }
 
   handleCommentInputChange(text) {
@@ -50,7 +54,9 @@ class PostItem extends Component {
   }
 
   handlePostDelete() {
-    console.log('deleting');
+    const { deletePost, post } = this.props;
+
+    deletePost(post._id);
   }
 
   renderPostDeleteButton() {
@@ -85,6 +91,6 @@ function mapStateToProps({ league, team }) {
   return { league, team };
 }
 
-export default connect(mapStateToProps, { createComment })(
+export default connect(mapStateToProps, { createComment, deletePost })(
   CSSModules(PostItem, styles)
 );
