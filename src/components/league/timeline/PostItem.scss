@@ -6,4 +6,9 @@
   border-radius: 4px;
   border: 1px solid $gray-light;
   margin-bottom: $base-spacing;
+  > p {
+    padding-bottom: $small-spacing;
+    border-bottom: 1px solid $gray-light;
+    margin-bottom: $small-spacing;
+  }
 }

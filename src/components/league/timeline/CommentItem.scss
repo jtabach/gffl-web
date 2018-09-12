@@ -1,0 +1,12 @@
+@import '../../../assets/styles/helpers/variables';
+
+.comment-item {
+  background: $gray-lightest;
+  padding: $small-spacing;
+  margin-bottom: $small-spacing;
+  border-radius: 16px;
+}
+
+.team-name {
+  color: $blue-gffl;
+}

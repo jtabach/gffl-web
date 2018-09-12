@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
+import styles from './CommentField.scss';
+
 import Textarea from 'react-textarea-autosize';
 import Button from '../../common/Button';
 
@@ -14,7 +17,7 @@ class CommentField extends Component {
     const { onCommentInputChange, onCommentInputSubmit } = this.props;
 
     return (
-      <div>
+      <div styleName="comment-field">
         <Textarea
           inputRef={tag => (this.textarea = tag)}
           type="text"
@@ -33,4 +36,4 @@ class CommentField extends Component {
   }
 }
 
-export default CommentField;
+export default CSSModules(CommentField, styles);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
+import styles from './CommentList.scss';
 
 import CommentItem from './CommentItem';
 
@@ -18,8 +20,8 @@ class CommentList extends Component {
   }
 
   render() {
-    return <ul>{this.renderComments()}</ul>;
+    return <ul styleName="comment-list">{this.renderComments()}</ul>;
   }
 }
 
-export default CommentList;
+export default CSSModules(CommentList, styles);

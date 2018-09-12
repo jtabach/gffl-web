@@ -13,7 +13,7 @@ body {
 }
 
 p {
-  @include margin-bottom-base(1,1);
+  @include margin-bottom-base(0,0);
   @include type-settings(16,14);
   color: $base-font-color;
   font-weight: $font-regular;
