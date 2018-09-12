@@ -8,6 +8,7 @@ import styles from './PostItem.scss';
 import CommentList from './CommentList';
 import CommentField from './CommentField';
 import PostDeleteButton from './PostDeleteButton';
+import PostEditButton from './PostEditButton';
 
 import { createComment } from '../../../actions/comment';
 import { deletePost } from '../../../actions/post';
@@ -30,6 +31,7 @@ class PostItem extends Component {
     this.handleCommentInputChange = this.handleCommentInputChange.bind(this);
     this.handleCommentInputSubmit = this.handleCommentInputSubmit.bind(this);
     this.handlePostDelete = this.handlePostDelete.bind(this);
+    this.handlePostEdit = this.handlePostEdit.bind(this);
   }
 
   handleCommentInputChange(text) {
@@ -58,10 +60,24 @@ class PostItem extends Component {
     deletePost(post);
   }
 
+  handlePostEdit() {
+    console.log('editing');
+  }
+
+  // TODO: refactor with renderPostEditButton (duplicate logic)
   renderPostDeleteButton() {
     const { team, post } = this.props;
     if (post.team._id === team._id) {
       return <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />;
+    } else {
+      return null;
+    }
+  }
+
+  renderPostEditButton() {
+    const { team, post } = this.props;
+    if (post.team._id === team._id) {
+      return <PostEditButton onHandlePostEdit={this.handlePostEdit} />;
     } else {
       return null;
     }
@@ -75,6 +91,7 @@ class PostItem extends Component {
         <h5>{post.team.name}</h5>
         <p>{post.text}</p>
         {this.renderPostDeleteButton()}
+        {this.renderPostEditButton()}
         <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
