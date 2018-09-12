@@ -20,7 +20,7 @@ class PostList extends Component {
   render() {
     return (
       <div>
-        <h5>List of posts</h5>
+        <h6>Recent Activity</h6>
         <ul>{this.renderPosts()}</ul>
       </div>
     );

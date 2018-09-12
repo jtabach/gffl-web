@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
+import styles from './PostItem.scss';
 
 import Button from '../../common/Button';
 import CommentList from './CommentList';
@@ -51,7 +53,7 @@ class PostItem extends Component {
     const { post, league } = this.props;
 
     return (
-      <li>
+      <li styleName="post-item">
         <h5>{post.team.name}</h5>
         <p>{post.text}</p>
         <CommentList post={post} />
@@ -75,4 +77,6 @@ function mapStateToProps({ league, team }) {
   return { league, team };
 }
 
-export default connect(mapStateToProps, { createComment })(PostItem);
+export default connect(mapStateToProps, { createComment })(
+  CSSModules(PostItem, styles)
+);
