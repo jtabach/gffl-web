@@ -12,7 +12,7 @@ class PostList extends Component {
   renderPosts() {
     const { posts } = this.props.league;
 
-    return posts.map(post => {
+    return [...posts].reverse().map(post => {
       return <PostItem key={post._id} post={post} />;
     });
   }
