@@ -48,7 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-  @include margin-bottom-base(1,1);
+  @include margin-bottom-base(0,0);
   color: $heading-font-color;
   -webkit-font-smoothing: antialiased;
 }

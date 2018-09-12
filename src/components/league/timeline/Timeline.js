@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import { connect } from 'react-redux';
+import styles from './Timeline.scss';
 
 import { createPost } from '../../../actions/post';
 
@@ -51,7 +53,6 @@ class Timeline extends Component {
 
     return (
       <div>
-        <h3>This is the Timeline</h3>
         <PostField
           onPostInputChange={this.handlePostInputChange}
           onPostInputSubmit={this.handlePostInputSubmit}
@@ -67,4 +68,6 @@ function mapStateToProps({ league, team, user }) {
   return { league, team, user };
 }
 
-export default connect(mapStateToProps, { createPost })(Timeline);
+export default connect(mapStateToProps, { createPost })(
+  CSSModules(Timeline, styles)
+);

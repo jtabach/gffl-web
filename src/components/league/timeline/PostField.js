@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
+import styles from './PostField.scss';
+
 import Textarea from 'react-textarea-autosize';
 import Button from '../../common/Button';
 
@@ -14,7 +17,7 @@ class PostField extends Component {
     const { onPostInputChange, onPostInputSubmit } = this.props;
 
     return (
-      <div>
+      <div styleName="post-field">
         <Textarea
           inputRef={tag => (this.textarea = tag)}
           type="text"
@@ -33,4 +36,4 @@ class PostField extends Component {
   }
 }
 
-export default PostField;
+export default CSSModules(PostField, styles);

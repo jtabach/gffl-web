@@ -1,0 +1,24 @@
+@import '../../../assets/styles/app';
+
+.post-field {
+  background: $white;
+  padding: $small-spacing;
+  height: 100%;
+  border-radius: $button-border-radius;
+  border: 1px solid $gray-light;
+
+  textarea {
+    margin-bottom: $small-spacing;
+    padding-bottom: $base-spacing;
+    border: none;
+    border-bottom: 1px solid $gray-light;
+    box-shadow: none;
+    resize: none;
+  }
+
+  button {
+    // acts as a float right
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
