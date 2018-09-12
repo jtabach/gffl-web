@@ -5,18 +5,18 @@ import Button from '../../common/Button';
 
 class PostEditButton extends Component {
   static propTypes = {
-    onHandlePostEdit: PropTypes.func.isRequired
+    onHandlePostEditClick: PropTypes.func.isRequired
   };
 
   render() {
-    const { onHandlePostEdit } = this.props;
+    const { onHandlePostEditClick } = this.props;
 
     return (
       <Button
         type="button"
         variant="green"
         size="small"
-        onClick={onHandlePostEdit}
+        onClick={onHandlePostEditClick}
         label="edit"
       />
     );

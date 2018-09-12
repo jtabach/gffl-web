@@ -25,7 +25,8 @@ class PostItem extends Component {
 
   state = {
     commentText: '',
-    isPostEditModalOpen: false
+    isPostEditModalOpen: false,
+    postEditText: this.props.post.text
   };
 
   constructor(props) {
@@ -33,8 +34,10 @@ class PostItem extends Component {
     this.handleCommentInputChange = this.handleCommentInputChange.bind(this);
     this.handleCommentInputSubmit = this.handleCommentInputSubmit.bind(this);
     this.handlePostDelete = this.handlePostDelete.bind(this);
-    this.handlePostEdit = this.handlePostEdit.bind(this);
+    this.handlePostEditClick = this.handlePostEditClick.bind(this);
     this.handlePostEditModalClose = this.handlePostEditModalClose.bind(this);
+    this.handlePostEditInputChange = this.handlePostEditInputChange.bind(this);
+    this.handlePostEditInputSubmit = this.handlePostEditInputSubmit.bind(this);
   }
 
   handleCommentInputChange(text) {
@@ -63,7 +66,7 @@ class PostItem extends Component {
     deletePost(post);
   }
 
-  handlePostEdit() {
+  handlePostEditClick() {
     this.setState({
       isPostEditModalOpen: true
     });
@@ -73,6 +76,17 @@ class PostItem extends Component {
     this.setState({
       isPostEditModalOpen: false
     });
+  }
+
+  handlePostEditInputChange(text) {
+    console.log(text);
+    this.setState({
+      postEditText: text
+    });
+  }
+
+  handlePostEditInputSubmit(text) {
+    console.log(text);
   }
 
   // TODO: refactor with renderPostEditButton (duplicate logic)
@@ -88,10 +102,26 @@ class PostItem extends Component {
   renderPostEditButton() {
     const { team, post } = this.props;
     if (post.team._id === team._id) {
-      return <PostEditButton onHandlePostEdit={this.handlePostEdit} />;
+      return (
+        <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
+      );
     } else {
       return null;
     }
+  }
+
+  renderPostEditModal() {
+    const { post } = this.props;
+
+    return (
+      <PostEditModal
+        post={post}
+        isOpen={this.state.isPostEditModalOpen}
+        onHandleClose={this.handlePostEditModalClose}
+        onPostEditInputChange={this.handlePostEditInputChange}
+        text={this.state.postEditText}
+      />
+    );
   }
 
   render() {
@@ -104,11 +134,7 @@ class PostItem extends Component {
         <p>{post.text}</p>
         {this.renderPostDeleteButton()}
         {this.renderPostEditButton()}
-        <PostEditModal
-          post={post}
-          isOpen={isPostEditModalOpen}
-          handleClose={this.handlePostEditModalClose}
-        />
+        {this.renderPostEditModal()}
         <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
