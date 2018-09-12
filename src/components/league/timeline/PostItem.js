@@ -25,8 +25,9 @@ class PostItem extends Component {
 
   state = {
     commentText: '',
+    postText: this.props.post.text,
     isPostEditModalOpen: false,
-    postEditText: this.props.post.text
+    postEditTextChanged: this.props.post.text
   };
 
   constructor(props) {
@@ -74,18 +75,23 @@ class PostItem extends Component {
 
   handlePostEditModalClose() {
     this.setState({
-      isPostEditModalOpen: false
+      isPostEditModalOpen: false,
+      postEditTextChanged: this.state.postText
     });
   }
 
   handlePostEditInputChange(text) {
     console.log(text);
     this.setState({
-      postEditText: text
+      postEditTextChanged: text
     });
   }
 
   handlePostEditInputSubmit(text) {
+    this.setState({
+      postText: this.state.postEditTextChanged,
+      isPostEditModalOpen: false
+    });
     console.log(text);
   }
 
@@ -119,7 +125,8 @@ class PostItem extends Component {
         isOpen={this.state.isPostEditModalOpen}
         onHandleClose={this.handlePostEditModalClose}
         onPostEditInputChange={this.handlePostEditInputChange}
-        text={this.state.postEditText}
+        onPostEditInputSubmit={this.handlePostEditInputSubmit}
+        text={this.state.postEditTextChanged}
       />
     );
   }
@@ -131,7 +138,7 @@ class PostItem extends Component {
     return (
       <li styleName="post-item">
         <h5>{post.team.name}</h5>
-        <p>{post.text}</p>
+        <p>{this.state.postText}</p>
         {this.renderPostDeleteButton()}
         {this.renderPostEditButton()}
         {this.renderPostEditModal()}

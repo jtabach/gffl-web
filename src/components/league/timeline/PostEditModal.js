@@ -14,24 +14,46 @@ class PostEditModal extends Component {
     isOpen: PropTypes.bool.isRequired,
     onHandleClose: PropTypes.func.isRequired,
     onPostEditInputChange: PropTypes.func.isRequired,
+    onPostEditInputSubmit: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired
   };
 
-  // static defaultProps = {
-  //   isOpen: false
-  // };
+  static defaultProps = {
+    isOpen: false
+  };
 
   render() {
-    const { post, isOpen, onHandleClose, onHandleAfterOpen } = this.props;
+    const {
+      post,
+      isOpen,
+      onHandleClose,
+      onPostEditInputChange,
+      onPostEditInputSubmit,
+      text
+    } = this.props;
 
     return (
       <Modal isOpen={isOpen} onRequestClose={onHandleClose}>
         <Textarea
           inputRef={tag => (this.textarea = tag)}
-          type="editModalText"
+          type="text"
           placeholder="Say Something!"
-          value={this.props.text}
+          value={text}
           onChange={() => onPostEditInputChange(this.textarea.value)}
+        />
+        <Button
+          type="button"
+          variant="primary"
+          size="small"
+          label="post"
+          onClick={() => onPostEditInputSubmit(this.textarea.value)}
+        />
+        <Button
+          type="button"
+          variant="red"
+          size="small"
+          label="cancel"
+          onClick={onHandleClose}
         />
       </Modal>
     );
