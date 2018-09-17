@@ -7,6 +7,7 @@ import styles from './PostItem.scss';
 
 import CommentList from './CommentList';
 import CommentField from './CommentField';
+import PostLikeButton from './PostLikeButton';
 import PostDeleteButton from './PostDeleteButton';
 import PostEditButton from './PostEditButton';
 import PostEditModal from './PostEditModal';
@@ -34,11 +35,15 @@ class PostItem extends Component {
     super(props);
     this.handleCommentInputChange = this.handleCommentInputChange.bind(this);
     this.handleCommentInputSubmit = this.handleCommentInputSubmit.bind(this);
+
     this.handlePostDelete = this.handlePostDelete.bind(this);
+
     this.handlePostEditClick = this.handlePostEditClick.bind(this);
     this.handlePostEditModalClose = this.handlePostEditModalClose.bind(this);
     this.handlePostEditInputChange = this.handlePostEditInputChange.bind(this);
     this.handlePostEditInputSubmit = this.handlePostEditInputSubmit.bind(this);
+
+    this.handleLikeClick = this.handleLikeClick.bind(this);
   }
 
   handleCommentInputChange(text) {
@@ -100,6 +105,10 @@ class PostItem extends Component {
     this.props.editPost(post);
   }
 
+  handleLikeClick() {
+    console.log('like clicked');
+  }
+
   // TODO: refactor with renderPostEditButton (duplicate logic)
   renderPostDeleteButton() {
     const { team, post } = this.props;
@@ -144,6 +153,7 @@ class PostItem extends Component {
       <li styleName="post-item">
         <h5>{post.team.name}</h5>
         <p>{post.text}</p>
+        <PostLikeButton />
         {this.renderPostDeleteButton()}
         {this.renderPostEditButton()}
         {this.renderPostEditModal()}
