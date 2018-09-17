@@ -4,6 +4,7 @@ import { leagueWatcher } from './leagueWatcher';
 import { teamWatcher } from './teamWatcher';
 import { postWatcher } from './postWatcher';
 import { commentWatcher } from './commentWatcher';
+import { likeWatcher } from './likeWatcher';
 
 export default function* rootSaga() {
   yield all([
@@ -11,6 +12,7 @@ export default function* rootSaga() {
     leagueWatcher(),
     teamWatcher(),
     postWatcher(),
-    commentWatcher()
+    commentWatcher(),
+    likeWatcher()
   ]);
 }

@@ -4,12 +4,14 @@ import Button from '../../common/Button';
 
 class PostLikeButton extends Component {
   render() {
+    const { onHandleLikeClick } = this.props;
+
     return (
       <Button
         type="button"
         variant="primary"
         size="small"
-        onClick={() => console.log('click')}
+        onClick={onHandleLikeClick}
         label="like"
       />
     );

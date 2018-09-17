@@ -12,8 +12,9 @@ import PostDeleteButton from './PostDeleteButton';
 import PostEditButton from './PostEditButton';
 import PostEditModal from './PostEditModal';
 
-import { createComment } from '../../../actions/comment';
 import { deletePost, editPost } from '../../../actions/post';
+import { createComment } from '../../../actions/comment';
+import { likePost } from '../../../actions/like';
 
 class PostItem extends Component {
   static propTypes = {
@@ -22,7 +23,8 @@ class PostItem extends Component {
     post: CustomPropTypes.post.isRequired,
     createComment: PropTypes.func.isRequired,
     deletePost: PropTypes.func.isRequired,
-    editPost: PropTypes.func.isRequired
+    editPost: PropTypes.func.isRequired,
+    likePost: PropTypes.func.isRequired
   };
 
   state = {
@@ -105,8 +107,17 @@ class PostItem extends Component {
     this.props.editPost(post);
   }
 
-  handleLikeClick() {
-    console.log('like clicked');
+  handleLikeClick(like) {
+    const { league, team, post, likePost } = this.props;
+    const likeData = {
+      leagueId: league._id,
+      teamId: team._id,
+      postId: post._id
+    };
+
+    console.log(likeData);
+
+    likePost(likeData);
   }
 
   // TODO: refactor with renderPostEditButton (duplicate logic)
@@ -153,7 +164,7 @@ class PostItem extends Component {
       <li styleName="post-item">
         <h5>{post.team.name}</h5>
         <p>{post.text}</p>
-        <PostLikeButton />
+        <PostLikeButton onHandleLikeClick={this.handleLikeClick} />
         {this.renderPostDeleteButton()}
         {this.renderPostEditButton()}
         {this.renderPostEditModal()}
@@ -175,5 +186,6 @@ function mapStateToProps({ league, team }) {
 export default connect(mapStateToProps, {
   createComment,
   deletePost,
-  editPost
+  editPost,
+  likePost
 })(CSSModules(PostItem, styles));

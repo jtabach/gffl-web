@@ -1,0 +1,2 @@
+export const LIKE_POST = 'LIKE_POST';
+export const LIKE_POST_COMPLETED = 'LIKE_POST_COMPLETED';
