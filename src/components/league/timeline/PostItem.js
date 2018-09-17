@@ -14,7 +14,7 @@ import PostEditModal from './PostEditModal';
 
 import { deletePost, editPost } from '../../../actions/post';
 import { createComment } from '../../../actions/comment';
-import { likePost } from '../../../actions/like';
+import { likePost, deleteLikePost } from '../../../actions/like';
 
 class PostItem extends Component {
   static propTypes = {
@@ -108,14 +108,18 @@ class PostItem extends Component {
   }
 
   onHandleLikeToggle(likeStr) {
-    const { league, team, post, likePost, unlikePoat } = this.props;
+    const { league, team, post, likePost, deleteLikePost } = this.props;
     const likeData = {
       leagueId: league._id,
       teamId: team._id,
       postId: post._id
     };
 
-    likeStr ? likePost(likeData) : unlikePost(likeData);
+    if (likeStr === 'like') {
+      likePost(likeData);
+    } else {
+      deleteLikePost(likeData);
+    }
   }
 
   // TODO: refactor with renderPostEditButton (duplicate logic)
@@ -200,5 +204,6 @@ export default connect(mapStateToProps, {
   createComment,
   deletePost,
   editPost,
-  likePost
+  likePost,
+  deleteLikePost
 })(CSSModules(PostItem, styles));
