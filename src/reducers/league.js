@@ -11,6 +11,7 @@ import {
 } from '../types/post';
 
 import { CREATE_COMMENT_COMPLETED } from '../types/comment';
+import { LIKE_POST_COMPLETED } from '../types/like';
 
 const initialState = {
   _id: null,
@@ -69,6 +70,18 @@ export default (state = initialState, action) => {
       });
       state = { ...state, posts: postArray };
       break;
+
+    case LIKE_POST_COMPLETED:
+      const postArrayWithLikes = state.posts.map(post => {
+        if (post._id != action.payload.data.like.post) {
+          return post;
+        }
+        return {
+          ...post,
+          likes: post.likes.concat(action.payload.data.like)
+        };
+      });
+      state = { ...state, posts: postArrayWithLikes };
   }
 
   return state;
