@@ -45,7 +45,7 @@ class PostItem extends Component {
     this.handlePostEditInputChange = this.handlePostEditInputChange.bind(this);
     this.handlePostEditInputSubmit = this.handlePostEditInputSubmit.bind(this);
 
-    this.handleLikeClick = this.handleLikeClick.bind(this);
+    this.onHandleLikeToggle = this.onHandleLikeToggle.bind(this);
   }
 
   handleCommentInputChange(text) {
@@ -107,17 +107,15 @@ class PostItem extends Component {
     this.props.editPost(post);
   }
 
-  handleLikeClick(like) {
-    const { league, team, post, likePost } = this.props;
+  onHandleLikeToggle(likeStr) {
+    const { league, team, post, likePost, unlikePoat } = this.props;
     const likeData = {
       leagueId: league._id,
       teamId: team._id,
       postId: post._id
     };
 
-    console.log(likeData);
-
-    likePost(likeData);
+    likeStr ? likePost(likeData) : unlikePost(likeData);
   }
 
   // TODO: refactor with renderPostEditButton (duplicate logic)
@@ -156,6 +154,21 @@ class PostItem extends Component {
     );
   }
 
+  renderPostLikeButton() {
+    const { post, team } = this.props;
+
+    const hasPostBeenLikedByTeam = post.likes.some(like => {
+      return like.team.id == team.id;
+    });
+
+    return (
+      <PostLikeButton
+        onHandleLikeToggle={this.onHandleLikeToggle}
+        isLiked={hasPostBeenLikedByTeam}
+      />
+    );
+  }
+
   render() {
     const { post, league } = this.props;
     const { isPostEditModalOpen } = this.state;
@@ -164,7 +177,7 @@ class PostItem extends Component {
       <li styleName="post-item">
         <h5>{post.team.name}</h5>
         <p>{post.text}</p>
-        <PostLikeButton onHandleLikeClick={this.handleLikeClick} />
+        {this.renderPostLikeButton()}
         {this.renderPostDeleteButton()}
         {this.renderPostEditButton()}
         {this.renderPostEditModal()}

@@ -5,19 +5,23 @@ import Button from '../../common/Button';
 
 class PostLikeButton extends Component {
   static propTypes = {
-    onHandleLikeClick: PropTypes.func.isRequired
+    isLiked: PropTypes.bool.isRequired,
+    onHandleLikeToggle: PropTypes.func.isRequired
   };
 
+  // TODO: this is a mess (consider seperate component for unliking)
   render() {
-    const { onHandleLikeClick } = this.props;
+    const { isLiked, onHandleLikeToggle } = this.props;
+
+    const likeStr = !isLiked ? 'like' : 'unlike';
 
     return (
       <Button
         type="button"
-        variant="primary"
+        variant={!isLiked ? 'primary' : 'secondary'}
         size="small"
-        onClick={onHandleLikeClick}
-        label="like"
+        onClick={() => onHandleLikeToggle(likeStr)}
+        label={likeStr}
       />
     );
   }
