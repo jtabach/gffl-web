@@ -11,7 +11,7 @@ import {
 } from '../types/post';
 
 import { CREATE_COMMENT_COMPLETED } from '../types/comment';
-import { LIKE_POST_COMPLETED } from '../types/like';
+import { LIKE_POST_COMPLETED, DELETE_LIKE_POST_COMPLETED } from '../types/like';
 
 const initialState = {
   _id: null,
@@ -82,6 +82,22 @@ export default (state = initialState, action) => {
         };
       });
       state = { ...state, posts: postArrayWithLikes };
+      break;
+
+    case DELETE_LIKE_POST_COMPLETED:
+      const postArrayWithDeletedLikes = state.posts.map(post => {
+        if (post._id != action.payload.data.like.post) {
+          return post;
+        }
+        return {
+          ...post,
+          likes: post.likes.filter(like => {
+            return like._id != action.payload.data.like._id;
+          })
+        };
+      });
+      state = { ...state, posts: postArrayWithDeletedLikes };
+      break;
   }
 
   return state;

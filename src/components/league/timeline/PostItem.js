@@ -71,6 +71,7 @@ class PostItem extends Component {
 
   handlePostDelete() {
     const { deletePost, post } = this.props;
+
     deletePost(post);
   }
 
@@ -107,6 +108,7 @@ class PostItem extends Component {
     this.props.editPost(post);
   }
 
+  // TODO: break into seperate functions
   onHandleLikeToggle(likeStr) {
     const { league, team, post, likePost, deleteLikePost } = this.props;
     const likeData = {
@@ -118,6 +120,10 @@ class PostItem extends Component {
     if (likeStr === 'like') {
       likePost(likeData);
     } else {
+      likeData._id = post.likes.find(like => {
+        return like.team.id == team.id;
+      })._id;
+
       deleteLikePost(likeData);
     }
   }
