@@ -37,6 +37,8 @@ class PostItem extends Component {
     super(props);
     this.handleCommentInputChange = this.handleCommentInputChange.bind(this);
     this.handleCommentInputSubmit = this.handleCommentInputSubmit.bind(this);
+    this.commentInputRef = React.createRef();
+    this.focusCommentInput = this.focusCommentInput.bind(this);
 
     this.handlePostDelete = this.handlePostDelete.bind(this);
 
@@ -67,6 +69,10 @@ class PostItem extends Component {
     this.setState({
       commentText: ''
     });
+  }
+
+  focusCommentInput() {
+    this.commentInputRef.current.textarea.focus();
   }
 
   handlePostDelete() {
@@ -187,11 +193,16 @@ class PostItem extends Component {
           <div>comments: {post.comments.length}</div>
         </div>
         <div styleName="post-item__spacer" />
-        {this.renderPostLikeButton()}
+        <div styleName="post-item__reaction">
+          {this.renderPostLikeButton()}
+          <div onClick={this.focusCommentInput}>CommentHere</div>
+        </div>
+        <div styleName="post-item__spacer" />
         <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
           onCommentInputSubmit={this.handleCommentInputSubmit}
+          ref={this.commentInputRef}
           text={this.state.commentText}
         />
       </li>
