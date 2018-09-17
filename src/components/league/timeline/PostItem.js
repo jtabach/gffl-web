@@ -181,6 +181,12 @@ class PostItem extends Component {
             {this.renderPostActions()}
           </div>
         </div>
+        <div styleName="post-item__spacer" />
+        <div styleName="post-item__summary">
+          <div>likes: {post.likes.length}</div>
+          <div>comments: {post.comments.length}</div>
+        </div>
+        <div styleName="post-item__spacer" />
         {this.renderPostLikeButton()}
         <CommentList post={post} />
         <CommentField

@@ -12,6 +12,11 @@
     margin-bottom: $small-spacing;
   }
 
+  &__spacer {
+    margin: $small-spacing 0;
+    border: 1px solid $gray-lightest;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -22,5 +27,11 @@
     &--actions {
       color: blue;
     }
+  }
+
+  &__summary {
+    display: flex;
+    justify-content: space-between;
+    color: $gray;
   }
 }
