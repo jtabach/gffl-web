@@ -205,7 +205,7 @@ class PostItem extends Component {
     const { post, team } = this.props;
 
     const hasPostBeenLikedByTeam = post.likes.some(like => {
-      return like.team.id == team.id;
+      return like.team._id == team._id;
     });
 
     return (
