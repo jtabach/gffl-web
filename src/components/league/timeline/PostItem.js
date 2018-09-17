@@ -12,6 +12,8 @@ import PostDeleteButton from './PostDeleteButton';
 import PostEditButton from './PostEditButton';
 import PostEditModal from './PostEditModal';
 
+import threeDots from '../../../images/three-dots.png';
+
 import { deletePost, editPost } from '../../../actions/post';
 import { createComment } from '../../../actions/comment';
 import { likePost, deleteLikePost } from '../../../actions/like';
@@ -140,16 +142,17 @@ class PostItem extends Component {
     if (post.team._id === team._id) {
       return (
         <div>
-          <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
-          <PostEditModal
+          {/* <PostEditButton onHandlePostEditClick={this.handlePostEditClick} /> */}
+          {/* <PostEditModal
             post={post}
             isOpen={this.state.isPostEditModalOpen}
             onHandleClose={this.handlePostEditModalClose}
             onPostEditInputChange={this.handlePostEditInputChange}
             onPostEditInputSubmit={this.handlePostEditInputSubmit}
             text={this.state.postEditTextChanged}
-          />
-          <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />
+          /> */}
+          <img src={threeDots} alt="" styleName="dots" />
+          {/* <PostDeleteButton onHandlePostDelete={this.handlePostDelete} /> */}
         </div>
       );
     } else {
