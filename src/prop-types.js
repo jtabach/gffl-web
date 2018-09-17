@@ -22,6 +22,7 @@ const postInLeague = PropTypes.shape({
   team: PropTypes.object.isRequired
 });
 
+// TODO: duplicate of teamInComment and teamInLike
 const teamInPost = PropTypes.shape({
   name: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
@@ -36,6 +37,14 @@ const teamInComment = PropTypes.shape({
   league: PropTypes.string.isRequired
 });
 
+const teamInLike = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired
+});
+
+// TODO: duplicate of comment
 const commentInPost = PropTypes.shape({
   text: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
@@ -43,6 +52,15 @@ const commentInPost = PropTypes.shape({
   league: PropTypes.string.isRequired,
   post: PropTypes.string.isRequired,
   team: teamInComment.isRequired
+});
+
+// TODO: duplicate of like
+const likeInPost = PropTypes.shape({
+  _id: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired,
+  post: PropTypes.string.isRequired,
+  team: teamInLike.isRequired
 });
 
 const league = PropTypes.shape({
@@ -72,7 +90,8 @@ const post = PropTypes.shape({
   date: PropTypes.string.isRequired,
   league: PropTypes.string.isRequired,
   team: teamInPost.isRequired,
-  comments: PropTypes.arrayOf(commentInPost).isRequired
+  comments: PropTypes.arrayOf(commentInPost).isRequired,
+  likes: PropTypes.arrayOf(likeInPost).isRequired
 });
 
 const comment = PropTypes.shape({
@@ -84,10 +103,19 @@ const comment = PropTypes.shape({
   team: teamInComment.isRequired
 });
 
+const like = PropTypes.shape({
+  _id: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  league: PropTypes.string.isRequired,
+  post: PropTypes.string.isRequired,
+  team: teamInLike.isRequired
+});
+
 export default {
   league,
   user,
   team,
   post,
-  comment
+  comment,
+  like
 };
