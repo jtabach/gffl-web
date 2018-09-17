@@ -128,40 +128,27 @@ class PostItem extends Component {
     }
   }
 
-  // TODO: refactor with renderPostEditButton (duplicate logic)
-  renderPostDeleteButton() {
+  renderPostActions() {
     const { team, post } = this.props;
-    if (post.team._id === team._id) {
-      return <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />;
-    } else {
-      return null;
-    }
-  }
 
-  renderPostEditButton() {
-    const { team, post } = this.props;
     if (post.team._id === team._id) {
       return (
-        <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
+        <div>
+          <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
+          <PostEditModal
+            post={post}
+            isOpen={this.state.isPostEditModalOpen}
+            onHandleClose={this.handlePostEditModalClose}
+            onPostEditInputChange={this.handlePostEditInputChange}
+            onPostEditInputSubmit={this.handlePostEditInputSubmit}
+            text={this.state.postEditTextChanged}
+          />
+          <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />
+        </div>
       );
     } else {
       return null;
     }
-  }
-
-  renderPostEditModal() {
-    const { post } = this.props;
-
-    return (
-      <PostEditModal
-        post={post}
-        isOpen={this.state.isPostEditModalOpen}
-        onHandleClose={this.handlePostEditModalClose}
-        onPostEditInputChange={this.handlePostEditInputChange}
-        onPostEditInputSubmit={this.handlePostEditInputSubmit}
-        text={this.state.postEditTextChanged}
-      />
-    );
   }
 
   renderPostLikeButton() {
@@ -185,12 +172,16 @@ class PostItem extends Component {
 
     return (
       <li styleName="post-item">
-        <h5>{post.team.name}</h5>
-        <p>{post.text}</p>
+        <div styleName="post-item__header">
+          <div styleName="post-item__header--content">
+            <h5>{post.team.name}</h5>
+            <p>{post.text}</p>
+          </div>
+          <div styleName="post-item__header--actions">
+            {this.renderPostActions()}
+          </div>
+        </div>
         {this.renderPostLikeButton()}
-        {this.renderPostDeleteButton()}
-        {this.renderPostEditButton()}
-        {this.renderPostEditModal()}
         <CommentList post={post} />
         <CommentField
           onCommentInputChange={this.handleCommentInputChange}
