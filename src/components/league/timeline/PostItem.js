@@ -3,6 +3,7 @@ import CSSModules from 'react-css-modules';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
+import ReactTooltip from 'react-tooltip';
 import styles from './PostItem.scss';
 
 import CommentList from './CommentList';
@@ -142,22 +143,62 @@ class PostItem extends Component {
     if (post.team._id === team._id) {
       return (
         <div>
-          {/* <PostEditButton onHandlePostEditClick={this.handlePostEditClick} /> */}
-          {/* <PostEditModal
-            post={post}
-            isOpen={this.state.isPostEditModalOpen}
-            onHandleClose={this.handlePostEditModalClose}
-            onPostEditInputChange={this.handlePostEditInputChange}
-            onPostEditInputSubmit={this.handlePostEditInputSubmit}
-            text={this.state.postEditTextChanged}
-          /> */}
+          {/* <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
+            <PostEditModal
+              post={post}
+              isOpen={this.state.isPostEditModalOpen}
+              onHandleClose={this.handlePostEditModalClose}
+              onPostEditInputChange={this.handlePostEditInputChange}
+              onPostEditInputSubmit={this.handlePostEditInputSubmit}
+              text={this.state.postEditTextChanged}
+            />
+            <PostDeleteButton onHandlePostDelete={this.handlePostDelete} /> */}
           <img src={threeDots} alt="" styleName="dots" />
-          {/* <PostDeleteButton onHandlePostDelete={this.handlePostDelete} /> */}
         </div>
       );
     } else {
       return null;
     }
+  }
+
+  renderPostSummary() {
+    const { post } = this.props;
+
+    return (
+      <div styleName="post-item__summary">
+        <div data-tip data-for={`likes-${post._id}`}>
+          likes: {post.likes.length}
+        </div>
+        {post.likes.length ? (
+          <ReactTooltip id={`likes-${post._id}`} effect="solid">
+            <ul>
+              {post.likes.map(like => {
+                return <li key={like._id}>{like.team.name}</li>;
+              })}
+            </ul>
+          </ReactTooltip>
+        ) : null}
+        <div data-tip data-for={`comments-${post._id}`}>
+          comments: {post.comments.length}
+        </div>
+        {post.comments.length ? (
+          <ReactTooltip id={`comments-${post._id}`} effect="solid">
+            <ul>
+              {post.comments
+                .map(comment => {
+                  return comment.team.name;
+                })
+                .filter((value, index, self) => {
+                  return self.indexOf(value) === index;
+                })
+                .map(name => {
+                  return <li key={Math.random()}>{name}</li>;
+                })}
+            </ul>
+          </ReactTooltip>
+        ) : null}
+      </div>
+    );
   }
 
   renderPostLikeButton() {
@@ -191,10 +232,7 @@ class PostItem extends Component {
           </div>
         </div>
         <div styleName="post-item__spacer" />
-        <div styleName="post-item__summary">
-          <div>likes: {post.likes.length}</div>
-          <div>comments: {post.comments.length}</div>
-        </div>
+        {this.renderPostSummary()}
         <div styleName="post-item__spacer" />
         <div styleName="post-item__reaction">
           {this.renderPostLikeButton()}
