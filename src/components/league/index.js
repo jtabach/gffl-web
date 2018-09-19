@@ -28,7 +28,7 @@ class League extends Component {
           <div styleName="league">
             <div styleName="contain">
               <div styleName="col-left">
-                <LeagueMenu match={match} />
+                <LeagueMenu match={match} league={league} />
               </div>
               <div styleName="col-center">
                 <LeagueRoutes match={match} />
