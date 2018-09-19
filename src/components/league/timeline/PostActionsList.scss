@@ -1,7 +1,15 @@
 @import '../../../assets/styles/helpers/variables';
 
-.actions-list {
+.actions {
   position: absolute;
-  top: 20px;
+  top: 24px;
   right: 0;
+  &__list {
+    width: 140px;
+    &--item {
+      &:hover {
+        background: blue;
+      }
+    }
+  }
 }
