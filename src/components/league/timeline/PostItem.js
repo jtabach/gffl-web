@@ -12,6 +12,7 @@ import PostLikeButton from './PostLikeButton';
 import PostDeleteButton from './PostDeleteButton';
 import PostEditButton from './PostEditButton';
 import PostEditModal from './PostEditModal';
+import PostActions from './PostActions';
 
 import threeDots from '../../../images/three-dots.png';
 
@@ -33,6 +34,7 @@ class PostItem extends Component {
   state = {
     commentText: '',
     isPostEditModalOpen: false,
+    isPostActionsOpen: false,
     postEditTextChanged: this.props.post.text
   };
 
@@ -49,6 +51,8 @@ class PostItem extends Component {
     this.handlePostEditModalClose = this.handlePostEditModalClose.bind(this);
     this.handlePostEditInputChange = this.handlePostEditInputChange.bind(this);
     this.handlePostEditInputSubmit = this.handlePostEditInputSubmit.bind(this);
+    this.handlePostActionsClick = this.handlePostActionsClick.bind(this);
+    this.handlePostActionsClose = this.handlePostActionsClose.bind(this);
 
     this.onHandleLikeToggle = this.onHandleLikeToggle.bind(this);
   }
@@ -117,6 +121,18 @@ class PostItem extends Component {
     this.props.editPost(post);
   }
 
+  handlePostActionsClick() {
+    this.setState({
+      isPostActionsOpen: true
+    });
+  }
+
+  handlePostActionsClose() {
+    this.setState({
+      isPostActionsOpen: false
+    });
+  }
+
   // TODO: break into seperate functions
   onHandleLikeToggle(likeStr) {
     const { league, team, post, likePost, deleteLikePost } = this.props;
@@ -141,18 +157,29 @@ class PostItem extends Component {
     const { team, post } = this.props;
 
     if (post.team._id === team._id) {
-      return (
+      const postActions = (
         <div>
-          {/* <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
-            <PostEditModal
-              post={post}
-              isOpen={this.state.isPostEditModalOpen}
-              onHandleClose={this.handlePostEditModalClose}
-              onPostEditInputChange={this.handlePostEditInputChange}
-              onPostEditInputSubmit={this.handlePostEditInputSubmit}
-              text={this.state.postEditTextChanged}
+          <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
+          <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />
+        </div>
+      );
+      return (
+        <div onClick={this.handlePostActionsClick}>
+          <PostEditModal
+            post={post}
+            isOpen={this.state.isPostEditModalOpen}
+            onHandleClose={this.handlePostEditModalClose}
+            onPostEditInputChange={this.handlePostEditInputChange}
+            onPostEditInputSubmit={this.handlePostEditInputSubmit}
+            text={this.state.postEditTextChanged}
+          />
+          {this.state.isPostActionsOpen ? (
+            <PostActions
+              onHandleClickOutside={this.handlePostActionsClose}
+              postActions={postActions}
             />
-            <PostDeleteButton onHandlePostDelete={this.handlePostDelete} /> */}
+          ) : null}
+
           <img src={threeDots} alt="" styleName="dots" />
         </div>
       );
@@ -218,7 +245,6 @@ class PostItem extends Component {
 
   render() {
     const { post, league } = this.props;
-    const { isPostEditModalOpen } = this.state;
 
     return (
       <li styleName="post-item">
