@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../common/Button';
-
 class PostDeleteButton extends Component {
   static propTypes = {
     onHandlePostDelete: PropTypes.func.isRequired
@@ -11,15 +9,7 @@ class PostDeleteButton extends Component {
   render() {
     const { onHandlePostDelete } = this.props;
 
-    return (
-      <Button
-        type="button"
-        variant="red"
-        size="small"
-        onClick={onHandlePostDelete}
-        label="delete"
-      />
-    );
+    return <div onClick={onHandlePostDelete}>Delete</div>;
   }
 }
 
