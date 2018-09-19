@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside';
+import styles from './PostActionsList.scss';
 
 class PostActions extends Component {
   handleClickOutside = evt => {
@@ -8,8 +10,8 @@ class PostActions extends Component {
   };
 
   render() {
-    return <div>{this.props.postActions}</div>;
+    return <div styleName="actions-list">{this.props.children}</div>;
   }
 }
 
-export default onClickOutside(PostActions);
+export default onClickOutside(CSSModules(PostActions, styles));

@@ -1,10 +1,5 @@
 @import '../../../assets/styles/helpers/variables';
 
-.dots {
-  width: 20px;
-  margin-top: 14px;
-}
-
 .post-item {
   background: $white;
   padding: $small-spacing;
@@ -30,7 +25,11 @@
       color: blue;
     }
     &--actions {
-      color: blue;
+      position: relative;
+      .dots {
+        width: 20px;
+        margin-top: 14px;
+      }
     }
   }
 

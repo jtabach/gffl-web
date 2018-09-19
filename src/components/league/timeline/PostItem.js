@@ -12,7 +12,7 @@ import PostLikeButton from './PostLikeButton';
 import PostDeleteButton from './PostDeleteButton';
 import PostEditButton from './PostEditButton';
 import PostEditModal from './PostEditModal';
-import PostActions from './PostActions';
+import PostActionsList from './PostActionsList';
 
 import threeDots from '../../../images/three-dots.png';
 
@@ -157,12 +157,6 @@ class PostItem extends Component {
     const { team, post } = this.props;
 
     if (post.team._id === team._id) {
-      const postActions = (
-        <div>
-          <PostEditButton onHandlePostEditClick={this.handlePostEditClick} />
-          <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />
-        </div>
-      );
       return (
         <div onClick={this.handlePostActionsClick}>
           <PostEditModal
@@ -174,10 +168,12 @@ class PostItem extends Component {
             text={this.state.postEditTextChanged}
           />
           {this.state.isPostActionsOpen ? (
-            <PostActions
-              onHandleClickOutside={this.handlePostActionsClose}
-              postActions={postActions}
-            />
+            <PostActionsList onHandleClickOutside={this.handlePostActionsClose}>
+              <PostEditButton
+                onHandlePostEditClick={this.handlePostEditClick}
+              />
+              <PostDeleteButton onHandlePostDelete={this.handlePostDelete} />
+            </PostActionsList>
           ) : null}
 
           <img src={threeDots} alt="" styleName="dots" />
