@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { fetchLeague, clearLeague } from '../actions/league';
 import { fetchTeam, clearTeam } from '../actions/team';
 import { fetchUser } from '../actions/auth';
+import { fetchNotifications } from '../actions/notification';
 
 import LeagueComponent from '../components/league';
 
@@ -24,6 +25,7 @@ class League extends Component {
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
     this.props.fetchTeam(leagueId);
+    this.props.fetchNotifications();
   }
 
   componentWillUnmount() {
@@ -63,6 +65,7 @@ export default hot(module)(
     fetchUser,
     fetchTeam,
     clearLeague,
-    clearTeam
+    clearTeam,
+    fetchNotifications
   })(League)
 );
