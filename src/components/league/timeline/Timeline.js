@@ -47,7 +47,13 @@ class Timeline extends Component {
     this.setState({
       postText: ''
     });
-    createNotification('test');
+
+    const notificationData = {
+      verb: 'post',
+      actingOn: 'timeline',
+      leagueId: league._id
+    };
+    createNotification(notificationData);
   }
 
   render() {

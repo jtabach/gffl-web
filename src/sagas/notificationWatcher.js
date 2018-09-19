@@ -9,12 +9,9 @@ function* notificationPostRequest(action) {
     'http://localhost:5000/api/notification',
     action.payload
   );
-  console.log(response);
-  // if (response.notification) {
-  //   yield put({ type: LIKE_POST_COMPLETED, payload: { data: response } });
-  // } else {
-  //   console.log('handle failed to like post');
-  // }
+  if (!response.success) {
+    console.log('handle failed notification');
+  }
 }
 
 export function* notificationWatcher() {
