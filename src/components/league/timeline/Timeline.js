@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import styles from './Timeline.scss';
 
 import { createPost } from '../../../actions/post';
+import { createNotification } from '../../../actions/notification';
 
 import PostField from './PostField';
 import PostList from './PostList';
@@ -35,7 +36,7 @@ class Timeline extends Component {
   }
 
   handlePostInputSubmit(text) {
-    const { league, team, createPost } = this.props;
+    const { league, team, createPost, createNotification } = this.props;
     const postData = {
       text,
       leagueId: league._id,
@@ -46,6 +47,7 @@ class Timeline extends Component {
     this.setState({
       postText: ''
     });
+    createNotification('test');
   }
 
   render() {
@@ -68,6 +70,6 @@ function mapStateToProps({ league, team, user }) {
   return { league, team, user };
 }
 
-export default connect(mapStateToProps, { createPost })(
+export default connect(mapStateToProps, { createPost, createNotification })(
   CSSModules(Timeline, styles)
 );
