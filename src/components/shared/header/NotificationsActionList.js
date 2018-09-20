@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import ActionList from '../../common/ActionList';
 import Notification from './Notification';
@@ -25,6 +26,8 @@ class NotificationsActionList extends Component {
     if (!notification.hasViewed) {
       this.props.viewNotification(notification);
     }
+    this.props.history.push(`/league/${notification.league._id}`);
+    this.props.onHandleClickOutside('notifications');
   }
 
   render() {
@@ -55,5 +58,5 @@ function mapStateToProps({ user }) {
 }
 
 export default connect(mapStateToProps, { viewNotification })(
-  NotificationsActionList
+  withRouter(NotificationsActionList)
 );
