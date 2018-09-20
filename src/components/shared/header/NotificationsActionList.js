@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CustomPropTypes from '../../prop-types';
+import CustomPropTypes from '../../../prop-types';
 import { connect } from 'react-redux';
-import ActionList from '../common/ActionList';
+import ActionList from '../../common/ActionList';
 
 class NotificationsActionList extends Component {
   static propTypes = {

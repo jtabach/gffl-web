@@ -4,9 +4,9 @@ import styles from './SideDrawer.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import LoginButton from '../buttons/LoginButton';
-import LogoutButton from '../buttons/LogoutButton';
-import RegisterButton from '../buttons/RegisterButton';
+import LoginButton from '../../buttons/LoginButton';
+import LogoutButton from '../../buttons/LogoutButton';
+import RegisterButton from '../../buttons/RegisterButton';
 
 class SideDrawer extends Component {
   renderAuthLinks() {

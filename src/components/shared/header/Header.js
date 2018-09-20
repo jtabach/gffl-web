@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
 import styles from './Header.scss';
 
-import LoginButton from '../buttons/LoginButton';
-import LogoutButton from '../buttons/LogoutButton';
-import RegisterButton from '../buttons/RegisterButton';
+import LoginButton from '../../buttons/LoginButton';
+import RegisterButton from '../../buttons/RegisterButton';
 import DrawerToggleButton from './DrawerToggleButton';
 import HeaderButton from './HeaderButton';
 

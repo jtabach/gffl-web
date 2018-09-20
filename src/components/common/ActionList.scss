@@ -31,10 +31,6 @@
       &:last-of-type {
         margin-bottom: 0;
       }
-      &:hover {
-        background: $blue-light;
-        color: white;
-      }
     }
   }
 }
@@ -46,10 +42,6 @@
     &--item {
       composes: item;
       height: 56px;
-      &:hover {
-        background: $blue-light;
-        color: white;
-      }
     }
   }
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Header from '../shared/Header';
-import SideDrawer from '../shared/SideDrawer';
-import BackDrop from '../shared/BackDrop';
+import Header from '../shared/header/Header';
+import SideDrawer from '../shared/header/SideDrawer';
+import BackDrop from '../shared/header/BackDrop';
 
 class NavLayout extends Component {
   state = {

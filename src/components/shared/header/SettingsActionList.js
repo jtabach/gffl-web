@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ActionList from '../common/ActionList';
+import ActionList from '../../common/ActionList';
 
-import LogoutButton from '../buttons/LogoutButton';
+import LogoutButton from '../../buttons/LogoutButton';
 
 class SettingsActionList extends Component {
   static propTypes = {
