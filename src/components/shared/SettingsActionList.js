@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ActionList from '../common/ActionList';
 
+import LogoutButton from '../buttons/LogoutButton';
+
 class SettingsActionList extends Component {
   static propTypes = {
     onHandleClickOutside: PropTypes.func.isRequired,
@@ -16,8 +18,7 @@ class SettingsActionList extends Component {
         onHandleClickOutside={onHandleClickOutside}
         buttonType={buttonType}
       >
-        <div>Test</div>
-        <div>Test1</div>
+        <LogoutButton />
       </ActionList>
     );
   }

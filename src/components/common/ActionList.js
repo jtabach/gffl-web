@@ -18,16 +18,24 @@ class ActionList extends Component {
   };
 
   render() {
+    const { children } = this.props;
+
     return (
       <div styleName="actions">
         <ul styleName="actions__list">
-          {this.props.children.map(child => {
-            return (
-              <li styleName="actions__list--item" key={Math.random()}>
-                {child}
-              </li>
-            );
-          })}
+          {children.length === 1 ? (
+            this.props.children.map(child => {
+              return (
+                <li styleName="actions__list--item" key={Math.random()}>
+                  {child}
+                </li>
+              );
+            })
+          ) : (
+            <li styleName="actions__list--item" key={Math.random()}>
+              {children}
+            </li>
+          )}
         </ul>
       </div>
     );
