@@ -4,7 +4,7 @@
   height: 100%;
   cursor: pointer;
   &:hover {
-    background: $gray-lightest;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -13,4 +13,8 @@
   > p {
     font-size: 13px;
   }
+}
+
+.highlight {
+  background: $gray-lightest;
 }

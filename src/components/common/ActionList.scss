@@ -42,6 +42,10 @@
     &--item {
       composes: item;
       height: 64px;
+      border-bottom: 1px solid $gray-light;
+      &:last-of-type {
+        border-bottom: none;
+      }
     }
   }
 }

@@ -27,13 +27,14 @@ class Notification extends Component {
 
   render() {
     const { notification } = this.props;
+    const hasViewed = notification.hasViewed ? '' : 'highlight';
 
     return (
-      <div styleName="notification">
+      <div styleName={`notification ${hasViewed}`}>
         {this.renderNotification(notification)}
       </div>
     );
   }
 }
 
-export default CSSModules(Notification, styles);
+export default CSSModules(Notification, styles, { allowMultiple: true });
