@@ -8,6 +8,10 @@ import LoginButton from '../buttons/LoginButton';
 import LogoutButton from '../buttons/LogoutButton';
 import RegisterButton from '../buttons/RegisterButton';
 import DrawerToggleButton from './DrawerToggleButton';
+import HeaderButton from './HeaderButton';
+
+import { FaCaretDown, FaBell } from 'react-icons/fa';
+import { MdSettings } from 'react-icons/md';
 
 class Header extends Component {
   renderAuthLinks() {
@@ -27,9 +31,20 @@ class Header extends Component {
         );
       default:
         return (
-          <li>
-            <LogoutButton />
-          </li>
+          <ul>
+            <li>
+              <HeaderButton icon={<MdSettings />} />
+            </li>
+            <li>
+              <HeaderButton icon={<FaBell />} />
+            </li>
+            <li>
+              <HeaderButton icon={<FaCaretDown />} />
+            </li>
+            {/* <li>
+              <LogoutButton />
+            </li> */}
+          </ul>
         );
     }
   }

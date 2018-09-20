@@ -1,0 +1,21 @@
+@import '../../assets/styles/helpers/variables';
+
+.header-button {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: $green-medium;
+  }
+  > svg {
+    vertical-align: middle;
+    transition: 0.3s;
+    color: $white;
+    &:hover {
+      color: $gray-lightest;
+    }
+  }
+}
