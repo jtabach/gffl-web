@@ -5,7 +5,8 @@ import styles from './Notification.scss';
 
 class Notification extends Component {
   static propTypes = {
-    notification: PropTypes.object.isRequired
+    notification: PropTypes.object.isRequired,
+    onHandleClick: PropTypes.func.isRequired
   };
 
   renderNotification(notification) {
@@ -26,11 +27,14 @@ class Notification extends Component {
   }
 
   render() {
-    const { notification } = this.props;
+    const { notification, onHandleClick } = this.props;
     const hasViewed = notification.hasViewed ? '' : 'highlight';
 
     return (
-      <div styleName={`notification ${hasViewed}`}>
+      <div
+        onClick={() => onHandleClick(notification)}
+        styleName={`notification ${hasViewed}`}
+      >
         {this.renderNotification(notification)}
       </div>
     );

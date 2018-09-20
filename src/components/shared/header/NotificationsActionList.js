@@ -6,16 +6,29 @@ import { connect } from 'react-redux';
 import ActionList from '../../common/ActionList';
 import Notification from './Notification';
 
+import { viewNotification } from '../../../actions/notification';
+
 class NotificationsActionList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   static propTypes = {
     onHandleClickOutside: PropTypes.func.isRequired,
     buttonType: PropTypes.string.isRequired,
     user: CustomPropTypes.user.isRequired
   };
 
+  handleClick(notification) {
+    if (!notification.hasViewed) {
+      this.props.viewNotification(notification);
+    }
+  }
+
   render() {
     const { onHandleClickOutside, buttonType, user } = this.props;
-    console.log(user);
 
     return (
       <ActionList
@@ -25,7 +38,11 @@ class NotificationsActionList extends Component {
       >
         {user.notifications.map(notification => {
           return (
-            <Notification key={notification._id} notification={notification} />
+            <Notification
+              key={notification._id}
+              notification={notification}
+              onHandleClick={this.handleClick}
+            />
           );
         })}
       </ActionList>
@@ -37,4 +54,6 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps)(NotificationsActionList);
+export default connect(mapStateToProps, { viewNotification })(
+  NotificationsActionList
+);
