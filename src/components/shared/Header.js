@@ -11,6 +11,7 @@ import DrawerToggleButton from './DrawerToggleButton';
 import HeaderButton from './HeaderButton';
 
 import SettingsActionList from './SettingsActionList';
+import NotificationsActionList from './NotificationsActionList';
 
 import { FaCaretDown, FaBell } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';
@@ -98,6 +99,21 @@ class Header extends Component {
           <ul>
             <li>
               <HeaderButton
+                icon={<FaBell />}
+                onHandleClick={this.handleButtonClick}
+                buttonType={NOTIFICATIONS_BUTTON}
+                actionList={
+                  this.state.isNotificationsOpen ? (
+                    <NotificationsActionList
+                      onHandleClickOutside={this.handleButtonClickOutside}
+                      buttonType={NOTIFICATIONS_BUTTON}
+                    />
+                  ) : null
+                }
+              />
+            </li>
+            <li>
+              <HeaderButton
                 icon={<MdSettings />}
                 onHandleClick={this.handleButtonClick}
                 buttonType={SETTINGS_BUTTON}
@@ -111,7 +127,6 @@ class Header extends Component {
                 }
               />
             </li>
-            <li>{/* <HeaderButton icon={<FaBell />} /> */}</li>
             <li>{/* <HeaderButton icon={<FaCaretDown />} /> */}</li>
           </ul>
         );

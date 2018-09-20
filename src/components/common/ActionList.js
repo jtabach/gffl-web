@@ -23,7 +23,7 @@ class ActionList extends Component {
     return (
       <div styleName="actions">
         <ul styleName="actions__list">
-          {children.length === 1 ? (
+          {children.length > 1 ? (
             this.props.children.map(child => {
               return (
                 <li styleName="actions__list--item" key={Math.random()}>

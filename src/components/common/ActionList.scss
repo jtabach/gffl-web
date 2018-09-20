@@ -9,6 +9,8 @@
   background: $white;
   border-radius: 4px;
   box-shadow: $card-box-shadow;
+  max-height: 70vh;
+  overflow: scroll;
   &__list {
     width: 140px;
     &--item {
