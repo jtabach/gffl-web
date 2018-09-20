@@ -36,7 +36,7 @@ class NotificationsActionList extends Component {
         buttonType={buttonType}
         listType={'notifications'}
       >
-        {user.notifications.map(notification => {
+        {[...user.notifications].reverse().map(notification => {
           return (
             <Notification
               key={notification._id}

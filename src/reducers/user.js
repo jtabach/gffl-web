@@ -12,7 +12,10 @@ import {
   JOIN_LEAGUE_COMPLETED
 } from '../types/league';
 
-import { FETCH_NOTIFICATIONS_COMPLETED } from '../types/notification';
+import {
+  FETCH_NOTIFICATIONS_COMPLETED,
+  VIEW_NOTIFICATION_COMPLETED
+} from '../types/notification';
 
 const initialState = {
   _id: null,
@@ -66,6 +69,18 @@ export default (state = initialState, action) => {
       state = {
         ...state,
         notifications: action.payload.data.notifications
+      };
+      break;
+
+    case VIEW_NOTIFICATION_COMPLETED:
+      state = {
+        ...state,
+        notifications: state.notifications.map(notification => {
+          if (notification._id == action.payload.data.notification._id) {
+            notification.hasViewed = true;
+          }
+          return notification;
+        })
       };
       break;
 
