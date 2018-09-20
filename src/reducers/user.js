@@ -12,11 +12,14 @@ import {
   JOIN_LEAGUE_COMPLETED
 } from '../types/league';
 
+import { FETCH_NOTIFICATIONS_COMPLETED } from '../types/notification';
+
 const initialState = {
   _id: null,
   email: null,
   password: null,
-  teams: []
+  teams: [],
+  notifications: []
 };
 
 export default (state = initialState, action) => {
@@ -53,11 +56,16 @@ export default (state = initialState, action) => {
       break;
 
     case JOIN_LEAGUE_COMPLETED:
-      // TODO: only a single team will be return from the server.
-      // Merge the new team with the existing teams
       state = {
         ...state,
         teams: state.teams.concat([action.payload.data.team])
+      };
+      break;
+
+    case FETCH_NOTIFICATIONS_COMPLETED:
+      state = {
+        ...state,
+        notifications: action.payload.data.notifications
       };
       break;
 

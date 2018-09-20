@@ -19,7 +19,6 @@ function* notificationPostRequest(action) {
 }
 
 function* fetchNotificationsRequest(action) {
-  console.log('here');
   const response = yield call(
     getRequest,
     `http://localhost:5000/api/notification`

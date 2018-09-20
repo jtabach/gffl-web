@@ -25,7 +25,11 @@ class League extends Component {
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
     this.props.fetchTeam(leagueId);
-    this.props.fetchNotifications();
+
+    setInterval(() => {
+      this.props.fetchNotifications();
+      console.log('fetching notifications');
+    }, 30000);
   }
 
   componentWillUnmount() {
