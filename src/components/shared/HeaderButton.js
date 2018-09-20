@@ -5,11 +5,25 @@ import styles from './HeaderButton.scss';
 
 class HeaderButton extends Component {
   static propTypes = {
-    icon: PropTypes.node.isRequired
+    icon: PropTypes.node.isRequired,
+    actionList: PropTypes.node,
+    onHandleClick: PropTypes.func.isRequired,
+    buttonType: PropTypes.string.isRequired
   };
 
   render() {
-    return <div styleName="header-button">{this.props.icon}</div>;
+    const { icon, actionList, onHandleClick, buttonType } = this.props;
+    return (
+      <div styleName="header-button-wrapper">
+        <div
+          styleName="header-button"
+          onClick={() => onHandleClick(buttonType)}
+        >
+          {icon}
+        </div>
+        {actionList}
+      </div>
+    );
   }
 }
 

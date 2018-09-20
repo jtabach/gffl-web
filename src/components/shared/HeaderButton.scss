@@ -1,7 +1,10 @@
 @import '../../assets/styles/helpers/variables';
 
-.header-button {
+.header-button-wrapper {
   position: relative;
+}
+
+.header-button {
   width: 28px;
   height: 28px;
   text-align: center;

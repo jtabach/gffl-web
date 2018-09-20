@@ -10,40 +10,109 @@ import RegisterButton from '../buttons/RegisterButton';
 import DrawerToggleButton from './DrawerToggleButton';
 import HeaderButton from './HeaderButton';
 
+import SettingsActionList from './SettingsActionList';
+
 import { FaCaretDown, FaBell } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';
 
+const SETTINGS_BUTTON = 'settings';
+const NOTIFICATIONS_BUTTON = 'notifications';
+const CARET_BUTTON = 'caret';
+
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleButtonClickOutside = this.handleButtonClickOutside.bind(this);
+  }
+
+  state = {
+    isSettingsOpen: false,
+    isNotificationsOpen: false,
+    isCaretOpen: false
+  };
+
+  handleButtonClick(buttonType) {
+    console.log('button');
+    switch (buttonType) {
+      case SETTINGS_BUTTON:
+        this.setState({
+          isSettingsOpen: true
+        });
+        break;
+      case NOTIFICATIONS_BUTTON:
+        this.setState({
+          isNotificationsOpen: true
+        });
+        break;
+      case CARET_BUTTON:
+        this.setState({
+          isCaretOpen: true
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
+  handleButtonClickOutside(buttonType) {
+    console.log('outside');
+    switch (buttonType) {
+      case SETTINGS_BUTTON:
+        this.setState({
+          isSettingsOpen: false
+        });
+        break;
+      case NOTIFICATIONS_BUTTON:
+        this.setState({
+          isNotificationsOpen: false
+        });
+        break;
+      case CARET_BUTTON:
+        this.setState({
+          isCaretOpen: false
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
   renderAuthLinks() {
     switch (this.props.user._id) {
       case null:
         return <div />;
       case false:
         return (
-          <div>
+          <ul>
             <li>
               <LoginButton />
             </li>
             <li>
               <RegisterButton />
             </li>
-          </div>
+          </ul>
         );
       default:
         return (
           <ul>
             <li>
-              <HeaderButton icon={<MdSettings />} />
+              <HeaderButton
+                icon={<MdSettings />}
+                onHandleClick={this.handleButtonClick}
+                buttonType={SETTINGS_BUTTON}
+                actionList={
+                  this.state.isSettingsOpen ? (
+                    <SettingsActionList
+                      onHandleClickOutside={this.handleButtonClickOutside}
+                      buttonType={SETTINGS_BUTTON}
+                    />
+                  ) : null
+                }
+              />
             </li>
-            <li>
-              <HeaderButton icon={<FaBell />} />
-            </li>
-            <li>
-              <HeaderButton icon={<FaCaretDown />} />
-            </li>
-            {/* <li>
-              <LogoutButton />
-            </li> */}
+            <li>{/* <HeaderButton icon={<FaBell />} /> */}</li>
+            <li>{/* <HeaderButton icon={<FaCaretDown />} /> */}</li>
           </ul>
         );
     }
@@ -58,9 +127,7 @@ class Header extends Component {
             <div styleName="logo">
               <Link to="/me">GFFL</Link>
             </div>
-            <div styleName="navigation-items">
-              <ul>{this.renderAuthLinks()}</ul>
-            </div>
+            <div styleName="navigation-items">{this.renderAuthLinks()}</div>
           </div>
         </div>
       </div>
