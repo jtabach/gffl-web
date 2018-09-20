@@ -19,6 +19,7 @@ class NotificationsActionList extends Component {
       <ActionList
         onHandleClickOutside={onHandleClickOutside}
         buttonType={buttonType}
+        listType={'notifications'}
       >
         {user.notifications.map(notification => {
           return <div key={notification._id}>{notification.verb}</div>;
