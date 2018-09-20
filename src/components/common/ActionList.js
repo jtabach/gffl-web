@@ -10,7 +10,12 @@ class ActionList extends Component {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
     ]).isRequired,
-    buttonType: PropTypes.string.isRequired
+    buttonType: PropTypes.string.isRequired,
+    listType: PropTypes.string
+  };
+
+  static defaultProps = {
+    listType: 'actions'
   };
 
   handleClickOutside = evt => {
@@ -18,24 +23,19 @@ class ActionList extends Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, listType } = this.props;
+    const childrenArray = [].concat(children);
 
     return (
-      <div styleName="actions">
-        <ul styleName="actions__list">
-          {children.length > 1 ? (
-            this.props.children.map(child => {
-              return (
-                <li styleName="actions__list--item" key={Math.random()}>
-                  {child}
-                </li>
-              );
-            })
-          ) : (
-            <li styleName="actions__list--item" key={Math.random()}>
-              {children}
-            </li>
-          )}
+      <div styleName={listType}>
+        <ul styleName={`${listType}__list`}>
+          {childrenArray.map(child => {
+            return (
+              <li styleName={`${listType}__list--item`} key={Math.random()}>
+                {child}
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
