@@ -36,8 +36,8 @@
     display: block;
     @include vertical-align;
     float: right;
-    ul {
-      li {
+    > ul {
+      > li {
         display: inline-block;
         padding: 0 $small-spacing;
         a {

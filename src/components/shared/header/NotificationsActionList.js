@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CustomPropTypes from '../../../prop-types';
 import { connect } from 'react-redux';
+
 import ActionList from '../../common/ActionList';
+import Notification from './Notification';
 
 class NotificationsActionList extends Component {
   static propTypes = {
@@ -22,7 +24,9 @@ class NotificationsActionList extends Component {
         listType={'notifications'}
       >
         {user.notifications.map(notification => {
-          return <div key={notification._id}>{notification.verb}</div>;
+          return (
+            <Notification key={notification._id} notification={notification} />
+          );
         })}
       </ActionList>
     );
