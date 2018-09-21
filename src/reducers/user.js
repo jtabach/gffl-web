@@ -14,7 +14,8 @@ import {
 
 import {
   FETCH_NOTIFICATIONS_COMPLETED,
-  VIEW_NOTIFICATION_COMPLETED
+  VIEW_NOTIFICATION_COMPLETED,
+  DISMISS_NOTIFICATIONS_COMPLETED
 } from '../types/notification';
 
 const initialState = {
@@ -79,6 +80,17 @@ export default (state = initialState, action) => {
           if (notification._id == action.payload.data.notification._id) {
             notification.hasViewed = true;
           }
+          return notification;
+        })
+      };
+      break;
+
+    // TODO: leverage action.payload for setting hasDismissed property
+    case DISMISS_NOTIFICATIONS_COMPLETED:
+      state = {
+        ...state,
+        notifications: state.notifications.map(notification => {
+          notification.hasDismissed = true;
           return notification;
         })
       };
