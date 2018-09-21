@@ -2,7 +2,7 @@
 
 .wrapper {
   position: absolute;
-  top: 43px;
+  top: 37px;
   right: -4px;
   border: $base-border;
   background: $white;
@@ -38,7 +38,7 @@
 .notifications {
   composes: wrapper;
   &__list {
-    width: 240px;
+    width: 280px;
     &--item {
       composes: item;
       height: 64px;

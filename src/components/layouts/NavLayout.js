@@ -30,7 +30,7 @@ class NavLayout extends Component {
         <Header handleDrawerToggleClick={this.handleDrawerToggleClick} />
         <SideDrawer isVisible={this.state.isSideDrawerOpen} />
         {backDrop}
-        <div style={{ marginTop: '60px' }}>{this.props.children}</div>
+        <div style={{ marginTop: '48px' }}>{this.props.children}</div>
       </div>
     );
   }
