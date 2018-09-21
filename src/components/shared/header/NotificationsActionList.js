@@ -15,7 +15,7 @@ class NotificationsActionList extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleNotificationClick = this.handleNotificationClick.bind(this);
   }
 
   static propTypes = {
@@ -27,7 +27,7 @@ class NotificationsActionList extends Component {
     this.props.onHandleClickOutside(this.props.buttonType);
   };
 
-  handleClick(notification) {
+  handleNotificationClick(notification) {
     if (!notification.hasViewed) {
       this.props.viewNotification(notification);
     }
@@ -40,14 +40,24 @@ class NotificationsActionList extends Component {
 
     return (
       <div styleName="notifications">
+        <div styleName="notifications__header">
+          <p styleName="notifications__header--title">Notifications</p>
+          <div
+            styleName="notifications__header--button"
+            onClick={console.log('click')}
+          >
+            Mark All as Read
+          </div>
+        </div>
         <ul styleName="notifications__list">
           {[...user.notifications].reverse().map(notification => {
             return (
-              <Notification
-                key={notification._id}
-                notification={notification}
-                onHandleClick={this.handleClick}
-              />
+              <li styleName="notifications__list--item" key={notification._id}>
+                <Notification
+                  notification={notification}
+                  onHandleClick={this.handleNotificationClick}
+                />
+              </li>
             );
           })}
         </ul>

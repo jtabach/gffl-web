@@ -21,6 +21,26 @@
 
 .notifications {
   composes: wrapper;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 8px;
+    border-bottom: 1px solid $gray-light;
+    &--title {
+      font-weight: $font-semibold;
+      font-size: 13px;
+    }
+    &--button {
+      color: $blue-light;
+      text-decoration: underline;
+      font-size: 13px;
+      line-height: 28px;
+      cursor: pointer;
+      &:hover {
+        color: $blue-dark;
+      }
+    }
+  }
   &__list {
     width: 280px;
     &--item {
