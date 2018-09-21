@@ -1,4 +1,4 @@
-@import '../../assets/styles/helpers/variables';
+@import '../../../assets/styles/helpers/variables';
 
 .wrapper {
   position: absolute;
@@ -19,17 +19,16 @@
   text-align: left;
 }
 
-.actions {
+.notifications {
   composes: wrapper;
-  padding: 6px 0;
   &__list {
-    width: 140px;
+    width: 280px;
     &--item {
       composes: item;
-      padding: 0 12px;
-      margin-bottom: 6px;
+      height: 64px;
+      border-bottom: 1px solid $gray-light;
       &:last-of-type {
-        margin-bottom: 0;
+        border-bottom: none;
       }
     }
   }
