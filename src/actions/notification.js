@@ -1,7 +1,8 @@
 import {
   CREATE_NOTIFICATION,
   FETCH_NOTIFICATIONS,
-  VIEW_NOTIFICATION
+  VIEW_NOTIFICATION,
+  DISMISS_NOTIFICATIONS
 } from '../types/notification';
 
 export const createNotification = notificationData => ({
@@ -17,4 +18,9 @@ export const fetchNotifications = () => ({
 export const viewNotification = notificationData => ({
   type: VIEW_NOTIFICATION,
   payload: notificationData
+});
+
+export const dismissNotifications = notificationsArray => ({
+  type: DISMISS_NOTIFICATIONS,
+  payload: notificationsArray
 });

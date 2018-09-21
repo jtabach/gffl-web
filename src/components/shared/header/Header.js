@@ -13,6 +13,8 @@ import HeaderButtonBadge from './HeaderButtonBadge';
 import SettingsActionList from './SettingsActionList';
 import NotificationsActionList from './NotificationsActionList';
 
+import { dismissNotifications } from '../../../actions/notification';
+
 import { FaCaretDown, FaBell } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';
 
@@ -27,6 +29,8 @@ class Header extends Component {
     this.handleButtonClickOutside = this.handleButtonClickOutside.bind(this);
   }
 
+  // TODO: add proptypes
+
   state = {
     isSettingsOpen: false,
     isNotificationsOpen: false,
@@ -34,6 +38,7 @@ class Header extends Component {
   };
 
   handleButtonClick(buttonType) {
+    const { dismissNotifications, user } = this.props;
     console.log('button');
     switch (buttonType) {
       case SETTINGS_BUTTON:
@@ -45,6 +50,13 @@ class Header extends Component {
         this.setState({
           isNotificationsOpen: true
         });
+        const notificationsArray = user.notifications.filter(notification => {
+          return !notification.hasDimissed;
+        });
+
+        if (notificationsArray.length) {
+          dismissNotifications(notificationsArray);
+        }
         break;
       case CARET_BUTTON:
         this.setState({
@@ -157,4 +169,6 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps)(CSSModules(Header, styles));
+export default connect(mapStateToProps, { dismissNotifications })(
+  CSSModules(Header, styles)
+);
