@@ -5,8 +5,8 @@
 }
 
 .header-button {
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   text-align: center;
   transition: 0.3s;
   cursor: pointer;
@@ -14,7 +14,9 @@
     background: $green-medium;
   }
   > svg {
-    vertical-align: middle;
+    margin-top: 5px;
+    height: 24px;
+    width: 24px;
     transition: 0.3s;
     color: $white;
     &:hover {

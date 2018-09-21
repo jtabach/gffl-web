@@ -8,6 +8,7 @@ import LoginButton from '../../buttons/LoginButton';
 import RegisterButton from '../../buttons/RegisterButton';
 import DrawerToggleButton from './DrawerToggleButton';
 import HeaderButton from './HeaderButton';
+import HeaderButtonBadge from './HeaderButtonBadge';
 
 import SettingsActionList from './SettingsActionList';
 import NotificationsActionList from './NotificationsActionList';
@@ -79,6 +80,8 @@ class Header extends Component {
   }
 
   renderAuthLinks() {
+    const { user } = this.props;
+
     switch (this.props.user._id) {
       case null:
         return <div />;
@@ -109,6 +112,7 @@ class Header extends Component {
                     />
                   ) : null
                 }
+                badge={<HeaderButtonBadge notifications={user.notifications} />}
               />
             </li>
             <li>

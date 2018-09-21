@@ -8,11 +8,12 @@ class HeaderButton extends Component {
     icon: PropTypes.node.isRequired,
     actionList: PropTypes.node,
     onHandleClick: PropTypes.func.isRequired,
-    buttonType: PropTypes.string.isRequired
+    buttonType: PropTypes.string.isRequired,
+    badge: PropTypes.node
   };
 
   render() {
-    const { icon, actionList, onHandleClick, buttonType } = this.props;
+    const { icon, badge, actionList, onHandleClick, buttonType } = this.props;
     return (
       <div styleName="header-button-wrapper">
         <div
@@ -21,6 +22,7 @@ class HeaderButton extends Component {
         >
           {icon}
         </div>
+        {badge}
         {actionList}
       </div>
     );
