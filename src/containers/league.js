@@ -30,6 +30,75 @@ class League extends Component {
       this.props.fetchNotifications();
       console.log('fetching notifications');
     }, 30000);
+
+    if (!('serviceWorker' in navigator)) {
+      // Service Worker isn't supported on this browser, disable or hide UI.
+      return;
+    }
+
+    if (!('PushManager' in window)) {
+      // Push isn't supported on this browser, disable or hide UI.
+      return;
+    }
+
+    navigator.serviceWorker
+      .register('../../service-worker.js')
+      .then(function(registration) {
+        console.log('Service worker successfully registered on GFFL.');
+        return registration;
+      })
+      .catch(function(err) {
+        console.error('Unable to register service worker.', err);
+      });
+
+    new Promise(function(resolve, reject) {
+      const permissionResult = Notification.requestPermission(function(result) {
+        resolve(result);
+      });
+
+      if (permissionResult) {
+        permissionResult.then(resolve, reject);
+      }
+    }).then(function(permissionResult) {
+      if (permissionResult !== 'granted') {
+        throw new Error("We weren't granted permission.");
+      }
+    });
+
+    function urlBase64ToUint8Array(base64String) {
+      const padding = '='.repeat((4 - base64String.length % 4) % 4);
+      const base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
+      const rawData = window.atob(base64);
+      const outputArray = new Uint8Array(rawData.length);
+
+      for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+      }
+      return outputArray;
+    }
+
+    return navigator.serviceWorker
+      .register('../../service-worker.js')
+      .then(function(registration) {
+        const subscribeOptions = {
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(
+            'BFiFUBADO-S0a3nQT2KO4N6FyJ9q3QGAznL3VnJOXJHKiTVH-AmqJZ6dOvLwPPnQXi0Aeul4abcdCR_6f9oVXQw'
+          )
+        };
+
+        return registration.pushManager.subscribe(subscribeOptions);
+      })
+      .then(function(pushSubscription) {
+        console.log(
+          'Received PushSubscription: ',
+          JSON.stringify(pushSubscription)
+        );
+        return pushSubscription;
+      });
   }
 
   componentWillUnmount() {
