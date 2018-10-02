@@ -7,6 +7,7 @@ import { fetchLeague, clearLeague } from '../actions/league';
 import { fetchTeam, clearTeam } from '../actions/team';
 import { fetchUser } from '../actions/auth';
 import { fetchNotifications } from '../actions/notification';
+import { saveSubscription } from '../actions/subscription';
 
 import LeagueComponent from '../components/league';
 
@@ -21,6 +22,7 @@ class League extends Component {
 
   componentDidMount() {
     const { leagueId } = this.props.match.params;
+    const { saveSubscription } = this.props;
 
     this.props.fetchUser();
     this.props.fetchLeague(leagueId);
@@ -80,9 +82,9 @@ class League extends Component {
       return outputArray;
     }
 
-    return navigator.serviceWorker
+    navigator.serviceWorker
       .register('../../service-worker.js')
-      .then(function(registration) {
+      .then(registration => {
         const subscribeOptions = {
           userVisibleOnly: true,
           applicationServerKey: urlBase64ToUint8Array(
@@ -92,12 +94,12 @@ class League extends Component {
 
         return registration.pushManager.subscribe(subscribeOptions);
       })
-      .then(function(pushSubscription) {
+      .then(pushSubscription => {
         console.log(
           'Received PushSubscription: ',
           JSON.stringify(pushSubscription)
         );
-        return pushSubscription;
+        saveSubscription(pushSubscription);
       });
   }
 
@@ -139,6 +141,7 @@ export default hot(module)(
     fetchTeam,
     clearLeague,
     clearTeam,
-    fetchNotifications
+    fetchNotifications,
+    saveSubscription
   })(League)
 );
