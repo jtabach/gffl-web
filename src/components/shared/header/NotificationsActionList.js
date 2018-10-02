@@ -9,13 +9,19 @@ import styles from './NotificationsActionList.scss';
 
 import Notification from './Notification';
 
-import { viewNotification } from '../../../actions/notification';
+import {
+  viewNotification,
+  viewAllNotifications
+} from '../../../actions/notification';
 
 class NotificationsActionList extends Component {
   constructor(props) {
     super(props);
 
     this.handleNotificationClick = this.handleNotificationClick.bind(this);
+    this.handleViewAllNotificationsClick = this.handleViewAllNotificationsClick.bind(
+      this
+    );
   }
 
   static propTypes = {
@@ -35,6 +41,17 @@ class NotificationsActionList extends Component {
     this.props.onHandleClickOutside('notifications');
   }
 
+  handleViewAllNotificationsClick() {
+    const { user, viewAllNotifications } = this.props;
+    const notificationsArray = user.notifications.filter(notification => {
+      return !notification.hasViewed;
+    });
+
+    if (notificationsArray.length) {
+      viewAllNotifications(notificationsArray);
+    }
+  }
+
   render() {
     const { onHandleClickOutside, buttonType, user } = this.props;
 
@@ -44,7 +61,7 @@ class NotificationsActionList extends Component {
           <p styleName="notifications__header--title">Notifications</p>
           <div
             styleName="notifications__header--button"
-            onClick={console.log('click')}
+            onClick={this.handleViewAllNotificationsClick}
           >
             Mark All as Read
           </div>
@@ -70,6 +87,7 @@ function mapStateToProps({ user }) {
   return { user };
 }
 
-export default connect(mapStateToProps, { viewNotification })(
-  withRouter(onClickOutside(CSSModules(NotificationsActionList, styles)))
-);
+export default connect(mapStateToProps, {
+  viewNotification,
+  viewAllNotifications
+})(withRouter(onClickOutside(CSSModules(NotificationsActionList, styles))));

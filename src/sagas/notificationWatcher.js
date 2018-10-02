@@ -7,6 +7,8 @@ import {
   FETCH_NOTIFICATIONS_COMPLETED,
   VIEW_NOTIFICATION,
   VIEW_NOTIFICATION_COMPLETED,
+  VIEW_ALL_NOTIFICATIONS,
+  VIEW_ALL_NOTIFICATIONS_COMPLETED,
   DISMISS_NOTIFICATIONS,
   DISMISS_NOTIFICATIONS_COMPLETED
 } from '../types/notification';
@@ -53,6 +55,22 @@ function* viewNotificationRequest(action) {
   }
 }
 
+function* viewAllNotifications(action) {
+  const response = yield call(
+    postRequest,
+    `http://localhost:5000/api/notification/viewAll`,
+    action.payload
+  );
+  if (response.notifications) {
+    yield put({
+      type: VIEW_ALL_NOTIFICATIONS_COMPLETED,
+      payload: { data: response }
+    });
+  } else {
+    console.log('handle failed to dismiss notifications');
+  }
+}
+
 function* dismissNotificationsRequest(action) {
   const response = yield call(
     postRequest,
@@ -73,5 +91,6 @@ export function* notificationWatcher() {
   yield takeLatest(CREATE_NOTIFICATION, notificationPostRequest);
   yield takeLatest(FETCH_NOTIFICATIONS, fetchNotificationsRequest);
   yield takeLatest(VIEW_NOTIFICATION, viewNotificationRequest);
+  yield takeLatest(VIEW_ALL_NOTIFICATIONS, viewAllNotifications);
   yield takeLatest(DISMISS_NOTIFICATIONS, dismissNotificationsRequest);
 }
