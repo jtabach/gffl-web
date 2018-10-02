@@ -2,6 +2,7 @@ import {
   CREATE_NOTIFICATION,
   FETCH_NOTIFICATIONS,
   VIEW_NOTIFICATION,
+  VIEW_ALL_NOTIFICATIONS,
   DISMISS_NOTIFICATIONS
 } from '../types/notification';
 
@@ -18,6 +19,11 @@ export const fetchNotifications = () => ({
 export const viewNotification = notificationData => ({
   type: VIEW_NOTIFICATION,
   payload: notificationData
+});
+
+export const viewAllNotifications = notificationsArray => ({
+  type: VIEW_ALL_NOTIFICATIONS,
+  payload: notificationsArray
 });
 
 export const dismissNotifications = notificationsArray => ({
