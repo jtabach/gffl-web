@@ -42,7 +42,7 @@ class NotificationsActionList extends Component {
   }
 
   handleViewAllNotificationsClick() {
-    const { user, viewAllNotifications } = this.props;
+    const { user, viewAllNotifications, onHandleClickOutside } = this.props;
     const notificationsArray = user.notifications.filter(notification => {
       return !notification.hasViewed;
     });
@@ -50,6 +50,7 @@ class NotificationsActionList extends Component {
     if (notificationsArray.length) {
       viewAllNotifications(notificationsArray);
     }
+    onHandleClickOutside('notifications');
   }
 
   render() {
