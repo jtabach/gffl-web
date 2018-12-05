@@ -1,7 +1,7 @@
 import { put, takeLatest, all, call } from 'redux-saga/effects';
 import { getRequest, postRequest } from './helpers/request';
 
-import { CREATE_COMMENT, CREATE_COMMENT_COMPLETED } from '../types/comment';
+import { CREATE_COMMENT, CREATE_COMMENT_COMPLETED } from '../types/commentTypes';
 
 function* createCommenttRequest(action) {
   const response = yield call(

@@ -1,4 +1,4 @@
-import { FETCH_WORKER_DEMO_COMPLETED } from '../types/demo';
+import { FETCH_WORKER_DEMO_COMPLETED } from '../types/demoTypes';
 
 export default (state = null, action) => {
   switch (action.type) {

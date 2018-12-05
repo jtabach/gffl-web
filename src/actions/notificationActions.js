@@ -4,7 +4,7 @@ import {
   VIEW_NOTIFICATION,
   VIEW_ALL_NOTIFICATIONS,
   DISMISS_NOTIFICATIONS
-} from '../types/notification';
+} from '../types/notificationTypes';
 
 export const createNotification = notificationData => ({
   type: CREATE_NOTIFICATION,

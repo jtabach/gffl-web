@@ -10,7 +10,7 @@ import {
   CREATE_LEAGUE_COMPLETED,
   JOIN_LEAGUE,
   JOIN_LEAGUE_COMPLETED
-} from '../types/league';
+} from '../types/leagueTypes';
 
 function* fetchLeagueRequest(action) {
   const leagueId = action.payload;

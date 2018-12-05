@@ -5,7 +5,7 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
   FETCH_USER
-} from '../types/auth';
+} from '../types/authTypes';
 
 export const registerUser = userData => ({
   type: REGISTER_USER,

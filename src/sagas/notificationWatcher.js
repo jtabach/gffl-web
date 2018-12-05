@@ -11,7 +11,7 @@ import {
   VIEW_ALL_NOTIFICATIONS_COMPLETED,
   DISMISS_NOTIFICATIONS,
   DISMISS_NOTIFICATIONS_COMPLETED
-} from '../types/notification';
+} from '../types/notificationTypes';
 
 function* notificationPostRequest(action) {
   const response = yield call(

@@ -5,19 +5,19 @@ import {
   LOGOUT_USER_COMPLETED,
   FETCH_USER_COMPLETED,
   FETCH_USER_FAILED
-} from '../types/auth';
+} from '../types/authTypes';
 
 import {
   CREATE_LEAGUE_COMPLETED,
   JOIN_LEAGUE_COMPLETED
-} from '../types/league';
+} from '../types/leagueTypes';
 
 import {
   FETCH_NOTIFICATIONS_COMPLETED,
   VIEW_NOTIFICATION_COMPLETED,
   VIEW_ALL_NOTIFICATIONS_COMPLETED,
   DISMISS_NOTIFICATIONS_COMPLETED
-} from '../types/notification';
+} from '../types/notificationTypes';
 
 const initialState = {
   _id: null,

@@ -1,17 +1,17 @@
 import {
   FETCH_LEAGUE_COMPLETED,
   CLEAR_LEAGUE_COMPLETED
-} from '../types/league';
+} from '../types/leagueTypes';
 
 import {
   CREATE_POST_COMPLETED,
   DELETE_POST_COMPLETED,
   EDIT_POST,
   EDIT_POST_COMPLETED
-} from '../types/post';
+} from '../types/postTypes';
 
-import { CREATE_COMMENT_COMPLETED } from '../types/comment';
-import { LIKE_POST_COMPLETED, DELETE_LIKE_POST_COMPLETED } from '../types/like';
+import { CREATE_COMMENT_COMPLETED } from '../types/commentTypes';
+import { LIKE_POST_COMPLETED, DELETE_LIKE_POST_COMPLETED } from '../types/likeTypes';
 
 const initialState = {
   _id: null,

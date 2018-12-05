@@ -1,4 +1,4 @@
-import { LIKE_POST, DELETE_LIKE_POST } from '../types/like';
+import { LIKE_POST, DELETE_LIKE_POST } from '../types/likeTypes';
 
 export const likePost = likeData => ({
   type: LIKE_POST,

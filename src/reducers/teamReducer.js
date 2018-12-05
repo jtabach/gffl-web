@@ -1,4 +1,4 @@
-import { FETCH_TEAM_COMPLETED, CLEAR_TEAM_COMPLETED } from '../types/team';
+import { FETCH_TEAM_COMPLETED, CLEAR_TEAM_COMPLETED } from '../types/teamTypes';
 
 const initialState = {
   _id: null,

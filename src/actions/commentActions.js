@@ -1,4 +1,4 @@
-import { CREATE_COMMENT } from '../types/comment';
+import { CREATE_COMMENT } from '../types/commentTypes';
 
 export const createComment = commentData => ({
   type: CREATE_COMMENT,

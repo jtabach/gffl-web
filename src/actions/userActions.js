@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 import { createAction, createAsyncAction } from '../helpers/async';
 
-import { FETCH_USERS_TEAMS, FETCH_USERS_TEAMS_COMPLETED } from '../types/user';
+import { FETCH_USERS_TEAMS, FETCH_USERS_TEAMS_COMPLETED } from '../types/userTypes';
 
 export const getLeagues = () => {
   return createAsyncAction(FETCH_USERS_TEAMS, FETCH_USERS_TEAMS_COMPLETED, () =>

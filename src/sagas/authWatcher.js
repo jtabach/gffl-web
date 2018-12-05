@@ -11,7 +11,7 @@ import {
   REGISTER_USER_FAILED,
   LOGOUT_USER,
   LOGOUT_USER_COMPLETED
-} from '../types/auth';
+} from '../types/authTypes';
 
 function* loginUserRequest(action) {
   const response = yield call(

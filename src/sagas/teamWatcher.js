@@ -6,7 +6,7 @@ import {
   FETCH_TEAM_COMPLETED,
   CLEAR_TEAM,
   CLEAR_TEAM_COMPLETED
-} from '../types/team';
+} from '../types/teamTypes';
 
 function* fetchTeamRequest(action) {
   const leagueId = action.payload;

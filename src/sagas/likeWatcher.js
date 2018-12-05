@@ -6,7 +6,7 @@ import {
   LIKE_POST_COMPLETED,
   DELETE_LIKE_POST,
   DELETE_LIKE_POST_COMPLETED
-} from '../types/like';
+} from '../types/likeTypes';
 
 function* likePostRequest(action) {
   const response = yield call(

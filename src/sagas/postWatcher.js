@@ -8,7 +8,7 @@ import {
   DELETE_POST_COMPLETED,
   EDIT_POST,
   EDIT_POST_COMPLETED
-} from '../types/post';
+} from '../types/postTypes';
 
 function* createPostRequest(action) {
   const response = yield call(

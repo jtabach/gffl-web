@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import demoReducer from './demo';
-import userReducer from './user';
-import leagueReducer from './league';
-import teamReducer from './team';
+import demoReducer from './demoReducer';
+import userReducer from './userReducer';
+import leagueReducer from './leagueReducer';
+import teamReducer from './teamReducer';
 
 export default combineReducers({
   demo: demoReducer,

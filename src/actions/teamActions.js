@@ -1,4 +1,4 @@
-import { FETCH_TEAM, CLEAR_TEAM } from '../types/team';
+import { FETCH_TEAM, CLEAR_TEAM } from '../types/teamTypes';
 
 export const fetchTeam = leagueId => ({
   type: FETCH_TEAM,

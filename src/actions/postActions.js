@@ -1,4 +1,4 @@
-import { CREATE_POST, DELETE_POST, EDIT_POST } from '../types/post';
+import { CREATE_POST, DELETE_POST, EDIT_POST } from '../types/postTypes';
 
 export const createPost = postData => ({
   type: CREATE_POST,

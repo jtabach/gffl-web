@@ -3,7 +3,7 @@ import {
   CLEAR_LEAGUE,
   CREATE_LEAGUE,
   JOIN_LEAGUE
-} from '../types/league';
+} from '../types/leagueTypes';
 
 export const fetchLeague = leagueId => ({
   type: FETCH_LEAGUE,

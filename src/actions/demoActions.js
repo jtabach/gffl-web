@@ -9,7 +9,7 @@ import {
   FETCH_WORKER_DEMO_COMPLETED,
   AUTH_DEMO,
   AUTH_DEMO_COMPLETED
-} from '../types/demo';
+} from '../types/demoTypes';
 
 export const fetchWorkerDemo = () => {
   return createAsyncAction(FETCH_WORKER_DEMO, FETCH_WORKER_DEMO_COMPLETED, () =>
