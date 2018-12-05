@@ -6,10 +6,8 @@ var parentDir = path.join(__dirname, '../');
 module.exports = {
   entry: [
     '@babel/polyfill',
-    'whatwg-fetch',
     path.join(parentDir, 'src/index.js')
   ],
-  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -50,10 +48,6 @@ module.exports = {
     path: parentDir + '/public',
     publicPath: '/',
     filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: parentDir,
-    historyApiFallback: true
   },
   mode: 'production'
 };
