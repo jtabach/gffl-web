@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router-dom';
 
 import RegisterForm from './forms/RegisterForm';
 
-import { registerUser } from '../actions/auth';
+import { registerUser } from '../actions/authActions';
 
 class Register extends Component {
   handleSubmit = values => {

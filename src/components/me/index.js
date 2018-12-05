@@ -11,7 +11,7 @@ import Friends from './Friends';
 
 import styles from './index.scss';
 
-import { fetchUser } from '../../actions/auth';
+import { fetchUser } from '../../actions/authActions';
 
 class App extends Component {
   componentDidMount() {

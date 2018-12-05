@@ -16,9 +16,9 @@ import PostActionsList from './PostActionsList';
 
 import threeDots from '../../../images/three-dots.png';
 
-import { deletePost, editPost } from '../../../actions/post';
-import { createComment } from '../../../actions/comment';
-import { likePost, deleteLikePost } from '../../../actions/like';
+import { deletePost, editPost } from '../../../actions/postActions';
+import { createComment } from '../../../actions/commentActions';
+import { likePost, deleteLikePost } from '../../../actions/likeActions';
 
 class PostItem extends Component {
   static propTypes = {

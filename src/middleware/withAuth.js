@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { fetchUser } from '../actions/auth';
+import { fetchUser } from '../actions/authActions';
 
 function withAuth(InnerComponent) {
   class ProtectedRoute extends Component {

@@ -6,7 +6,7 @@ import styles from './JoinLeague.scss';
 import JoinLeagueForm from '../forms/JoinLeagueForm';
 import Card from '../common/Card';
 
-import { joinLeague } from '../../actions/league';
+import { joinLeague } from '../../actions/leagueActions';
 
 class JoinLeague extends Component {
   handleSubmit = values => {

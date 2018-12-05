@@ -13,7 +13,7 @@ import HeaderButtonBadge from './HeaderButtonBadge';
 import SettingsActionList from './SettingsActionList';
 import NotificationsActionList from './NotificationsActionList';
 
-import { dismissNotifications } from '../../../actions/notification';
+import { dismissNotifications } from '../../../actions/notificationActions';
 
 import { FaCaretDown, FaBell } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';

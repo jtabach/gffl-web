@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logoutUser, fetchUser } from '../../actions/auth';
+import { logoutUser, fetchUser } from '../../actions/authActions';
 
 class LogoutButton extends Component {
   constructor(props) {

@@ -12,7 +12,7 @@ import Notification from './Notification';
 import {
   viewNotification,
   viewAllNotifications
-} from '../../../actions/notification';
+} from '../../../actions/notificationActions';
 
 class NotificationsActionList extends Component {
   constructor(props) {

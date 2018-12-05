@@ -5,8 +5,8 @@ import CustomPropTypes from '../../../prop-types';
 import { connect } from 'react-redux';
 import styles from './Timeline.scss';
 
-import { createPost } from '../../../actions/post';
-import { createNotification } from '../../../actions/notification';
+import { createPost } from '../../../actions/postActions';
+import { createNotification } from '../../../actions/notificationActions';
 
 import PostField from './PostField';
 import PostList from './PostList';

@@ -3,10 +3,10 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchLeague, clearLeague } from '../actions/league';
-import { fetchTeam, clearTeam } from '../actions/team';
-import { fetchUser } from '../actions/auth';
-import { fetchNotifications } from '../actions/notification';
+import { fetchLeague, clearLeague } from '../actions/leagueActions';
+import { fetchTeam, clearTeam } from '../actions/teamActions';
+import { fetchUser } from '../actions/authActions';
+import { fetchNotifications } from '../actions/notificationActions';
 
 import LeagueComponent from '../components/league';
 

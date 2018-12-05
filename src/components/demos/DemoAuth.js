@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchAuthDemo } from '../../actions/demo';
+import { fetchAuthDemo } from '../../actions/demoActions';
 
 class DemoAuth extends Component {
   _handleClick() {

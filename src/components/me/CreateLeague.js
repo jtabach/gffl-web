@@ -6,7 +6,7 @@ import styles from './CreateLeague.scss';
 import CreateLeagueForm from '../forms/CreateLeagueForm';
 import Card from '../common/Card';
 
-import { createLeague } from '../../actions/league';
+import { createLeague } from '../../actions/leagueActions';
 
 class CreateLeague extends Component {
   handleSubmit = values => {

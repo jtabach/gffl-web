@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { fetchWorkerDemo } from '../../actions/demo';
+import { fetchWorkerDemo } from '../../actions/demoActions';
 
 const intervalFrequency = 30000;
 

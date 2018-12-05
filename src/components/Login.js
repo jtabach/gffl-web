@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import LoginForm from './forms/LoginForm';
 
-import { loginUser } from '../actions/auth';
+import { loginUser } from '../actions/authActions';
 
 class Login extends Component {
   handleSubmit = values => {
