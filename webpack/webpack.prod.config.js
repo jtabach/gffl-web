@@ -6,7 +6,8 @@ var parentDir = path.join(__dirname, '../');
 module.exports = {
   entry: [
     '@babel/polyfill',
-    path.join(parentDir, 'src/index.js')
+    path.join(parentDir, 'src/index.js'),
+    "node_modules"
   ],
   module: {
     rules: [
