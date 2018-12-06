@@ -13,7 +13,7 @@
   @include outer-container();
   padding-left: $base-spacing;
   padding-right: $base-spacing;
-  @include media($screen-xl) {
+  @media ($screen-xl) {
     padding-left: 0;
     padding-right: 0;
   }
@@ -32,7 +32,7 @@
 }
 .navigation-items {
   display: none;
-  @include media($screen-sm) {
+  @media ($screen-sm) {
     display: block;
     @include vertical-align;
     float: right;

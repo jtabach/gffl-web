@@ -2,7 +2,9 @@
 // ========================================================
 
 %form,
-#{$all-text-inputs},
+form,
+input,
+textarea,
 select[multiple] {
   width: 100%;
   outline: none;

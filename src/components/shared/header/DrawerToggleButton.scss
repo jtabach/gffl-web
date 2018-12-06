@@ -12,7 +12,7 @@
   height: 18px;
   width: 20px;
   color: red;
-  @include media($screen-sm) {
+  @media ($screen-sm) {
     display: none;
   }
   &:focus {

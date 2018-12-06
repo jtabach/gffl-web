@@ -12,20 +12,23 @@
   padding-right: $base-spacing;
   margin-top: $base-spacing;
 
-  @include media($screen-xl) {
+  @media ($screen-xl) {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
 .col-left {
-  @include span-columns(3);
+  // TODO: include span-columns(3);
+  display: block;
 }
 
 .col-center {
-  @include span-columns(6);
+  // TODO: include span-columns(6);
+  display: block;
 }
 
 .col-right {
-  @include span-columns(3);
+  // TODO: include span-columns(3);
+  display: block;
 }
