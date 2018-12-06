@@ -12,7 +12,7 @@
 @mixin type-settings($level, $mobile-level, $breakpoint: $screen-md) {
   font-size: type-scale($mobile-level);
   line-height: line-height($mobile-level);
-  @include media($breakpoint) {
+  @media ($breakpoint) {
     font-size: type-scale($level);
     line-height: line-height($level);
   }
