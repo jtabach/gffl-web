@@ -4,6 +4,7 @@
   "description": "gffl - group fantasy football league social media platform",
   "main": "index.js",
   "scripts": {
+    "analyze": "source-map-explorer ./public/bundle.js.map",
     "dev": "webpack-dev-server --hot --config ./webpack/webpack.dev.config.js",
     "start": "webpack --config ./webpack/webpack.prod.config.js"
   },
@@ -20,8 +21,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
-    "bourbon": "^4.3.4",
-    "bourbon-neat": "^1.9.0",
     "cookies-js": "^1.2.3",
     "css-loader": "^1.0.0",
     "lodash": "^4.17.10",
@@ -45,6 +44,7 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.10.2",
     "sass-loader": "^7.1.0",
+    "source-map-explorer": "^1.6.0",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
     "url-loader": "^1.1.1",
@@ -52,5 +52,8 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
     "whatwg-fetch": "^2.0.4"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^3.0.3"
   }
 }
